@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-// import * as Q from "../styles/LandingStyles";
+import * as L from '../styles/LandingStyles';
 
-const Quest = () => {
+const Landing = () => {
   return <p>랜딩 페이지</p>;
 };
-export default Quest;
+export default Landing;
