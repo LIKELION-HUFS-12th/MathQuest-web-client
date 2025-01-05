@@ -17,6 +17,212 @@ export const Container = styled.div`
   text-align: center;
 `;
 
-export const Profile = styled.div``;
+export const Profile = styled.div`
+  padding: 0;
+`;
 
-export const Photo = styled.div``;
+export const PhotoBack = styled.div`
+  position: relative;
+  display: inline-block;
+  margin-bottom: 700px;
+  padding: 0;
+  img {
+    width: 100px;
+    height: 100px;
+  }
+`;
+
+export const Photo = styled.div`
+  position: absolute;
+  z-index: 1;
+  top: 13%;
+  padding: 0;
+  img {
+    width: 50px;
+    height: 50px;
+    margin-left: 50%;
+  }
+`;
+
+export const Text = styled.div`
+  position: absolute;
+  z-index: 1;
+  top: 23%;
+  font-size: 1.6rem;
+  font-weight: bold;
+  left: 34%;
+  padding: 0;
+`;
+
+export const QuestList = styled.div`
+  position: absolute;
+  z-index: 1;
+  top: 35%;
+  left: 10%;
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-family: 'HakgyoansimGeurimilgiTTF-R';
+  padding: 0;
+`;
+
+export const Qe4Hard = styled.div`
+  position: absolute;
+  z-index: 1;
+  top: 40%;
+  padding: 0;
+`;
+
+export const Qe4Back = styled.div`
+  img {
+    width: 370px;
+    height: 150px;
+  }
+`;
+
+export const Qe4photoback = styled.div`
+  position: absolute;
+  z-index: 2;
+  top: 22%;
+  left: 15%;
+  img {
+    width: 55px;
+    height: 55px;
+  }
+`;
+
+export const Qe4photo = styled.div`
+  position: absolute;
+  z-index: 3;
+  top: 25%;
+  left: 16%;
+  img {
+    width: 45px;
+    height: 45px;
+  }
+`;
+
+export const TextHard = styled.div`
+  position: absolute;
+  z-index: 2;
+  top: 23%;
+  left: 37%;
+  color: white;
+  font-weight: bold;
+`;
+
+export const TextCount = styled.div`
+  position: absolute;
+  z-index: 2;
+  top: 40%;
+  left: 37%;
+  color: white;
+  font-weight: bold;
+`;
+
+export const Qe4Middle = styled.div`
+  position: absolute;
+  z-index: 1;
+  top: 55%;
+  padding: 0;
+`;
+
+export const Qe4BackMiddle = styled.div`
+  img {
+    width: 370px;
+    height: 150px;
+  }
+`;
+
+export const Qe4photobackMiddle = styled.div`
+  position: absolute;
+  z-index: 2;
+  top: 22%;
+  left: 15%;
+  img {
+    width: 55px;
+    height: 55px;
+  }
+`;
+
+export const Qe4photoMiddle = styled.div`
+  position: absolute;
+  z-index: 3;
+  top: 25%;
+  left: 16%;
+  img {
+    width: 45px;
+    height: 45px;
+  }
+`;
+
+export const TextMiddle = styled.div`
+  position: absolute;
+  z-index: 2;
+  top: 23%;
+  left: 37%;
+  color: white;
+  font-weight: bold;
+`;
+
+export const TextCountMiddle = styled.div`
+  position: absolute;
+  z-index: 2;
+  top: 40%;
+  left: 37%;
+  color: white;
+  font-weight: bold;
+`;
+
+export const Qe4Low = styled.div`
+  position: absolute;
+  z-index: 1;
+  top: 70%;
+  padding: 0;
+`;
+
+export const Qe4BackLow = styled.div`
+  img {
+    width: 370px;
+    height: 150px;
+  }
+`;
+
+export const Qe4photobackLow = styled.div`
+  position: absolute;
+  z-index: 2;
+  top: 22%;
+  left: 15%;
+  img {
+    width: 55px;
+    height: 55px;
+  }
+`;
+
+export const Qe4photoLow = styled.div`
+  position: absolute;
+  z-index: 3;
+  top: 27%;
+  left: 17%;
+  img {
+    width: 38px;
+    height: 38px;
+  }
+`;
+
+export const TextLow = styled.div`
+  position: absolute;
+  z-index: 2;
+  top: 23%;
+  left: 37%;
+  color: white;
+  font-weight: bold;
+`;
+
+export const TextCountLow = styled.div`
+  position: absolute;
+  z-index: 2;
+  top: 40%;
+  left: 37%;
+  color: white;
+  font-weight: bold;
+`;
