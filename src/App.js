@@ -8,6 +8,8 @@ import React from 'react';
 import Start from './pages/Start'; // Start 컴포넌트 경로
 import Login from './pages/Login'; // 로그인 컴포넌트 경로
 import HowToUse from './pages/HowToUse'; // 앱 사용 방법 컴포넌트 경로
+import QuestHeader from './components/QuestHeader';
+import QuestE4 from './pages/QuestE4';
 
 function App() {
   return (
@@ -20,7 +22,8 @@ function App() {
         <Route path="/start" element={<Start />} />
         <Route path="/login" element={<Login />} />
         <Route path="/howtouse" element={<HowToUse />} />
-        {/* 추가적인 라우트가 필요하면 여기에 작성 */}
+        <Route path="/questHeader" element={<QuestHeader />} />
+        <Route path="/questE4" element={<QuestE4 />} />
       </Routes>
     </BrowserRouter>
   );

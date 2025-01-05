@@ -6,10 +6,14 @@ import Home1 from '../assets/images/home1.png';
 import Calendar from '../assets/images/calendar.png';
 import Chart from '../assets/images/chart.png';
 import Profile from '../assets/images/profile.png';
+import MenuButton from '../assets/images/MenuButton.png';
 
 const Footer = () => {
   return (
     <F.Container>
+      <F.MenuButton>
+        <img id="MenuButton" src={MenuButton} />
+      </F.MenuButton>
       <F.Menubar>
         <img id="MenuBar" src={MenuBar} />
         <F.Home>
