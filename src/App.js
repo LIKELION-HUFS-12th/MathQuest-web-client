@@ -10,6 +10,7 @@ import Login from './pages/Login'; // 로그인 컴포넌트 경로
 import HowToUse from './pages/HowToUse'; // 앱 사용 방법 컴포넌트 경로
 import QuestHeader from './components/QuestHeader';
 import QuestE4 from './pages/QuestE4';
+import SignUp from './pages/SignUp';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/footer" element={<Footer />} />
         <Route path="/start" element={<Start />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/howtouse" element={<HowToUse />} />
         <Route path="/questHeader" element={<QuestHeader />} />
         <Route path="/questE4" element={<QuestE4 />} />

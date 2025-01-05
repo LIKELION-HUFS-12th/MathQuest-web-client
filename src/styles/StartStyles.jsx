@@ -7,15 +7,17 @@ export const Container = styled.div`
   height: 100vh;
   min-height: 100vh;
   overflow: hidden;
-  background-color: #FAFAFC;
+  background-color: #F5F5F5;
   padding: 0;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   text-align: center;
 `;
+
+
 export const img1 = styled.img`
     max-width: 80%; /* 최대 너비 지정 */
     height: auto;
