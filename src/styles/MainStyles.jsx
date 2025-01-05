@@ -19,7 +19,7 @@ export const Container = styled.div`
 
 export const TextLogo = styled.div`
   padding: 0;
-  margin-top: -300px;
+  margin-top: -80px;
   margin-left: -180px;
   img {
     width: 135px;
@@ -105,11 +105,15 @@ export const ButtonProcess = styled.div`
   font-family: 'HakgyoansimGeurimilgiTTF-R';
 `;
 
+export const ProcessTriangle = styled.div`
+  margin-left: 48%;
+`;
+
 export const ProcessText = styled.div`
   margin-top: 15%;
   font-weight: bold;
   font-size: 1.3rem;
-  margin-right: 50%;
+  margin-right: 65%;
   font-family: 'HakgyoansimGeurimilgiTTF-R';
 `;
 
@@ -154,6 +158,7 @@ export const Process4Information = styled.div`
   top: 21%;
   left: 32%;
   color: white;
+  font-weight: bold;
 `;
 
 export const Process4Quest = styled.div`
@@ -162,4 +167,164 @@ export const Process4Quest = styled.div`
   top: 40%;
   left: 32%;
   color: white;
+  font-weight: bold;
+`;
+
+export const Process5 = styled.div`
+  margin-top: -8%;
+`;
+
+export const Process5Back = styled.div`
+  img {
+    width: 400px;
+    height: 140px;
+  }
+  position: relative;
+  display: inline-block;
+`;
+
+export const Process5Icon = styled.div`
+  img {
+    width: 50px;
+    height: 50px;
+  }
+  position: absolute;
+  z-index: 1;
+  top: 22%;
+  left: 15%;
+`;
+
+export const Process5Icon2 = styled.div`
+  img {
+    width: 65px;
+    height: 65px;
+  }
+  position: absolute;
+  z-index: 2;
+  top: 17%;
+  left: 13%;
+`;
+
+export const Process5Information = styled.div`
+  position: absolute;
+  z-index: 1;
+  top: 21%;
+  left: 32%;
+  color: white;
+  font-weight: bold;
+`;
+
+export const Process5Quest = styled.div`
+  position: absolute;
+  z-index: 1;
+  top: 40%;
+  left: 32%;
+  color: white;
+  font-weight: bold;
+`;
+
+export const Process6 = styled.div`
+  margin-top: -8%;
+`;
+
+export const Process6Back = styled.div`
+  img {
+    width: 400px;
+    height: 140px;
+  }
+  position: relative;
+  display: inline-block;
+`;
+
+export const Process6Icon = styled.div`
+  img {
+    width: 50px;
+    height: 50px;
+  }
+  position: absolute;
+  z-index: 1;
+  top: 22%;
+  left: 15%;
+`;
+
+export const Process6Icon2 = styled.div`
+  img {
+    width: 40px;
+    height: 40px;
+  }
+  position: absolute;
+  z-index: 2;
+  top: 25%;
+  left: 16%;
+`;
+
+export const Process6Information = styled.div`
+  position: absolute;
+  z-index: 1;
+  top: 21%;
+  left: 32%;
+  color: white;
+  font-weight: bold;
+`;
+
+export const Process6Quest = styled.div`
+  position: absolute;
+  z-index: 1;
+  top: 40%;
+  left: 32%;
+  color: white;
+  font-weight: bold;
+`;
+
+export const ProcessM1 = styled.div`
+  margin-top: -8%;
+`;
+
+export const ProcessM1Back = styled.div`
+  img {
+    width: 400px;
+    height: 140px;
+  }
+  position: relative;
+  display: inline-block;
+`;
+
+export const ProcessM1Icon = styled.div`
+  img {
+    width: 50px;
+    height: 50px;
+  }
+  position: absolute;
+  z-index: 1;
+  top: 22%;
+  left: 15%;
+`;
+
+export const ProcessM1Icon2 = styled.div`
+  img {
+    width: 40px;
+    height: 40px;
+  }
+  position: absolute;
+  z-index: 2;
+  top: 25%;
+  left: 16%;
+`;
+
+export const ProcessM1Information = styled.div`
+  position: absolute;
+  z-index: 1;
+  top: 21%;
+  left: 32%;
+  color: white;
+  font-weight: bold;
+`;
+
+export const ProcessM1Quest = styled.div`
+  position: absolute;
+  z-index: 1;
+  top: 40%;
+  left: 32%;
+  color: white;
+  font-weight: bold;
 `;

@@ -15,6 +15,11 @@ export const Container = styled.div`
   text-align: center;
 `;
 
+export const MenuButton = styled.div`
+  position: absolute;
+  top: 13px;
+`;
+
 export const Menubar = styled.div`
   padding: 0;
   position: relative;
