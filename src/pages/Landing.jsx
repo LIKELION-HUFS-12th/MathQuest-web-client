@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-// import * as Q from "../styles/LandingStyles";
+import * as L from "../styles/LandingStyles";
+import ImageLogo from '../assets/images/logo.png';
 
-const Quest = () => {
-  return <p>랜딩 페이지</p>;
+const Landing = () => {
+  return (
+    <L.Container>
+      <L.img id = "ImageLogo" src = {ImageLogo} />
+    </L.Container>
+  );
 };
-export default Quest;
+
+export default Landing;
