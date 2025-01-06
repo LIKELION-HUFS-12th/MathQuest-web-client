@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import * as L from '../styles/LoginStyles';
+import * as L from '../../styles/auth/LoginStyles';
 import TextLogoBlack from '../assets/images/textlogoblack.png';
 import ImageLogo from '../assets/images/logo.png';
 
@@ -17,7 +17,7 @@ const Login = () => {
             const response = await axios.post('/api/login', { username, password });
             // 로그인 성공 시 처리
             console.log(response.data);
-            navigate('/home'); // 홈으로 이동
+            navigate('/main'); // 메인페이지로 이동
         } catch (error) {
             console.error('로그인 실패:', error);
             // 에러 처리

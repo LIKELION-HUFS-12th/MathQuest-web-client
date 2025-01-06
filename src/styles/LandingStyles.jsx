@@ -22,3 +22,4 @@ export const img = styled.img`
   height: auto;
   margin: 0 auto;
 `;
+

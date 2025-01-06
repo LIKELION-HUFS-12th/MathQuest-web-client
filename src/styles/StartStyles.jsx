@@ -15,7 +15,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-`;
+`;          
 
 
 export const img1 = styled.img`
