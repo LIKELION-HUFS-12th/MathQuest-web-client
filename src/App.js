@@ -3,14 +3,14 @@ import { BrowserRouter, Router, Route, Routes } from 'react-router-dom';
 import GlobalStyle from './styles/GlobalStyles';
 import Main from './pages/Main';
 import Landing from './pages/Landing';
-import Footer from './components/Footer';
+import Footer from './shared/components/Footer';
 import React from 'react';
 import Start from './pages/Start'; // Start 컴포넌트 경로
 import Login from './pages/Login'; // 로그인 컴포넌트 경로
 import HowToUse from './pages/HowToUse'; // 앱 사용 방법 컴포넌트 경로
-import QuestHeader from './components/QuestHeader';
-import QuestE4 from './pages/QuestE4';
-import SignUp from './pages/SignUp';
+import QuestHeader from './shared/components/QuestHeader';
+import QuestE4 from './pages/quests/QuestE4';
+import SignUp from './pages/auth/SignUp';
 
 function App() {
   return (

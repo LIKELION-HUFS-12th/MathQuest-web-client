@@ -8,7 +8,7 @@ import {
   Input,
   Button,
   Link,
-} from './../styles/SignUpStyles';
+} from '../../styles/auth/SignUpStyles';
 
 const SignUp = () => {
   const [name, setName] = useState('');
