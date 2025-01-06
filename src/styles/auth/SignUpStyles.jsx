@@ -17,6 +17,7 @@ export const Container = styled.div`
   text-align: center;
 `;
 
+
 export const Illustration = styled.div`
   width: 150px;
   height: 150px;
@@ -28,6 +29,7 @@ export const Illustration = styled.div`
 export const Title = styled.h1`
   font-size: 24px;
   font-weight: bold;
+
   margin-bottom: 10px;
 `;
 
@@ -36,6 +38,7 @@ export const Subtitle = styled.h2`
   font-weight: normal;
   margin-bottom: 20px;
   color: #666;
+
 `;
 
 export const InputContainer = styled.div`
@@ -103,4 +106,3 @@ export const Link = styled.a`
   &:hover {
     text-decoration: underline;
   }
-`;

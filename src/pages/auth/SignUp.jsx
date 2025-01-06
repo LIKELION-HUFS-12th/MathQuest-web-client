@@ -26,7 +26,6 @@ const SignUp = () => {
     // 중복확인 로직 추가
     alert('중복확인 버튼이 클릭되었습니다.');
   };
-
   const handleSignUp = async () => {
     if (password !== confirmPassword) {
       alert('비밀번호가 일치하지 않습니다.');
@@ -97,3 +96,5 @@ const SignUp = () => {
 };
 
 export default SignUp;
+
+

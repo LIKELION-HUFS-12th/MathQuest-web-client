@@ -6,7 +6,7 @@ import TextLogo from '../assets/images/textlogo.png';
 import Rectangle from '../assets/images/rectangle.png';
 import Rectangle4 from '../assets/images/rectangle4.png';
 import LeftArrow from '../assets/images/leftarrow.png';
-import Footer from '../components/Footer';
+import Footer from '../shared/components/Footer';
 import HeadPhone from '../assets/images/headphone.png';
 import Rectangle5 from '../assets/images/rectangle5.png';
 import Book1 from '../assets/images/book1.png';
