@@ -11,6 +11,8 @@ import HowToUse from './pages/HowToUse'; // 앱 사용 방법 컴포넌트 경�
 import QuestHeader from './shared/components/QuestHeader';
 import QuestE4 from './pages/quests/QuestE4';
 import SignUp from './pages/auth/SignUp';
+import Report from './pages/Report';
+import Attendance from './pages/Attendance';
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
         <Route path="/howtouse" element={<HowToUse />} />
         <Route path="/questHeader" element={<QuestHeader />} />
         <Route path="/questE4" element={<QuestE4 />} />
+        <Route path="/report" element={<Report />} />
+        <Route path="/attendance" element={<Attendance />} />
       </Routes>
     </BrowserRouter>
   );
