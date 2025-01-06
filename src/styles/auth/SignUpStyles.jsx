@@ -106,3 +106,4 @@ export const Link = styled.a`
   &:hover {
     text-decoration: underline;
   }
+  `;

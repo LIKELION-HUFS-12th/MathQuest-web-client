@@ -3,13 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import * as QE4 from '../../styles/quests/QuestE4Styles';
 import QuestHeader from '../../shared/components/QuestHeader';
-import Rectangle5 from '../assets/images/rectangle5.png';
-import HeadPhone from '../assets/images/headphone.png';
+import Rectangle5 from '../../assets/images/rectangle5.png';
+import HeadPhone from '../../assets/images/headphone.png';
 import Footer from '../../shared/components/Footer';
-import Rectangle from '../assets/images/rectangle.png';
-import Fire from '../assets/images/fire.png';
-import Hill from '../assets/images/hill.png';
-import Sun from '../assets/images/sun.png';
+import Rectangle from '../../assets/images/rectangle.png';
+import Fire from '../../assets/images/fire.png';
+import Hill from '../../assets/images/hill.png';
+import Sun from '../../assets/images/sun.png';
 
 const QuestE4 = () => {
   return (
