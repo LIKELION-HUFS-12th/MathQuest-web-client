@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import * as F from '../styles/FooterStyles';
-import MenuBar from '../assets/images/menubar.png';
-import Home1 from '../assets/images/home1.png';
-import Calendar from '../assets/images/calendar.png';
-import Chart from '../assets/images/chart.png';
-import Profile from '../assets/images/profile.png';
-import MenuButton from '../assets/images/MenuButton.png';
+import * as F from '../../styles/FooterStyles';
+import MenuBar from '../../assets/images/menubar.png';
+import Home1 from '../../assets/images/home1.png';
+import Calendar from '../../assets/images/calendar.png';
+import Chart from '../../assets/images/chart.png';
+import Profile from '../../assets/images/profile.png';
+import MenuButton from '../../assets/images/MenuButton.png';
 
 const Footer = () => {
   return (

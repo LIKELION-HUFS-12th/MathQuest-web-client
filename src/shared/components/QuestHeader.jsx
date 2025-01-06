@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as QH from '../../styles/quests/QuestHeaderStyles';
-import LeftArrow from '../assets/images/leftarrow.png';
+import LeftArrow from '../../assets/images/leftarrow.png';
 
 const QuestHeader = () => {
   const navigate = useNavigate();

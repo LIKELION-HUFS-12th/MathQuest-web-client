@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import * as L from '../styles/LoginStyles';
-import TextLogoBlack from '../assets/images/textlogoblack.png';
-import ImageLogo from '../assets/images/logo.png';
+import * as L from '../../styles/auth/LoginStyles';
+import TextLogoBlack from '../../assets/images/textlogoblack.png';
+import ImageLogo from '../../assets/images/logo.png';
 
 const Login = () => {
     const [username, setUsername] = useState('');
