@@ -17,7 +17,7 @@ const Login = () => {
             const response = await axios.post('/api/login', { username, password });
             // 로그인 성공 시 처리
             console.log(response.data);
-            navigate('/home'); // 홈으로 이동
+            navigate('/main'); // 메인페이지로 이동
         } catch (error) {
             console.error('로그인 실패:', error);
             // 에러 처리

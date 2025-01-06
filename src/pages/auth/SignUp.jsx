@@ -3,11 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import {
   Container,
+  Illustration,
   Title,
+  Subtitle,
   InputContainer,
   Input,
   Button,
+  CheckButton, // 새로 추가된 CheckButton
   Link,
+  Text,
+  LinkContainer,
 } from '../../styles/auth/SignUpStyles';
 
 const SignUp = () => {
@@ -17,6 +22,10 @@ const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const navigate = useNavigate();
 
+  const handleUsernameCheck = () => {
+    // 중복확인 로직 추가
+    alert('중복확인 버튼이 클릭되었습니다.');
+  };
   const handleSignUp = async () => {
     if (password !== confirmPassword) {
       alert('비밀번호가 일치하지 않습니다.');
@@ -29,9 +38,8 @@ const SignUp = () => {
         username,
         password,
       });
-      // 성공적으로 회원가입된 후 이동
       if (response.status === 200) {
-        navigate('/welcome'); // 원하는 경로로 변경
+        navigate('/welcome');
       }
     } catch (error) {
       console.error(error);
@@ -41,7 +49,9 @@ const SignUp = () => {
 
   return (
     <Container>
+      <Illustration />
       <Title>회원가입</Title>
+      <Subtitle>계정 생성 중...</Subtitle>
       <InputContainer>
         <Input
           type="text"
@@ -57,7 +67,7 @@ const SignUp = () => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <Link>중복확인</Link>
+        <CheckButton onClick={handleUsernameCheck}>중복확인</CheckButton>
       </InputContainer>
       <InputContainer>
         <Input
@@ -76,9 +86,15 @@ const SignUp = () => {
         />
       </InputContainer>
       <Button onClick={handleSignUp}>다음</Button>
-      <Link>이미 아이디가 존재하신가요? 로그인하기</Link>
+      <LinkContainer>
+        <Text>이미 아이디가 존재합니까?</Text>
+        <Link>로그인하기</Link>
+      </LinkContainer>
     </Container>
+    
   );
 };
 
 export default SignUp;
+
+
