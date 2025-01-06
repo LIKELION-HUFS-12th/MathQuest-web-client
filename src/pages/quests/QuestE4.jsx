@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import * as QE4 from '../styles/QuestE4Styles';
-import QuestHeader from '../components/QuestHeader';
+import * as QE4 from '../../styles/quests/QuestE4Styles';
+import QuestHeader from '../../shared/components/QuestHeader';
 import Rectangle5 from '../assets/images/rectangle5.png';
 import HeadPhone from '../assets/images/headphone.png';
-import Footer from '../components/Footer';
+import Footer from '../../shared/components/Footer';
 import Rectangle from '../assets/images/rectangle.png';
 import Fire from '../assets/images/fire.png';
 import Hill from '../assets/images/hill.png';
