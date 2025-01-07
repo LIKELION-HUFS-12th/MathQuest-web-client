@@ -19,7 +19,7 @@ export const Container = styled.div`
 
 export const TextLogo = styled.div`
   padding: 0;
-  margin-top: -80px;
+  margin-top: 20px;
   margin-left: -180px;
   img {
     width: 135px;
@@ -30,9 +30,10 @@ export const Goal = styled.div``;
 
 export const GoalBack = styled.div`
   padding: 0;
-  margin-top: 30px;
+  margin-top: 10px;
   img {
     width: 400px;
+    height: 200px;
   }
   position: relative;
   display: inline-block;
@@ -96,6 +97,7 @@ export const Process = styled.div`
   border-radius: 5px;
   display: flex;
   align-items: center;
+  margin-top: -20px;
 `;
 
 export const ButtonProcess = styled.div`
@@ -110,7 +112,7 @@ export const ProcessTriangle = styled.div`
 `;
 
 export const ProcessText = styled.div`
-  margin-top: 15%;
+  margin-top: 5%;
   font-weight: bold;
   font-size: 1.3rem;
   margin-right: 65%;

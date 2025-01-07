@@ -39,9 +39,9 @@ export const Photo = styled.div`
   top: 13%;
   padding: 0;
   img {
-    width: 50px;
-    height: 50px;
-    margin-left: 30%;
+    width: 55px;
+    height: 55px;
+    margin-left: 23%;
   }
 `;
 
