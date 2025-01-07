@@ -41,7 +41,7 @@ export const Photo = styled.div`
   img {
     width: 55px;
     height: 55px;
-    margin-left: 23%;
+    margin-left: 20%;
   }
 `;
 
