@@ -7,6 +7,7 @@ export const Container = styled.div`
   height: 100vh;
   min-height: 100vh;
   overflow: hidden;
+  overflow-y: auto;
   background-color: #f5f5f5;
   padding: 0;
   box-sizing: border-box;
@@ -15,6 +16,11 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
+`;
+
+export const MainContent = styled.div`
+  flex: 1;
+  overflow-y: auto;
 `;
 
 export const TextLogo = styled.div`
@@ -98,6 +104,7 @@ export const Process = styled.div`
   display: flex;
   align-items: center;
   margin-top: -20px;
+  margin-left: 30px;
 `;
 
 export const ButtonProcess = styled.div`
@@ -112,7 +119,7 @@ export const ProcessTriangle = styled.div`
 `;
 
 export const ProcessText = styled.div`
-  margin-top: 5%;
+  margin-top: 8%;
   font-weight: bold;
   font-size: 1.3rem;
   margin-right: 65%;
@@ -121,6 +128,7 @@ export const ProcessText = styled.div`
 
 export const Process4 = styled.div`
   margin-top: 5%;
+  cursor: pointer;
 `;
 
 export const Process4Back = styled.div`
@@ -174,6 +182,7 @@ export const Process4Quest = styled.div`
 
 export const Process5 = styled.div`
   margin-top: -8%;
+  cursor: pointer;
 `;
 
 export const Process5Back = styled.div`
@@ -198,13 +207,13 @@ export const Process5Icon = styled.div`
 
 export const Process5Icon2 = styled.div`
   img {
-    width: 65px;
-    height: 65px;
+    width: 36px;
+    height: 40px;
   }
   position: absolute;
   z-index: 2;
-  top: 17%;
-  left: 13%;
+  top: 25%;
+  left: 16.5%;
 `;
 
 export const Process5Information = styled.div`
@@ -227,6 +236,7 @@ export const Process5Quest = styled.div`
 
 export const Process6 = styled.div`
   margin-top: -8%;
+  cursor: pointer;
 `;
 
 export const Process6Back = styled.div`
@@ -251,13 +261,13 @@ export const Process6Icon = styled.div`
 
 export const Process6Icon2 = styled.div`
   img {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
   }
   position: absolute;
   z-index: 2;
-  top: 25%;
-  left: 16%;
+  top: 27%;
+  left: 17%;
 `;
 
 export const Process6Information = styled.div`
@@ -280,6 +290,7 @@ export const Process6Quest = styled.div`
 
 export const ProcessM1 = styled.div`
   margin-top: -8%;
+  cursor: pointer;
 `;
 
 export const ProcessM1Back = styled.div`
@@ -330,3 +341,114 @@ export const ProcessM1Quest = styled.div`
   color: white;
   font-weight: bold;
 `;
+
+export const ProcessM2 = styled.div`
+  margin-top: -8%;
+  cursor: pointer;
+`;
+
+export const ProcessM2Back = styled.div`
+  img {
+    width: 400px;
+    height: 140px;
+  }
+  position: relative;
+  display: inline-block;
+`;
+
+export const ProcessM2Icon = styled.div`
+  img {
+    width: 50px;
+    height: 50px;
+  }
+  position: absolute;
+  z-index: 1;
+  top: 22%;
+  left: 15%;
+`;
+
+export const ProcessM2Icon2 = styled.div`
+  img {
+    width: 35px;
+    height: 35px;
+  }
+  position: absolute;
+  z-index: 2;
+  top: 27%;
+  left: 17%;
+`;
+
+export const ProcessM2Information = styled.div`
+  position: absolute;
+  z-index: 1;
+  top: 21%;
+  left: 32%;
+  color: white;
+  font-weight: bold;
+`;
+
+export const ProcessM2Quest = styled.div`
+  position: absolute;
+  z-index: 1;
+  top: 40%;
+  left: 32%;
+  color: white;
+  font-weight: bold;
+`;
+
+export const ProcessM3 = styled.div`
+  margin-top: -8%;
+  margin-bottom: 27%;
+  cursor: pointer;
+`;
+
+export const ProcessM3Back = styled.div`
+  img {
+    width: 400px;
+    height: 140px;
+  }
+  position: relative;
+  display: inline-block;
+`;
+
+export const ProcessM3Icon = styled.div`
+  img {
+    width: 50px;
+    height: 50px;
+  }
+  position: absolute;
+  z-index: 1;
+  top: 22%;
+  left: 15%;
+`;
+
+export const ProcessM3Icon2 = styled.div`
+  img {
+    width: 40px;
+    height: 40px;
+  }
+  position: absolute;
+  z-index: 2;
+  top: 25%;
+  left: 16%;
+`;
+
+export const ProcessM3Information = styled.div`
+  position: absolute;
+  z-index: 1;
+  top: 21%;
+  left: 32%;
+  color: white;
+  font-weight: bold;
+`;
+
+export const ProcessM3Quest = styled.div`
+  position: absolute;
+  z-index: 1;
+  top: 40%;
+  left: 32%;
+  color: white;
+  font-weight: bold;
+`;
+
+export const FooterContainer = styled.div``;

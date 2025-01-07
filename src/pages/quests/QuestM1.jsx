@@ -4,7 +4,7 @@ import axios from 'axios';
 import * as QM1 from '../../styles/quests/QuestM1Styles';
 import QuestHeader from '../../shared/components/QuestHeader';
 import Rectangle5 from '../../assets/images/rectangle5.png';
-import Bag from '../../assets/images/bag.png';
+import Learn2 from '../../assets/images/learn2.png';
 import Footer from '../../shared/components/Footer';
 import Rectangle from '../../assets/images/rectangle.png';
 import Fire from '../../assets/images/fire.png';
@@ -20,7 +20,7 @@ const QuestM1 = () => {
           <img id="Rectangle5" src={Rectangle5} />
         </QM1.PhotoBack>
         <QM1.Photo>
-          <img id="Bag" src={Bag} />
+          <img id="Learn2" src={Learn2} />
         </QM1.Photo>
         <QM1.Text>중등 1학년</QM1.Text>
       </QM1.Profile>
