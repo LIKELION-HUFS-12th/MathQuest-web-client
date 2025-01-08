@@ -18,6 +18,7 @@ import QuestE6 from './pages/quests/QuestE6';
 import QuestM1 from './pages/quests/QuestM1';
 import QuestM2 from './pages/quests/QuestM2';
 import QuestM3 from './pages/quests/QuestM3';
+import Profile from './pages/auth/Profile';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/start" element={<Start />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/profile" element={<Profile/>}/>
         <Route path="/howtouse" element={<HowToUse />} />
         <Route path="/questHeader" element={<QuestHeader />} />
         <Route path="/questE4" element={<QuestE4 />} />
