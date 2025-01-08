@@ -1,56 +1,111 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import * as A from "../styles/AttendanceStyles";
 import {
-    Container,
-    Header,
-    Calendar,
-    SelectedDate,
-    Stats,
-    Footer,
-    Button,
-  } from '../styles/AttendanceStyles';
-  
-  const Attendance = () => {
-    return (
-      <Container>
-        <Header>
-          <span>January 2022</span>
-          <div>
-            <Button>&lt;</Button>
-            <Button>&gt;</Button>
-          </div>
-        </Header>
-        <Calendar>
-          <div>Sun</div>
-          <div>Mon</div>
-          <div>Tue</div>
-          <div>Wed</div>
-          <div>Thu</div>
-          <div>Fri</div>
-          <div>Sat</div>
-          {/* Calendar Days */}
-          {[...Array(31)].map((_, index) => (
-            <div key={index} className={index === 13 || index === 14 ? 'selected' : ''}>
-              {index + 1}
-            </div>
-          ))}
-        </Calendar>
-        <SelectedDate>2022년 1월 15일</SelectedDate>
-        <Stats>
-          <div>맞힌 문제 수 : 5</div>
-          <div>오답한 문제 수 : 7</div>
-        </Stats>
-        <Footer>
-          <Button>홈</Button>
-          <Button>출석체크</Button>
-          <Button>학습 리포트</Button>
-          <Button>프로필</Button>
-        </Footer>
-      </Container>
+  CalendarContainer,
+  DateDisplay,
+  CalendarGrid,
+  StatsContainer,
+  ButtonGroup,
+  NavButton,
+} from "../styles/AttendanceStyles";
+
+const Attendance = () => {
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [stats, setStats] = useState({ correct: 0, incorrect: 0 });
+
+  useEffect(() => {
+    if (selectedDate.toDateString() === new Date().toDateString()) {
+      setStats({ correct: 5, incorrect: 7 });
+    } else {
+      setStats({ correct: 0, incorrect: 0 });
+    }
+  }, [selectedDate]);
+
+  const handleDateClick = (day) => {
+    const newDate = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth(),
+      day
     );
+    setSelectedDate(newDate);
   };
-  
-  export default Attendance;
-  
+
+  const renderCalendar = () => {
+    const daysInMonth = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth() + 1,
+      0
+    ).getDate();
+    const firstDayIndex = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth(),
+      1
+    ).getDay();
+
+    const calendarDays = [];
+    for (let i = 0; i < firstDayIndex; i++) {
+      calendarDays.push(<div key={`empty-${i}`} />);
+    }
+    for (let day = 1; day <= daysInMonth; day++) {
+      const isToday =
+        day === new Date().getDate() &&
+        currentDate.getMonth() === new Date().getMonth() &&
+        currentDate.getFullYear() === new Date().getFullYear();
+      const isSelected =
+        day === selectedDate.getDate() &&
+        currentDate.getMonth() === selectedDate.getMonth() &&
+        currentDate.getFullYear() === selectedDate.getFullYear();
+
+      calendarDays.push(
+        <button
+          key={day}
+          onClick={() => handleDateClick(day)}
+          className={`${isToday ? "today" : ""} ${
+            isSelected ? "selected" : ""
+          }`}
+        >
+          {day}
+        </button>
+      );
+    }
+    return calendarDays;
+  };
+
+  return (
+    <CalendarContainer>
+      <DateDisplay>
+        <button onClick={() => setCurrentDate(new Date(currentDate.setMonth(currentDate.getMonth() - 1)))}>
+          &lt;
+        </button>
+        <span>
+          {currentDate.toLocaleString("default", { month: "long" })}{" "}
+          {currentDate.getFullYear()}
+        </span>
+        <button onClick={() => setCurrentDate(new Date(currentDate.setMonth(currentDate.getMonth() + 1)))}>
+          &gt;
+        </button>
+      </DateDisplay>
+      <CalendarGrid>{renderCalendar()}</CalendarGrid>
+      <StatsContainer>
+        <div className="stat-box correct">
+          <h3>맞힌 문제</h3>
+          <p>{stats.correct}</p>
+        </div>
+        <div className="stat-box incorrect">
+          <h3>오답 문제</h3>
+          <p>{stats.incorrect}</p>
+        </div>
+      </StatsContainer>
+      <ButtonGroup>
+        <NavButton>홈</NavButton>
+        <NavButton>출석체크</NavButton>
+        <NavButton>학습 리포트</NavButton>
+        <NavButton>프로필</NavButton>
+      </ButtonGroup>
+    </CalendarContainer>
+  );
+};
+
+export default Attendance;

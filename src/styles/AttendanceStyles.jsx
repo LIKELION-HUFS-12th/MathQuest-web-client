@@ -1,13 +1,14 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const Container = styled.div`
+export const CalendarContainer = styled.div`
+  background-color: #fef9c3; /* 밝은 노란색 배경 */
   position: relative;
   margin: 0 auto;
   width: 393px;
   height: 100vh;
   min-height: 100vh;
   overflow: hidden;
-  background-color: #f5f5f5;
+  overflow-y: auto;
   padding: 0;
   box-sizing: border-box;
   display: flex;
@@ -17,66 +18,125 @@ export const Container = styled.div`
   text-align: center;
 `;
 
-export const Header = styled.div`
+
+export const DateDisplay = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 24px;
+  width: 100%;
   margin-bottom: 20px;
 
-  div {
-    display: flex;
-    gap: 10px;
+  button {
+    background-color: #38bdf8; /* 하늘색 */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #0ea5e9;
+    }
+  }
+
+  span {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1e293b; /* 짙은 네이비 */
   }
 `;
 
-export const Calendar = styled.div`
+export const CalendarGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 10px;
-  margin-bottom: 20px;
-  
-  
+  gap: 8px;
+  width: 100%;
 
+  button {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* 정사각형 */
+    border: 2px solid #d1d5db;
+    border-radius: 10px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 14px;
+    color: #111827;
+    font-weight: bold;
 
-  div {
-    text-align: center;
-    padding: 10px;
-    border-radius: 8px;
-    background-color: #f0f0f0;
+    &:hover {
+      background-color: #fef08a; /* 연한 노란색 */
+    }
+
+    &.today {
+      background-color: #86efac; /* 연한 초록색 */
+      color: white;
+      font-weight: bold;
+    }
+
+    &.selected {
+      border: 2px solid #f87171; /* 연한 빨간색 */
+      background-color: #fca5a5; /* 밝은 빨간색 */
+      color: white;
+    }
   }
-
-  .selected {
-    background-color: #ff6b6b;
-    color: white;
-  }
 `;
 
-export const SelectedDate = styled.div`
-  font-size: 18px;
-  margin-bottom: 10px;
-`;
-
-export const Stats = styled.div`
-  font-size: 16px;
-  margin-bottom: 20px;
-`;
-
-export const Footer = styled.div`
+export const StatsContainer = styled.div`
+  margin-top: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 20px;
+
+  .stat-box {
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+    h3 {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    p {
+      font-size: 16px;
+      color: #1e293b;
+      margin: 5px 0 0;
+    }
+
+    &.correct {
+      border: 2px solid #4ade80; /* 초록색 */
+    }
+
+    &.incorrect {
+      border: 2px solid #f87171; /* 빨간색 */
+    }
+  }
 `;
 
-export const Button = styled.button`
-  background-color: #3f51b5;
+export const ButtonGroup = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
+`;
+
+export const NavButton = styled.button`
+  background-color: #3b82f6; /* 파란색 */
   color: white;
   border: none;
-  border-radius: 8px;
   padding: 10px 15px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  font-size: 14px;
 
   &:hover {
-    background-color: #303f9f;
+    background-color: #2563eb;
   }
 `;
