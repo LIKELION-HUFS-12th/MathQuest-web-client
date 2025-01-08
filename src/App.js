@@ -20,6 +20,8 @@ import QuestM2 from './pages/quests/QuestM2';
 import QuestM3 from './pages/quests/QuestM3';
 import QuestE4H from './pages/questsHard/QuestE4H';
 import Profile from './pages/auth/Profile';
+import SignOut from './pages/auth/SignOut';
+import Introduce from './pages/Introduce';
 
 function App() {
   return (
@@ -44,6 +46,9 @@ function App() {
         <Route path="/questE4H" element={<QuestE4H/>}/>
         <Route path="/report" element={<Report />} />
         <Route path="/attendance" element={<Attendance />} />
+        <Route path="/introduce" element={<Introduce />} />
+        <Route path="/signout" element={<SignOut />} />
+
       </Routes>
     </BrowserRouter>
   );
