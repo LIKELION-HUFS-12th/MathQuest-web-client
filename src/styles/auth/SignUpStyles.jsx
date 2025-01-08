@@ -21,48 +21,52 @@ export const Container = styled.div`
 export const Illustration = styled.div`
   width: 150px;
   height: 150px;
-  background-color: #f0f0f0;
-  border-radius: 50%;
+  background-image: url('/path/to/illustration.png');
+  background-size: cover;
   margin-bottom: 20px;
 `;
 
 export const Title = styled.h1`
   font-size: 24px;
   font-weight: bold;
-
+  color: #333;
   margin-bottom: 10px;
 `;
 
 export const Subtitle = styled.h2`
-  font-size: 18px;
-  font-weight: normal;
-  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 300;
   color: #666;
-
+  margin-bottom: 30px;
 `;
 
 export const InputContainer = styled.div`
-  width: 80%;
-  display: flex;
-  align-items: center;
+  width: 100%;
+  max-width: 400px;
   margin-bottom: 15px;
+  position: relative;
 `;
 
 export const Input = styled.input`
-  flex: 1;
-  padding: 10px;
-  font-size: 16px;
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 14px;
   border: 1px solid #ccc;
-  border-radius: 5px 0 0 5px;
+  border-radius: 5px;
+  box-sizing: border-box;
 `;
 
 export const CheckButton = styled.button`
-  padding: 10px;
-  font-size: 16px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 5px 10px;
+  font-size: 12px;
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 0 5px 5px 0;
+  border-radius: 3px;
   cursor: pointer;
 
   &:hover {
@@ -71,17 +75,19 @@ export const CheckButton = styled.button`
 `;
 
 export const Button = styled.button`
-  width: 50%;
+  width: 100%;
+  max-width: 400px;
   padding: 10px;
   font-size: 16px;
-  background-color: #007bff;
+  background-color: #28a745;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-top: 10px;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: #218838;
   }
 `;
 
@@ -92,18 +98,18 @@ export const LinkContainer = styled.div`
   margin-top: 20px;
 `;
 
-
-export const Text = styled.h5`
-  margin-right: 5px;
-  color: #666;
+export const Text = styled.span`
+  font-size: 14px;
+  color: #333;
 `;
 
 export const Link = styled.a`
-  margin-top: 20px;
+  font-size: 14px;
   color: #007bff;
+  margin-left: 5px;
   text-decoration: none;
 
   &:hover {
     text-decoration: underline;
   }
-  `;
+`;
