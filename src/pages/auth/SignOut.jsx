@@ -10,16 +10,22 @@ import {
   CheckboxContainer,
   CheckboxLabel,
   Checkbox,
-  IconWrapper,
-  Icon
 } from '../../styles/auth/SignOutStyles';
+import ImageLogo from '../../assets/images/logo.png';
 
 const SignOut = () => {
   return (
     <Container>
-      <IconWrapper>
-        <Icon src="your-icon-url-here" alt="Icon" />
-      </IconWrapper>
+        <img id="ImageLogo" src={ImageLogo} alt="Logo"
+        style={{
+          position: 'absolute',
+          top: '70px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '150px',
+          height: 'auto',
+        }}
+      />
       <Title>회원탈퇴</Title>
       <Subtitle>계정을 삭제합니다...</Subtitle>
       <Input type="text" placeholder="아이디" />
