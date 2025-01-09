@@ -17,6 +17,7 @@ export const Container = styled.div`
   justify-content: center;
   text-align: center;
 `;
+
 // 헤더 제목
 export const Header = styled.h3`
   font-size: 1.5rem;
@@ -58,4 +59,3 @@ export const CommentText = styled.p`
   font-size: 1rem;
   color: #555;
 `;
-
