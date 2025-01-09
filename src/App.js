@@ -22,6 +22,7 @@ import QuestE4H from './pages/questsHard/QuestE4H';
 import Profile from './pages/auth/Profile';
 import SignOut from './pages/auth/SignOut';
 import Introduce from './pages/Introduce';
+import ViewPort from './pages/auth/ViewPort';
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
         <Route path="/attendance" element={<Attendance />} />
         <Route path="/introduce" element={<Introduce />} />
         <Route path="/signout" element={<SignOut />} />
+        <Route path="/viewport" element={<ViewPort />} />
 
       </Routes>
     </BrowserRouter>

@@ -98,16 +98,7 @@ const SignUp = () => {
 
   return (
     <Container>
-      <img id="ImageLogo" src={ImageLogo} alt="Logo"
-        style={{
-          position: 'absolute',
-          top: '70px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          width: '150px',
-          height: 'auto',
-        }}
-      />
+      <img id="ImageLogo" src={ImageLogo} alt="Logo"/>
       <Illustration />
       <Title>회원가입</Title>
       <Subtitle>계정 생성 중...</Subtitle>
