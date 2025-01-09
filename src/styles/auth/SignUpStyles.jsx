@@ -15,8 +15,19 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-`;
 
+  img {
+    max-width: 150px;
+    margin-top: 2px;
+  }
+
+  #ImageLogo {
+    width: 150px;
+    height: auto;
+    margin-top: 70px;
+  }
+
+`;
 
 
 export const Illustration = styled.div`
@@ -29,7 +40,7 @@ export const Illustration = styled.div`
 export const Title = styled.h1`
   font-size: 24px;
   font-weight: bold;
-  margin-top: 240px;
+  margin-top: 5px;
 `;
 
 export const Subtitle = styled.p`
@@ -48,7 +59,7 @@ export const InputContainer = styled.div`
 export const Input = styled.input`
   width: 100%;
   padding: 10px 15px;
-  padding-left: 40px; /* 왼쪽 아이콘 여백 */
+  padding-left: 20px; /* 왼쪽 아이콘 여백 */
   padding-right: 90px; /* 오른쪽 버튼/아이콘 여백 */
   font-size: 16px;
   border: 1px solid #ddd;
@@ -61,7 +72,7 @@ export const Button = styled.button`
   max-width: 400px;
   padding: 10px 15px;
   background-color: #000;
-  margin-top: 50px;
+  margin-top: 30px;
   color: #fff;
   font-size: 16px;
   border: none;
