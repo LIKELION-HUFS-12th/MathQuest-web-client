@@ -14,7 +14,7 @@ const Login = () => {
         e.preventDefault();
         // 로그인 요청 (가정)
         try {
-            const response = await axios.post('/api/login', { username, password });
+            const response = await axios.post('auth/login/', { username, password });
             // 로그인 성공 시 처리
             console.log(response.data);
             navigate('/main'); // 메인페이지로 이동

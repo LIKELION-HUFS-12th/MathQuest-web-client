@@ -18,15 +18,6 @@ export const Container = styled.div`
 `;
 
 
-export const ContainerL = styled.div`
-  position: absolute;
-  top: 70px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 150px;
-  height: auto;
-`;
-
 
 export const Illustration = styled.div`
   width: 100%;

@@ -20,7 +20,11 @@ export const Container = styled.div`
 export const Title = styled.h1`
   font-size: 24px;
   margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 180px;
 `;
+
 
 export const Subtitle = styled.p`
   font-size: 16px;
@@ -29,22 +33,30 @@ export const Subtitle = styled.p`
 
 export const Input = styled.input`
   width: 80%;
+  max-width: 400px;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 10px;
 `;
 
 export const Button = styled.button`
-  width: 85%;
-  padding: 10px;
-  background-color: #000;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
+width: 60%;
+max-width: 400px;
+padding: 10px 15px;
+background-color: #000;
+margin-top: 50px;
+color: #fff;
+font-size: 16px;
+border: none;
+border-radius: 20px;
+cursor: pointer;
+
+&:hover {
+  background-color: #333;
+}
 `;
+
 
 export const CheckboxContainer = styled.div`
   display: flex;
