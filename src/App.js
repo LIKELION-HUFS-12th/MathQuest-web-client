@@ -11,7 +11,7 @@ import HowToUse from './pages/HowToUse'; // 앱 사용 방법 컴포넌트 경�
 import QuestHeader from './shared/components/QuestHeader';
 import QuestE4 from './pages/quests/QuestE4';
 import SignUp from './pages/auth/SignUp';
-import Report from './pages/Report';
+import Report from './pages/LearningReport';
 import Attendance from './pages/Attendance';
 import QuestE5 from './pages/quests/QuestE5';
 import QuestE6 from './pages/quests/QuestE6';
@@ -26,6 +26,7 @@ import Profile from './pages/auth/Profile';
 import SignOut from './pages/auth/SignOut';
 import Introduce from './pages/Introduce';
 import ViewPort from './pages/auth/ViewPort';
+import LearningReport from './pages/LearningReport';
 
 function App() {
   return (
@@ -51,10 +52,10 @@ function App() {
         <Route path="/questE4M" element={<QuestE4M/>}/>
         <Route path="/questE4L" element={<QuestE4L/>}/>
         <Route path="/questE5H" element={<QuestE5H/>}/>
-        <Route path="/report" element={<Report />} />
         <Route path="/attendance" element={<Attendance />} />
         <Route path="/introduce" element={<Introduce />} />
         <Route path="/signout" element={<SignOut />} />
+        <Route path="/learningreport" element={<LearningReport />} />
       </Routes>
     </BrowserRouter>
   );
