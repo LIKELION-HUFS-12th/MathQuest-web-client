@@ -19,6 +19,9 @@ import QuestM1 from './pages/quests/QuestM1';
 import QuestM2 from './pages/quests/QuestM2';
 import QuestM3 from './pages/quests/QuestM3';
 import QuestE4H from './pages/questsHard/QuestE4H';
+import QuestE4M from './pages/questsMiddle/QuestE4M';
+import QuestE4L from './pages/questsLow/QuestE4L';
+import QuestE5H from './pages/questsHard/QuestE5H';
 import Profile from './pages/auth/Profile';
 import SignOut from './pages/auth/SignOut';
 import Introduce from './pages/Introduce';
@@ -44,11 +47,13 @@ function App() {
         <Route path="/questM2" element={<QuestM2/>}/>
         <Route path="/questM3" element={<QuestM3/>}/>
         <Route path="/questE4H" element={<QuestE4H/>}/>
+        <Route path="/questE4M" element={<QuestE4M/>}/>
+        <Route path="/questE4L" element={<QuestE4L/>}/>
+        <Route path="/questE5H" element={<QuestE5H/>}/>
         <Route path="/report" element={<Report />} />
         <Route path="/attendance" element={<Attendance />} />
         <Route path="/introduce" element={<Introduce />} />
         <Route path="/signout" element={<SignOut />} />
-
       </Routes>
     </BrowserRouter>
   );
