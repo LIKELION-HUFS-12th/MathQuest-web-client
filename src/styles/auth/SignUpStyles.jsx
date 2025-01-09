@@ -18,98 +18,156 @@ export const Container = styled.div`
 `;
 
 
-export const Illustration = styled.div`
+export const ContainerL = styled.div`
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 150px;
-  height: 150px;
-  background-image: url('/path/to/illustration.png');
-  background-size: cover;
-  margin-bottom: 20px;
+  height: auto;
+`;
+
+
+export const Illustration = styled.div`
+  width: 100%;
+  height: 200px;
+  background: url('/path/to/illustration.png') no-repeat center;
+  background-size: contain;
 `;
 
 export const Title = styled.h1`
   font-size: 24px;
   font-weight: bold;
-  color: #333;
-  margin-bottom: 10px;
+  margin-top: 240px;
 `;
 
-export const Subtitle = styled.h2`
+export const Subtitle = styled.p`
   font-size: 16px;
-  font-weight: 300;
-  color: #666;
-  margin-bottom: 30px;
+  color: #777;
+  margin-bottom: 40px;
 `;
 
 export const InputContainer = styled.div`
-  width: 100%;
-  max-width: 400px;
-  margin-bottom: 15px;
   position: relative;
+  margin-bottom: 20px;
+  width: 80%;
+  max-width: 400px;
 `;
 
 export const Input = styled.input`
   width: 100%;
   padding: 10px 15px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding-left: 40px; /* 왼쪽 아이콘 여백 */
+  padding-right: 90px; /* 오른쪽 버튼/아이콘 여백 */
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
   box-sizing: border-box;
+`;
+
+export const Button = styled.button`
+  width: 60%;
+  max-width: 400px;
+  padding: 10px 15px;
+  background-color: #000;
+  margin-top: 50px;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #333;
+  }
 `;
 
 export const CheckButton = styled.button`
   position: absolute;
-  right: 10px;
-  top: 50%;
+  right: 10px; /* 인풋박스 내부의 오른쪽 가장자리 */
+  top: 50%; /* 수직 가운데 정렬 */
   transform: translateY(-50%);
+  background-color: #ddd;
+  color: #FF3951;
+  font-size: 14px;
+  border: 0.5px solid #FF3951;
+  border-radius: 10px;
   padding: 5px 10px;
-  font-size: 12px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 3px;
   cursor: pointer;
+  background-color: transparent;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: #FF3951;
+    color: #000000;
   }
 `;
 
-export const Button = styled.button`
-  width: 100%;
-  max-width: 400px;
-  padding: 10px;
-  font-size: 16px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-
-  &:hover {
-    background-color: #218838;
-  }
+export const NameIcon = styled.img`
+  position: absolute;
+  right: 15px; /* 인풋박스 내부의 왼쪽 가장자리 */
+  top: 50%; /* 수직 가운데 정렬 */
+  transform: translateY(-50%);
+  width: 19px;
+  height: 20px;
 `;
+
+export const PasswordEyeIcon = styled.img`
+  position: absolute;
+  right: 10px; /* 인풋박스 내부의 오른쪽 가장자리 */
+  top: 50%; /* 수직 가운데 정렬 */
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+`;
+
 
 export const LinkContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin-top: 20px;
+  text-align: center;
+  margin-bottom: 30px;
 `;
 
 export const Text = styled.span`
   font-size: 14px;
-  color: #333;
+  color: #555;
 `;
 
 export const Link = styled.a`
   font-size: 14px;
-  color: #007bff;
-  margin-left: 5px;
+  color: #FF3951;
   text-decoration: none;
 
   &:hover {
     text-decoration: underline;
+  }
+`;
+
+export const CheckboxContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 15px; /* 상단 간격 조정 */
+`;
+
+export const Checkbox = styled.input.attrs({ type: 'checkbox' })`
+  width: 16px; /* 크기 조정 */
+  height: 16px; /* 크기 조정 */
+  margin-right: 8px; /* 텍스트와 간격 추가 */
+  cursor: pointer;
+  accent-color: #007bff; /* 체크박스 색상 설정 (브라우저 호환) */
+`;
+
+export const AgreementText = styled.span`
+  font-size: 14px;
+  color: #333;
+
+  a {
+    color: #FF3951; /* 링크 색상 */
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover {
+      color: #0056b3; /* 호버 시 색상 */
+    }
   }
 `;
