@@ -12,6 +12,18 @@ import Hill from '../../assets/images/hill.png';
 import Sun from '../../assets/images/sun.png';
 
 const QuestE5 = () => {
+  const navigate = useNavigate();
+
+  const handleQuestE5H = () => {
+    navigate('/questE5H')
+  };
+  const handleQuestE5M = () => {
+    navigate('/questE5M')
+  };
+  const handleQuestE5L = () => {
+    navigate('/questE5L')
+  };
+
   return (
     <QE5.Container>
       <QuestHeader />
@@ -25,7 +37,7 @@ const QuestE5 = () => {
         <QE5.Text>초등 5학년</QE5.Text>
       </QE5.Profile>
       <QE5.QuestList>퀘스트 목록</QE5.QuestList>
-      <QE5.Qe4Hard>
+      <QE5.Qe4Hard onClick={handleQuestE5H}>
         <QE5.Qe4Back>
           <img id="Rectangle" src={Rectangle} />
           <QE5.Qe4photoback>
@@ -38,7 +50,7 @@ const QuestE5 = () => {
           <QE5.TextCount>20 문항</QE5.TextCount>
         </QE5.Qe4Back>
       </QE5.Qe4Hard>
-      <QE5.Qe4Middle>
+      <QE5.Qe4Middle onClick={handleQuestE5M}>
         <QE5.Qe4BackMiddle>
           <img id="Rectangle" src={Rectangle} />
           <QE5.Qe4photobackMiddle>
@@ -51,7 +63,7 @@ const QuestE5 = () => {
           <QE5.TextCountMiddle>20 문항</QE5.TextCountMiddle>
         </QE5.Qe4BackMiddle>
       </QE5.Qe4Middle>
-      <QE5.Qe4Low>
+      <QE5.Qe4Low onClick={handleQuestE5L}>
         <QE5.Qe4BackLow>
           <img id="Rectangle" src={Rectangle} />
           <QE5.Qe4photobackLow>

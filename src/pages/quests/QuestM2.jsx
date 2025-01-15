@@ -12,6 +12,18 @@ import Hill from '../../assets/images/hill.png';
 import Sun from '../../assets/images/sun.png';
 
 const QuestM2 = () => {
+  const navigate = useNavigate();
+
+    const handleQuestM2H = () => {
+      navigate('/questM2H')
+    };
+    const handleQuestM2M = () => {
+      navigate('/questM2M')
+    };
+    const handleQuestM2L = () => {
+      navigate('/questM2L')
+    };
+
   return (
     <QM2.Container>
       <QuestHeader />
@@ -25,7 +37,7 @@ const QuestM2 = () => {
         <QM2.Text>중등 2학년</QM2.Text>
       </QM2.Profile>
       <QM2.QuestList>퀘스트 목록</QM2.QuestList>
-      <QM2.Qe4Hard>
+      <QM2.Qe4Hard onClick={handleQuestM2H}>
         <QM2.Qe4Back>
           <img id="Rectangle" src={Rectangle} />
           <QM2.Qe4photoback>
@@ -38,7 +50,7 @@ const QuestM2 = () => {
           <QM2.TextCount>20 문항</QM2.TextCount>
         </QM2.Qe4Back>
       </QM2.Qe4Hard>
-      <QM2.Qe4Middle>
+      <QM2.Qe4Middle onClick={handleQuestM2M}>
         <QM2.Qe4BackMiddle>
           <img id="Rectangle" src={Rectangle} />
           <QM2.Qe4photobackMiddle>
@@ -51,7 +63,7 @@ const QuestM2 = () => {
           <QM2.TextCountMiddle>20 문항</QM2.TextCountMiddle>
         </QM2.Qe4BackMiddle>
       </QM2.Qe4Middle>
-      <QM2.Qe4Low>
+      <QM2.Qe4Low onClick={handleQuestM2L}>
         <QM2.Qe4BackLow>
           <img id="Rectangle" src={Rectangle} />
           <QM2.Qe4photobackLow>
