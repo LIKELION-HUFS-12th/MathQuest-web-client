@@ -9,6 +9,8 @@ import {
   CommentTitle,
   CommentText,
 } from "../styles/LearningReportStyles";
+import Footer from '../shared/components/Footer';
+
 
 const LearningReport = () => {
   const [chartData, setChartData] = useState(null);
@@ -23,7 +25,7 @@ const LearningReport = () => {
         const { correct, incorrect } = response.data.data;
 
         // 요일 및 데이터 추출
-        const days = ["일", "월", "화", "수", "목", "금", "토"];
+        const days = ["월", "월", "화", "수", "목", "금", "토"];
         const correctValues = Object.values(correct);
         const incorrectValues = Object.values(incorrect);
 
@@ -99,6 +101,7 @@ const LearningReport = () => {
           </CommentSection>
         </>
       )}
+      <Footer />
     </Container>
   );
 };

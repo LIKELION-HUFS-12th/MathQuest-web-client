@@ -7,6 +7,7 @@ import {
   } from '../../styles/auth/ViewPortStyles.jsx';
 import ImageLogo from '../../assets/images/logo.png';
 import TextLogoBlack from '../../assets/images/textlogoblack.png';
+import Footer from '../../shared/components/Footer';
 
 const Viewport = () => {
   const [agreements, setAgreements] = useState({
@@ -78,6 +79,7 @@ const Viewport = () => {
           동의하고 시작하기
         </button>
       </form>
+      <Footer />
     </Container>
   );
 };
