@@ -51,7 +51,7 @@ const questE5H = () => {
                             <img id="Level3" src={Level3}/>
                         </E5H.Level3Photo>
                         <E5H.TextLevel3>LEVEL 3</E5H.TextLevel3>
-                        <E5H.Level3Content>단위 환산산산</E5H.Level3Content>
+                        <E5H.Level3Content>단위 환산</E5H.Level3Content>
                     </E5H.Level3Back>
                 </E5H.Level3>
             <LevelFooter/>
