@@ -8,6 +8,7 @@ import Level1 from '../../assets/images/level1.png';
 import Level2 from '../../assets/images/level2.png';
 import Level3 from '../../assets/images/level3.png';
 import Level4 from '../../assets/images/level4.png';
+import LevelFooter from '../../shared/components/LevelFooter';
 
 const questE4H = () => {
     return(
@@ -64,6 +65,7 @@ const questE4H = () => {
                     <E4H.Level4Content>시간 계산</E4H.Level4Content>
                 </E4H.Level4Back>
             </E4H.Level4>
+            <LevelFooter/>
         </E4H.Container>
     );
 };

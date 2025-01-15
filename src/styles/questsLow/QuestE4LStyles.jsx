@@ -84,7 +84,7 @@ export const Level1 = styled.div`
   z-index: 1;
   top: 40%;
   padding: 0;
-  margin-top: -12%;
+  margin-top: -21%;
 `;
 
 export const Level1Back = styled.div`
@@ -128,7 +128,7 @@ export const Level2 = styled.div`
   z-index: 1;
   top: 40%;
   padding: 0;
-  margin-top: 20%;
+  margin-top: 11%;
 `;
 
 export const Level2Back = styled.div`
@@ -172,7 +172,7 @@ export const Level3 = styled.div`
   z-index: 1;
   top: 39%;
   padding: 0;
-  margin-top: 55%;
+  margin-top: 46%;
 `;
 
 export const Level3Back = styled.div`
@@ -216,7 +216,7 @@ export const Level4 = styled.div`
   z-index: 1;
   top: 38%;
   padding: 0;
-  margin-top: 90%;
+  margin-top: 80%;
 `;
 
 export const Level4Back = styled.div`
