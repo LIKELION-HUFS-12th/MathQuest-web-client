@@ -12,6 +12,18 @@ import Hill from '../../assets/images/hill.png';
 import Sun from '../../assets/images/sun.png';
 
 const QuestM3 = () => {
+  const navigate = useNavigate();
+
+    const handleQuestM3H = () => {
+      navigate('/questM3H')
+    };
+    const handleQuestM3M = () => {
+      navigate('/questM3M')
+    };
+    const handleQuestM3L = () => {
+      navigate('/questM3L')
+    };
+
   return (
     <QM3.Container>
       <QuestHeader />
@@ -25,7 +37,7 @@ const QuestM3 = () => {
         <QM3.Text>중등 3학년</QM3.Text>
       </QM3.Profile>
       <QM3.QuestList>퀘스트 목록</QM3.QuestList>
-      <QM3.Qe4Hard>
+      <QM3.Qe4Hard onClick={handleQuestM3H}>
         <QM3.Qe4Back>
           <img id="Rectangle" src={Rectangle} />
           <QM3.Qe4photoback>
@@ -38,7 +50,7 @@ const QuestM3 = () => {
           <QM3.TextCount>20 문항</QM3.TextCount>
         </QM3.Qe4Back>
       </QM3.Qe4Hard>
-      <QM3.Qe4Middle>
+      <QM3.Qe4Middle onClick={handleQuestM3M}>
         <QM3.Qe4BackMiddle>
           <img id="Rectangle" src={Rectangle} />
           <QM3.Qe4photobackMiddle>
@@ -51,7 +63,7 @@ const QuestM3 = () => {
           <QM3.TextCountMiddle>20 문항</QM3.TextCountMiddle>
         </QM3.Qe4BackMiddle>
       </QM3.Qe4Middle>
-      <QM3.Qe4Low>
+      <QM3.Qe4Low onClick={handleQuestM3L}>
         <QM3.Qe4BackLow>
           <img id="Rectangle" src={Rectangle} />
           <QM3.Qe4photobackLow>

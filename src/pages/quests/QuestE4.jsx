@@ -12,6 +12,18 @@ import Hill from '../../assets/images/hill.png';
 import Sun from '../../assets/images/sun.png';
 
 const QuestE4 = () => {
+  const navigate = useNavigate();
+
+    const handleQuestE4H = () => {
+      navigate('/questE4H')
+    };
+    const handleQuestE4M = () => {
+      navigate('/questE4M')
+    };
+    const handleQuestE4L = () => {
+      navigate('/questE4L')
+    };
+
   return (
     <QE4.Container>
       <QuestHeader />
@@ -25,7 +37,7 @@ const QuestE4 = () => {
         <QE4.Text>초등 4학년</QE4.Text>
       </QE4.Profile>
       <QE4.QuestList>퀘스트 목록</QE4.QuestList>
-      <QE4.Qe4Hard>
+      <QE4.Qe4Hard onClick={handleQuestE4H}>
         <QE4.Qe4Back>
           <img id="Rectangle" src={Rectangle} />
           <QE4.Qe4photoback>
@@ -38,7 +50,7 @@ const QuestE4 = () => {
           <QE4.TextCount>20 문항</QE4.TextCount>
         </QE4.Qe4Back>
       </QE4.Qe4Hard>
-      <QE4.Qe4Middle>
+      <QE4.Qe4Middle onClick={handleQuestE4M}>
         <QE4.Qe4BackMiddle>
           <img id="Rectangle" src={Rectangle} />
           <QE4.Qe4photobackMiddle>
@@ -51,7 +63,7 @@ const QuestE4 = () => {
           <QE4.TextCountMiddle>20 문항</QE4.TextCountMiddle>
         </QE4.Qe4BackMiddle>
       </QE4.Qe4Middle>
-      <QE4.Qe4Low>
+      <QE4.Qe4Low onClick={handleQuestE4L}>
         <QE4.Qe4BackLow>
           <img id="Rectangle" src={Rectangle} />
           <QE4.Qe4photobackLow>

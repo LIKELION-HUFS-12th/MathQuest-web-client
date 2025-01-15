@@ -71,6 +71,7 @@ export const Qe4Hard = styled.div`
   z-index: 1;
   top: 40%;
   padding: 0;
+  cursor: pointer;
 `;
 
 export const Qe4Back = styled.div`
@@ -125,6 +126,7 @@ export const Qe4Middle = styled.div`
   z-index: 1;
   top: 55%;
   padding: 0;
+  cursor: pointer;
 `;
 
 export const Qe4BackMiddle = styled.div`
@@ -179,6 +181,7 @@ export const Qe4Low = styled.div`
   z-index: 1;
   top: 70%;
   padding: 0;
+  cursor: pointer;
 `;
 
 export const Qe4BackLow = styled.div`
