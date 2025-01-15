@@ -30,6 +30,7 @@ export const Home = styled.div`
   width: 32px;
   height: 30px;
   }
+  cursor: pointer;
 `;
 
 export const HomeText = styled.div`
@@ -47,6 +48,7 @@ export const Learn = styled.div`
   height: 40px;
   width: 35px;
   }
+  cursor: pointer;
 `;
 
 export const LearnText = styled.div`
@@ -63,6 +65,7 @@ export const Pencil = styled.div`
   img {
   height: 24px;
   }
+  cursor: pointer;
 `;
 
 export const PencilText = styled.div`
@@ -80,6 +83,7 @@ export const Profile = styled.div`
   img {
   height: 29px;
   }
+  cursor: pointer;
 `;
 
 export const ProfileText = styled.div`
