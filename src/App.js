@@ -36,6 +36,7 @@ import QuestM2L from './pages/questsLow/QuestM2L';
 import QuestM3H from './pages/questsHard/QuestM3H';
 import QuestM3M from './pages/questsMiddle/QuestM3M';
 import QuestM3L from './pages/questsLow/QuestM3L';
+import LearnAgain from './pages/LearnAgain';
 import Profile from './pages/auth/Profile';
 import SignOut from './pages/auth/SignOut';
 import Introduce from './pages/Introduce';
@@ -70,16 +71,17 @@ function App() {
         <Route path="/questE5L" element={<QuestE5L/>}/>
         <Route path="/questE6H" element={<QuestE6H/>}/>
         <Route path="/questE6M" element={<QuestE6M/>}/>
-        <Route path="questE6L" element={<QuestE6L/>}/>
-        <Route path="questM1H" element={<QuestM1H/>}/>
-        <Route path="questM1M" element={<QuestM1M/>}/>
-        <Route path="questM1L" element={<QuestM1L/>}/>
-        <Route path="questM2H" element={<QuestM2H/>}/>
-        <Route path="questM2M" element={<QuestM2M/>}/>
-        <Route path="questM2L" element={<QuestM2L/>}/>
-        <Route path="questM3H" element={<QuestM3H/>}/>
-        <Route path="questM3M" element={<QuestM3M/>}/>
-        <Route path="questM3L" element={<QuestM3L/>}/>
+        <Route path="/questE6L" element={<QuestE6L/>}/>
+        <Route path="/questM1H" element={<QuestM1H/>}/>
+        <Route path="/questM1M" element={<QuestM1M/>}/>
+        <Route path="/questM1L" element={<QuestM1L/>}/>
+        <Route path="/questM2H" element={<QuestM2H/>}/>
+        <Route path="/questM2M" element={<QuestM2M/>}/>
+        <Route path="/questM2L" element={<QuestM2L/>}/>
+        <Route path="/questM3H" element={<QuestM3H/>}/>
+        <Route path="/questM3M" element={<QuestM3M/>}/>
+        <Route path="/questM3L" element={<QuestM3L/>}/>
+        <Route path="/learnAgain" element={<LearnAgain/>}/>
         <Route path="/attendance" element={<Attendance />} />
         <Route path="/introduce" element={<Introduce />} />
         <Route path="/signout" element={<SignOut />} />
