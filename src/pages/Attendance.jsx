@@ -9,6 +9,7 @@ import {
   ButtonGroup,
   NavButton,
 } from "../styles/AttendanceStyles";
+import Footer from '../shared/components/Footer';
 
 const Attendance = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -88,22 +89,7 @@ const Attendance = () => {
         </button>
       </DateDisplay>
       <CalendarGrid>{renderCalendar()}</CalendarGrid>
-      <StatsContainer>
-        <div className="stat-box correct">
-          <h3>맞힌 문제</h3>
-          <p>{stats.correct}</p>
-        </div>
-        <div className="stat-box incorrect">
-          <h3>오답 문제</h3>
-          <p>{stats.incorrect}</p>
-        </div>
-      </StatsContainer>
-      <ButtonGroup>
-        <NavButton>홈</NavButton>
-        <NavButton>출석체크</NavButton>
-        <NavButton>학습 리포트</NavButton>
-        <NavButton>프로필</NavButton>
-      </ButtonGroup>
+      <Footer/>
     </CalendarContainer>
   );
 };
