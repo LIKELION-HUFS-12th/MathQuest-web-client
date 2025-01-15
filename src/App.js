@@ -22,6 +22,20 @@ import QuestE4H from './pages/questsHard/QuestE4H';
 import QuestE4M from './pages/questsMiddle/QuestE4M';
 import QuestE4L from './pages/questsLow/QuestE4L';
 import QuestE5H from './pages/questsHard/QuestE5H';
+import QuestE5M from './pages/questsMiddle/QuestE5M';
+import QuestE5L from './pages/questsLow/QuestE5L';
+import QuestE6H from './pages/questsHard/QuestE6H';
+import QuestE6M from './pages/questsMiddle/QuestE6M';
+import QuestE6L from './pages/questsLow/QuestE6L';
+import QuestM1H from './pages/questsHard/QuestM1H';
+import QuestM1M from './pages/questsMiddle/QuestM1M';
+import QuestM1L from './pages/questsLow/QuestM1L';
+import QuestM2H from './pages/questsHard/QuestM2H';
+import QuestM2M from './pages/questsMiddle/QuestM2M';
+import QuestM2L from './pages/questsLow/QuestM2L';
+import QuestM3H from './pages/questsHard/QuestM3H';
+import QuestM3M from './pages/questsMiddle/QuestM3M';
+import QuestM3L from './pages/questsLow/QuestM3L';
 import Profile from './pages/auth/Profile';
 import SignOut from './pages/auth/SignOut';
 import Introduce from './pages/Introduce';
@@ -52,6 +66,20 @@ function App() {
         <Route path="/questE4M" element={<QuestE4M/>}/>
         <Route path="/questE4L" element={<QuestE4L/>}/>
         <Route path="/questE5H" element={<QuestE5H/>}/>
+        <Route path="/questE5M" element={<QuestE5M/>}/>
+        <Route path="/questE5L" element={<QuestE5L/>}/>
+        <Route path="/questE6H" element={<QuestE6H/>}/>
+        <Route path="/questE6M" element={<QuestE6M/>}/>
+        <Route path="questE6L" element={<QuestE6L/>}/>
+        <Route path="questM1H" element={<QuestM1H/>}/>
+        <Route path="questM1M" element={<QuestM1M/>}/>
+        <Route path="questM1L" element={<QuestM1L/>}/>
+        <Route path="questM2H" element={<QuestM2H/>}/>
+        <Route path="questM2M" element={<QuestM2M/>}/>
+        <Route path="questM2L" element={<QuestM2L/>}/>
+        <Route path="questM3H" element={<QuestM3H/>}/>
+        <Route path="questM3M" element={<QuestM3M/>}/>
+        <Route path="questM3L" element={<QuestM3L/>}/>
         <Route path="/attendance" element={<Attendance />} />
         <Route path="/introduce" element={<Introduce />} />
         <Route path="/signout" element={<SignOut />} />
