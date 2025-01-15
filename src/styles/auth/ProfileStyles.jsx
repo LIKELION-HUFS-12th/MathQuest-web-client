@@ -143,7 +143,6 @@ export const Year = styled.div`
 `;
 
 export const YearTitle = styled.div`
-    
 margin-bottom: 5%;
 `;
 

@@ -97,7 +97,7 @@ export const GoalButtonArrow = styled.div`
 `;
 
 export const Process = styled.div`
-  background-color: #e9e6e6;
+  // background-color: #e9e6e6;
   width: 340px;
   height: 40px;
   border-radius: 5px;
@@ -107,15 +107,33 @@ export const Process = styled.div`
   margin-left: 30px;
 `;
 
-export const ButtonProcess = styled.div`
-  font-weight: bold;
-  margin-left: 8%;
-  color: #494848;
-  font-family: 'HakgyoansimGeurimilgiTTF-R';
-`;
+// export const ProcessTitle = styled.div`
+//   font-weight: bold;
+//   margin-left: 8%;
+//   color: #494848;
+//   font-family: 'HakgyoansimGeurimilgiTTF-R';
+// `;
 
-export const ProcessTriangle = styled.div`
-  margin-left: 48%;
+export const ProcessContent = styled.div`
+  margin-left: 3px;
+  select {
+    width: 165%;
+    height: 39px;
+    padding: 8px;
+    padding-left: 15px;
+    font-size: 1rem;
+    border: 1.5px solid #ccc;
+    border-radius: 18px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    background-image: url(${(props) => props.process});
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 13px;
+    }
+  
 `;
 
 export const ProcessText = styled.div`

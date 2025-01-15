@@ -17,6 +17,8 @@ import Note from '../assets/images/note.png';
 import Process from '../assets/images/process.png';
 
 const Main = () => {
+  const [year, setYear] = useState('');
+
   const navigate = useNavigate();
   
     const handleQuestE4 = () => {
@@ -37,6 +39,25 @@ const Main = () => {
     const handleQuestM3 = () => {
       navigate('/questM3')
     }; 
+
+    const handleSelectChange = (event) => {
+      const selectedYear = event.target.value;
+      setYear(selectedYear);
+
+      if (selectedYear === '4학년') {
+        handleQuestE4();
+      } else if (selectedYear === '5학년') {
+        handleQuestE5();
+      } else if (selectedYear === '6학년') {
+        handleQuestE6();
+      } else if (selectedYear === '1학년') {
+        handleQuestM1();
+      } else if (selectedYear === '2학년') {
+        handleQuestM2();
+      } else if (selectedYear === '3학년') {
+        handleQuestM3();
+      }
+    };
 
   return (
     <M.Container>
@@ -60,10 +81,22 @@ const Main = () => {
           </M.GoalBack>
         </M.Goal>
         <M.Process>
-          <M.ButtonProcess>학습 진행 과정 선택</M.ButtonProcess>
-          <M.ProcessTriangle>
-            <img id="Process" src={Process} />
-          </M.ProcessTriangle>
+          {/* <M.ProcessTitle>학습 진행 과정 선택</M.ProcessTitle> */}
+          <M.ProcessContent process={Process}>
+            <select
+              name="year"
+              value={"year"}
+              onChange={handleSelectChange}
+            >
+              <option value="">학습 진행 학년을 선택하세요</option>
+              <option value="4학년">초등학교 4학년</option>
+              <option value="5학년">초등학교 5학년</option>
+              <option value="6학년">초등학교 6학년</option>
+              <option value="1학년">중학교 1학년</option>
+              <option value="2학년">중학교 2학년</option>
+              <option value="3학년">중학교 3학년</option>
+            </select>
+          </M.ProcessContent>
         </M.Process>
         <M.ProcessText>학습 진행</M.ProcessText>
         <M.Process4 onClick={handleQuestE4}>
