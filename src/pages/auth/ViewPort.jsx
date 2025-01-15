@@ -79,7 +79,6 @@ const Viewport = () => {
           동의하고 시작하기
         </button>
       </form>
-      <Footer />
     </Container>
   );
 };
