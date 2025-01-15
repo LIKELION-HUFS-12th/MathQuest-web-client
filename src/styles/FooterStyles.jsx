@@ -31,6 +31,7 @@ export const Home = styled.div`
   z-index: 1;
   top: 39%;
   left: 10%;
+  cursor: pointer;
 `;
 
 export const HomeText = styled.div`
@@ -43,6 +44,7 @@ export const Calendar = styled.div`
   z-index: 1;
   top: 39%;
   left: 25%;
+  cursor: pointer;
 `;
 
 export const CalendarText = styled.div`
@@ -53,13 +55,14 @@ export const CalendarText = styled.div`
 export const Chart = styled.div`
   position: absolute;
   z-index: 1;
-  top: 37%;
+  top: 39%;
   left: 59%;
+  cursor: pointer;
 `;
 
 export const ChartText = styled.div`
   color: white;
-  margin-top: -5px;
+  margin-top: 1px;
   font-family: 'HakgyoansimGeurimilgiTTF-R';
 `;
 
@@ -68,6 +71,7 @@ export const Profile = styled.div`
   z-index: 1;
   top: 39%;
   left: 82%;
+  cursor: pointer;
 `;
 
 export const ProfileText = styled.div`
