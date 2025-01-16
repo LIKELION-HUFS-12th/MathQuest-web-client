@@ -11,6 +11,10 @@ import MenuButton from '../../assets/images/MenuButton.png';
 const Footer = () => {
   const navigate = useNavigate();
 
+    const handleMenu = () => {
+      console.log('Menu button clicked'); 
+      navigate(`/option`)
+    };
     const handleMain = () => {
       navigate(`/Main`)
     };
@@ -26,7 +30,7 @@ const Footer = () => {
 
   return (
     <F.Container>
-      <F.MenuButton>
+      <F.MenuButton onClick={handleMenu}>
         <img id="MenuButton" src={MenuButton} />
       </F.MenuButton>
       <F.Menubar>

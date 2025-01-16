@@ -36,6 +36,7 @@ import QuestM2L from './pages/questsLow/QuestM2L';
 import QuestM3H from './pages/questsHard/QuestM3H';
 import QuestM3M from './pages/questsMiddle/QuestM3M';
 import QuestM3L from './pages/questsLow/QuestM3L';
+import QuestPage from './pages/QuestPage';
 import LearnAgain from './pages/LearnAgain';
 import Profile from './pages/auth/Profile';
 import SignOut from './pages/auth/SignOut';
@@ -83,6 +84,7 @@ function App() {
         <Route path="/questM3H" element={<QuestM3H/>}/>
         <Route path="/questM3M" element={<QuestM3M/>}/>
         <Route path="/questM3L" element={<QuestM3L/>}/>
+        <Route path="/questPage" element={<QuestPage/>}/>
         <Route path="/learnAgain" element={<LearnAgain/>}/>
         <Route path="/attendance" element={<Attendance />} />
         <Route path="/introduce" element={<Introduce />} />

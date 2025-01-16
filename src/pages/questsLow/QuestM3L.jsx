@@ -9,7 +9,13 @@ import Level2 from '../../assets/images/level2.png';
 import Level3 from '../../assets/images/level3.png';
 import LevelFooter from '../../shared/components/LevelFooter';
 
-const questM3L = () => {
+const QuestM3L = () => {
+    const navigate = useNavigate();
+
+    const handleQuestPage = () => {
+        navigate('/questPage')
+    };
+
     return(
         <M3L.Container>
             <M3L.Header>
@@ -24,7 +30,7 @@ const questM3L = () => {
                 </M3L.Header2>
                 <M3L.Level>난이도 (하)</M3L.Level>
             </M3L.Header>
-                <M3L.Level1>
+                <M3L.Level1 onClick={handleQuestPage}>
                     <M3L.Level1Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <M3L.Level1Photo>
@@ -34,7 +40,7 @@ const questM3L = () => {
                         <M3L.Level1Content>이차방정식</M3L.Level1Content>
                     </M3L.Level1Back>
                 </M3L.Level1>
-                <M3L.Level2>
+                <M3L.Level2 onClick={handleQuestPage}>
                     <M3L.Level2Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <M3L.Level2Photo>
@@ -44,7 +50,7 @@ const questM3L = () => {
                         <M3L.Level2Content>기본 확률과 통계</M3L.Level2Content>
                     </M3L.Level2Back>
                 </M3L.Level2>
-                <M3L.Level3>
+                <M3L.Level3 onClick={handleQuestPage}>
                     <M3L.Level3Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <M3L.Level3Photo>
@@ -59,4 +65,4 @@ const questM3L = () => {
     );
 };
 
-export default questM3L;
+export default QuestM3L;

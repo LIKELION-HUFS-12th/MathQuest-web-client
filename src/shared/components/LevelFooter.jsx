@@ -16,6 +16,9 @@ const LevelFooter = () => {
         const handleLearn = () => {
             navigate(-1);
         };
+        const handleLearnAgain = () => {
+            navigate('/LearnAgain')
+        };
         const handleProfile = () => {
             navigate(`/Profile`)
         };
@@ -32,7 +35,7 @@ const LevelFooter = () => {
                     <img id="Learn" src={Learn} />
                     <LF.LearnText>학습하기</LF.LearnText>
                 </LF.Learn>
-                <LF.Pencil>
+                <LF.Pencil onClick={handleLearnAgain}>
                     <img id="Pencil" src={Pencil} />
                     <LF.PencilText>오답하기</LF.PencilText>
                 </LF.Pencil>

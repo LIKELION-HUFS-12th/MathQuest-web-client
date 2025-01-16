@@ -9,7 +9,13 @@ import Level2 from '../../assets/images/level2.png';
 import Level3 from '../../assets/images/level3.png';
 import LevelFooter from '../../shared/components/LevelFooter';
 
-const questE5M = () => {
+const QuestE5M = () => {
+    const navigate = useNavigate();
+
+    const handleQuestPage = () => {
+        navigate('/questPage')
+    };
+
     return(
         <E5M.Container>
             <E5M.Header>
@@ -24,7 +30,7 @@ const questE5M = () => {
                 </E5M.Header2>
                 <E5M.Level>난이도 (중)</E5M.Level>
             </E5M.Header>
-                <E5M.Level1>
+                <E5M.Level1 onClick={handleQuestPage}>
                     <E5M.Level1Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <E5M.Level1Photo>
@@ -34,7 +40,7 @@ const questE5M = () => {
                         <E5M.Level1Content>분수의 덧셈과 뺄셈</E5M.Level1Content>
                     </E5M.Level1Back>
                 </E5M.Level1>
-                <E5M.Level2>
+                <E5M.Level2 onClick={handleQuestPage}>
                     <E5M.Level2Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <E5M.Level2Photo>
@@ -44,7 +50,7 @@ const questE5M = () => {
                         <E5M.Level2Content>소수 계산</E5M.Level2Content>
                     </E5M.Level2Back>
                 </E5M.Level2>
-                <E5M.Level3>
+                <E5M.Level3 onClick={handleQuestPage}>
                     <E5M.Level3Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <E5M.Level3Photo>
@@ -59,4 +65,4 @@ const questE5M = () => {
     );
 };
 
-export default questE5M;
+export default QuestE5M;
