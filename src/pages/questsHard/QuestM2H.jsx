@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import * as M2H from '../../styles/questsHard/QuestM2HStyles';
 import CharacterLogo from '../../assets/images/characterLogo.png';
 import RectangleTop from '../../assets/images/rectangleTop.png';
@@ -11,9 +11,11 @@ import LevelFooter from '../../shared/components/LevelFooter';
 
 const QuestM2H = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const {level, difficulty} = location.state || {};
 
-    const handleQuestPage = () => {
-        navigate('/questPage')
+    const handleQuestPage = (chapter) => {
+        navigate('/questPage', { state: { level, difficulty, chapter } });
     };
 
     return(
@@ -23,14 +25,14 @@ const QuestM2H = () => {
                     <img id="RectangleTop" src={RectangleTop} alt="RectangleTop"/>
                 </M2H.BackgroundImage>
                 <M2H.Header2>
-                    <M2H.Year>중학교 2학년</M2H.Year>
+                    <M2H.Year>{level}</M2H.Year>
                     <M2H.Logo>
                         <img id="CharacterLogo" src={CharacterLogo}/>
                     </M2H.Logo>
                 </M2H.Header2>
-                <M2H.Level>난이도 (상)</M2H.Level>
+                <M2H.Level>난이도 ({difficulty})</M2H.Level>
             </M2H.Header>
-                <M2H.Level1 onClick={handleQuestPage}>
+                <M2H.Level1 onClick={() => handleQuestPage('일차방정식')}>
                     <M2H.Level1Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <M2H.Level1Photo>
@@ -40,7 +42,7 @@ const QuestM2H = () => {
                         <M2H.Level1Content>일차방정식</M2H.Level1Content>
                     </M2H.Level1Back>
                 </M2H.Level1>
-                <M2H.Level2 onClick={handleQuestPage}>
+                <M2H.Level2 onClick={() => handleQuestPage('연립방정식')}>
                     <M2H.Level2Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <M2H.Level2Photo>
@@ -50,7 +52,7 @@ const QuestM2H = () => {
                         <M2H.Level2Content>연립방정식</M2H.Level2Content>
                     </M2H.Level2Back>
                 </M2H.Level2>
-                <M2H.Level3 onClick={handleQuestPage}>
+                <M2H.Level3 onClick={() => handleQuestPage('함수의 기본 개념')}>
                     <M2H.Level3Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <M2H.Level3Photo>

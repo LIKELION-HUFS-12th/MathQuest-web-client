@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useLocation } from 'react-router-dom';
 import axios from 'axios';
 import * as QE5 from '../../styles/quests/QuestE5Styles';
 import QuestHeader from '../../shared/components/QuestHeader';
@@ -13,15 +13,17 @@ import Sun from '../../assets/images/sun.png';
 
 const QuestE5 = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const {level} = location.state || {};
 
   const handleQuestE5H = () => {
-    navigate('/questE5H')
+    navigate('/questE5H', { state: { level, difficulty: '상' } });
   };
   const handleQuestE5M = () => {
-    navigate('/questE5M')
+    navigate('/questE5M', { state: { level, difficulty: '중' } });
   };
   const handleQuestE5L = () => {
-    navigate('/questE5L')
+    navigate('/questE5L', { state: { level, difficulty: '하' } });
   };
 
   return (
@@ -34,7 +36,7 @@ const QuestE5 = () => {
         <QE5.Photo>
           <img id="Book3" src={Book3} />
         </QE5.Photo>
-        <QE5.Text>초등 5학년</QE5.Text>
+        <QE5.Text>{level}</QE5.Text>
       </QE5.Profile>
       <QE5.QuestList>퀘스트 목록</QE5.QuestList>
       <QE5.Qe4Hard onClick={handleQuestE5H}>

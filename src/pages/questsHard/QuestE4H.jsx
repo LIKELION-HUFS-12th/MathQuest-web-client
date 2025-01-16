@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import * as E4H from '../../styles/questsHard/QuestE4HStyles';
 import CharacterLogo from '../../assets/images/characterLogo.png';
 import RectangleTop from '../../assets/images/rectangleTop.png';
@@ -12,9 +12,11 @@ import LevelFooter from '../../shared/components/LevelFooter';
 
 const QuestE4H = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const {level, difficulty} = location.state || {};
 
-    const handleQuestPage = () => {
-        navigate('/questPage')
+    const handleQuestPage = (chapter) => {
+        navigate('/questPage', { state: { level, difficulty, chapter } });
     };
 
     return(
@@ -24,14 +26,14 @@ const QuestE4H = () => {
                     <img id="RectangleTop" src={RectangleTop} alt="RectangleTop"/>
                 </E4H.BackgroundImage>
                 <E4H.Header2>
-                    <E4H.Year>초등학교 4학년</E4H.Year>
+                    <E4H.Year>{level}</E4H.Year>
                     <E4H.Logo>
                         <img id="CharacterLogo" src={CharacterLogo}/>
                     </E4H.Logo>
                 </E4H.Header2>
-                <E4H.Level>난이도 (상)</E4H.Level>
+                <E4H.Level>난이도 ({difficulty})</E4H.Level>
             </E4H.Header>
-            <E4H.Level1 onClick={handleQuestPage}>
+            <E4H.Level1 onClick={() => handleQuestPage('세자릿수 덧셈')}>
                 <E4H.Level1Back>
                     <img id="Rectangle" src={Rectangle}/>
                     <E4H.Level1Photo>
@@ -41,7 +43,7 @@ const QuestE4H = () => {
                     <E4H.Level1Content>세자릿수 덧셈</E4H.Level1Content>
                 </E4H.Level1Back>
             </E4H.Level1>
-            <E4H.Level2 onClick={handleQuestPage}>
+            <E4H.Level2 onClick={() => handleQuestPage('곱셈과 나눗셈')}>
                 <E4H.Level2Back>
                     <img id="Rectangle" src={Rectangle}/>
                     <E4H.Level2Photo>
@@ -51,7 +53,7 @@ const QuestE4H = () => {
                     <E4H.Level2Content>곱셈과 나눗셈</E4H.Level2Content>
                 </E4H.Level2Back>
             </E4H.Level2>
-            <E4H.Level3 onClick={handleQuestPage}>
+            <E4H.Level3 onClick={() => handleQuestPage('소수와 분수')}>
                 <E4H.Level3Back>
                     <img id="Rectangle" src={Rectangle}/>
                     <E4H.Level3Photo>
@@ -61,7 +63,7 @@ const QuestE4H = () => {
                     <E4H.Level3Content>소수와 분수</E4H.Level3Content>
                 </E4H.Level3Back>
             </E4H.Level3>
-            <E4H.Level4 onClick={handleQuestPage}>
+            <E4H.Level4 onClick={() => handleQuestPage('시간 계산')}>
                 <E4H.Level4Back>
                     <img id="Rectangle" src={Rectangle}/>
                     <E4H.Level4Photo>

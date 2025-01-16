@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import * as E5L from '../../styles/questsLow/QuestE5LStyles';
 import CharacterLogo from '../../assets/images/characterLogo.png';
 import RectangleTop from '../../assets/images/rectangleTop.png';
@@ -11,11 +11,12 @@ import LevelFooter from '../../shared/components/LevelFooter';
 
 const QuestE5L = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const {level, difficulty} = location.state || {};
 
-    const handleQuestPage = () => {
-        navigate('/questPage')
+    const handleQuestPage = (chapter) => {
+        navigate('/questPage', { state: { level, difficulty, chapter } });
     };
-
     return(
         <E5L.Container>
             <E5L.Header>
@@ -23,14 +24,14 @@ const QuestE5L = () => {
                     <img id="RectangleTop" src={RectangleTop} alt="RectangleTop"/>
                 </E5L.BackgroundImage>
                 <E5L.Header2>
-                    <E5L.Year>초등학교 5학년</E5L.Year>
+                    <E5L.Year>{level}</E5L.Year>
                     <E5L.Logo>
                         <img id="CharacterLogo" src={CharacterLogo}/>
                     </E5L.Logo>
                 </E5L.Header2>
-                <E5L.Level>난이도 (하)</E5L.Level>
+                <E5L.Level>난이도 ({difficulty})</E5L.Level>
             </E5L.Header>
-                <E5L.Level1 onClick={handleQuestPage}>
+                <E5L.Level1 onClick={() => handleQuestPage('분수의 덧셈과 뺄셈')}>
                     <E5L.Level1Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <E5L.Level1Photo>
@@ -40,7 +41,7 @@ const QuestE5L = () => {
                         <E5L.Level1Content>분수의 덧셈과 뺄셈</E5L.Level1Content>
                     </E5L.Level1Back>
                 </E5L.Level1>
-                <E5L.Level2 onClick={handleQuestPage}>
+                <E5L.Level2 onClick={() => handleQuestPage('소수 계산')}>
                     <E5L.Level2Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <E5L.Level2Photo>
@@ -50,7 +51,7 @@ const QuestE5L = () => {
                         <E5L.Level2Content>소수 계산</E5L.Level2Content>
                     </E5L.Level2Back>
                 </E5L.Level2>
-                <E5L.Level3 onClick={handleQuestPage}>
+                <E5L.Level3 onClick={() => handleQuestPage('단위 환산')}>
                     <E5L.Level3Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <E5L.Level3Photo>
