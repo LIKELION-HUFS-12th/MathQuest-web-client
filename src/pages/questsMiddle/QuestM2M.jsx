@@ -9,7 +9,13 @@ import Level2 from '../../assets/images/level2.png';
 import Level3 from '../../assets/images/level3.png';
 import LevelFooter from '../../shared/components/LevelFooter';
 
-const questM2M = () => {
+const QuestM2M = () => {
+    const navigate = useNavigate();
+
+    const handleQuestPage = () => {
+        navigate('/questPage')
+    };
+
     return(
         <M2M.Container>
             <M2M.Header>
@@ -24,7 +30,7 @@ const questM2M = () => {
                 </M2M.Header2>
                 <M2M.Level>난이도 (중)</M2M.Level>
             </M2M.Header>
-                <M2M.Level1>
+                <M2M.Level1 onClick={handleQuestPage}>
                     <M2M.Level1Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <M2M.Level1Photo>
@@ -34,7 +40,7 @@ const questM2M = () => {
                         <M2M.Level1Content>일차방정식</M2M.Level1Content>
                     </M2M.Level1Back>
                 </M2M.Level1>
-                <M2M.Level2>
+                <M2M.Level2 onClick={handleQuestPage}>
                     <M2M.Level2Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <M2M.Level2Photo>
@@ -44,7 +50,7 @@ const questM2M = () => {
                         <M2M.Level2Content>연립방정식</M2M.Level2Content>
                     </M2M.Level2Back>
                 </M2M.Level2>
-                <M2M.Level3>
+                <M2M.Level3 onClick={handleQuestPage}>
                     <M2M.Level3Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <M2M.Level3Photo>
@@ -59,4 +65,4 @@ const questM2M = () => {
     );
 };
 
-export default questM2M;
+export default QuestM2M;

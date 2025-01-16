@@ -9,7 +9,13 @@ import Level2 from '../../assets/images/level2.png';
 import Level3 from '../../assets/images/level3.png';
 import LevelFooter from '../../shared/components/LevelFooter';
 
-const questM1L = () => {
+const QuestM1L = () => {
+    const navigate = useNavigate();
+
+    const handleQuestPage = () => {
+        navigate('/questPage')
+    };
+
     return(
         <M1L.Container>
             <M1L.Header>
@@ -24,7 +30,7 @@ const questM1L = () => {
                 </M1L.Header2>
                 <M1L.Level>난이도 (하)</M1L.Level>
             </M1L.Header>
-                <M1L.Level1>
+                <M1L.Level1 onClick={handleQuestPage}>
                     <M1L.Level1Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <M1L.Level1Photo>
@@ -34,7 +40,7 @@ const questM1L = () => {
                         <M1L.Level1Content>정수와 유리수</M1L.Level1Content>
                     </M1L.Level1Back>
                 </M1L.Level1>
-                <M1L.Level2>
+                <M1L.Level2 onClick={handleQuestPage}>
                     <M1L.Level2Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <M1L.Level2Photo>
@@ -44,7 +50,7 @@ const questM1L = () => {
                         <M1L.Level2Content>비례식과 비례 배분</M1L.Level2Content>
                     </M1L.Level2Back>
                 </M1L.Level2>
-                <M1L.Level3>
+                <M1L.Level3 onClick={handleQuestPage}>
                     <M1L.Level3Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <M1L.Level3Photo>
@@ -59,4 +65,4 @@ const questM1L = () => {
     );
 };
 
-export default questM1L;
+export default QuestM1L;

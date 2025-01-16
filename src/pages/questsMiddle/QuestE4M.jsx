@@ -10,7 +10,13 @@ import Level3 from '../../assets/images/level3.png';
 import Level4 from '../../assets/images/level4.png';
 import LevelFooter from '../../shared/components/LevelFooter';
 
-const questE4M = () => {
+const QuestE4M = () => {
+    const navigate = useNavigate();
+
+    const handleQuestPage = () => {
+        navigate('/questPage')
+    };
+
     return(
         <E4M.Container>
             <E4M.Header>
@@ -25,7 +31,7 @@ const questE4M = () => {
                 </E4M.Header2>
                 <E4M.Level>난이도 (중)</E4M.Level>
             </E4M.Header>
-            <E4M.Level1>
+            <E4M.Level1 onClick={handleQuestPage}>
                 <E4M.Level1Back>
                     <img id="Rectangle" src={Rectangle}/>
                     <E4M.Level1Photo>
@@ -35,7 +41,7 @@ const questE4M = () => {
                     <E4M.Level1Content>세자릿수 덧셈</E4M.Level1Content>
                 </E4M.Level1Back>
             </E4M.Level1>
-            <E4M.Level2>
+            <E4M.Level2 onClick={handleQuestPage}>
                 <E4M.Level2Back>
                     <img id="Rectangle" src={Rectangle}/>
                     <E4M.Level2Photo>
@@ -45,7 +51,7 @@ const questE4M = () => {
                     <E4M.Level2Content>곱셈과 나눗셈</E4M.Level2Content>
                 </E4M.Level2Back>
             </E4M.Level2>
-            <E4M.Level3>
+            <E4M.Level3 onClick={handleQuestPage}>
                 <E4M.Level3Back>
                     <img id="Rectangle" src={Rectangle}/>
                     <E4M.Level3Photo>
@@ -55,7 +61,7 @@ const questE4M = () => {
                     <E4M.Level3Content>소수와 분수</E4M.Level3Content>
                 </E4M.Level3Back>
             </E4M.Level3>
-            <E4M.Level4>
+            <E4M.Level4 onClick={handleQuestPage}>
                 <E4M.Level4Back>
                     <img id="Rectangle" src={Rectangle}/>
                     <E4M.Level4Photo>
@@ -70,4 +76,4 @@ const questE4M = () => {
     );
 };
 
-export default questE4M;
+export default QuestE4M;
