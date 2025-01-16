@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import * as QM3 from '../../styles/quests/QuestM3Styles';
 import QuestHeader from '../../shared/components/QuestHeader';
@@ -13,15 +13,17 @@ import Sun from '../../assets/images/sun.png';
 
 const QuestM3 = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const {level} = location.state || {};
 
     const handleQuestM3H = () => {
-      navigate('/questM3H')
+      navigate('/questM3H', { state: { level, difficulty: '상' } });
     };
     const handleQuestM3M = () => {
-      navigate('/questM3M')
+      navigate('/questM3M', { state: { level, difficulty: '중' } });
     };
     const handleQuestM3L = () => {
-      navigate('/questM3L')
+      navigate('/questM3L', { state: { level, difficulty: '하' } });
     };
 
   return (
@@ -34,7 +36,7 @@ const QuestM3 = () => {
         <QM3.Photo>
           <img id="Graduation" src={Graduation} />
         </QM3.Photo>
-        <QM3.Text>중등 3학년</QM3.Text>
+        <QM3.Text>{level}</QM3.Text>
       </QM3.Profile>
       <QM3.QuestList>퀘스트 목록</QM3.QuestList>
       <QM3.Qe4Hard onClick={handleQuestM3H}>

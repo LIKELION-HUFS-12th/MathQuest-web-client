@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import * as QM2 from '../../styles/quests/QuestM2Styles';
 import QuestHeader from '../../shared/components/QuestHeader';
@@ -13,15 +13,17 @@ import Sun from '../../assets/images/sun.png';
 
 const QuestM2 = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const {level} = location.state || {};
 
     const handleQuestM2H = () => {
-      navigate('/questM2H')
+      navigate('/questM2H', { state: { level, difficulty: '상' } });
     };
     const handleQuestM2M = () => {
-      navigate('/questM2M')
+      navigate('/questM2M', { state: { level, difficulty: '중' } });
     };
     const handleQuestM2L = () => {
-      navigate('/questM2L')
+      navigate('/questM2L', { state: { level, difficulty: '하' } });
     };
 
   return (
@@ -34,7 +36,7 @@ const QuestM2 = () => {
         <QM2.Photo>
           <img id="Note" src={Note} />
         </QM2.Photo>
-        <QM2.Text>중등 2학년</QM2.Text>
+        <QM2.Text>{level}</QM2.Text>
       </QM2.Profile>
       <QM2.QuestList>퀘스트 목록</QM2.QuestList>
       <QM2.Qe4Hard onClick={handleQuestM2H}>

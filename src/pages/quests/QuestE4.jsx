@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import * as QE4 from '../../styles/quests/QuestE4Styles';
 import QuestHeader from '../../shared/components/QuestHeader';
@@ -13,16 +13,18 @@ import Sun from '../../assets/images/sun.png';
 
 const QuestE4 = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const {level} = location.state || {};
 
-    const handleQuestE4H = () => {
-      navigate('/questE4H')
-    };
-    const handleQuestE4M = () => {
-      navigate('/questE4M')
-    };
-    const handleQuestE4L = () => {
-      navigate('/questE4L')
-    };
+  const handleQuestE4H = () => {
+    navigate('/questE4H', { state: { level, difficulty: '상' } });
+  };
+  const handleQuestE4M = () => {
+    navigate('/questE4M', { state: { level, difficulty: '중' } });
+  };
+  const handleQuestE4L = () => {
+    navigate('/questE4L', { state: { level, difficulty: '하' } });
+  };
 
   return (
     <QE4.Container>
@@ -34,7 +36,7 @@ const QuestE4 = () => {
         <QE4.Photo>
           <img id="HeadPhone" src={HeadPhone} />
         </QE4.Photo>
-        <QE4.Text>초등 4학년</QE4.Text>
+        <QE4.Text>{level}</QE4.Text>
       </QE4.Profile>
       <QE4.QuestList>퀘스트 목록</QE4.QuestList>
       <QE4.Qe4Hard onClick={handleQuestE4H}>

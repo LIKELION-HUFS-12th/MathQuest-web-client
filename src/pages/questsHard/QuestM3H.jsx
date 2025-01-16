@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import * as M3H from '../../styles/questsHard/QuestM3HStyles';
 import CharacterLogo from '../../assets/images/characterLogo.png';
 import RectangleTop from '../../assets/images/rectangleTop.png';
@@ -11,10 +11,13 @@ import LevelFooter from '../../shared/components/LevelFooter';
 
 const QuestM3H = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const {level, difficulty} = location.state || {};
 
-    const handleQuestPage = () => {
-        navigate('/questPage')
+    const handleQuestPage = (chapter) => {
+        navigate('/questPage', { state: { level, difficulty, chapter } });
     };
+
     return(
         <M3H.Container>
             <M3H.Header>
@@ -22,14 +25,14 @@ const QuestM3H = () => {
                     <img id="RectangleTop" src={RectangleTop} alt="RectangleTop"/>
                 </M3H.BackgroundImage>
                 <M3H.Header2>
-                    <M3H.Year>중학교 3학년</M3H.Year>
+                    <M3H.Year>{level}</M3H.Year>
                     <M3H.Logo>
                         <img id="CharacterLogo" src={CharacterLogo}/>
                     </M3H.Logo>
                 </M3H.Header2>
-                <M3H.Level>난이도 (상)</M3H.Level>
+                <M3H.Level>난이도 ({difficulty})</M3H.Level>
             </M3H.Header>
-                <M3H.Level1 onClick={handleQuestPage}>
+                <M3H.Level1 onClick={() => handleQuestPage('이차방정식')}>
                     <M3H.Level1Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <M3H.Level1Photo>
@@ -39,7 +42,7 @@ const QuestM3H = () => {
                         <M3H.Level1Content>이차방정식</M3H.Level1Content>
                     </M3H.Level1Back>
                 </M3H.Level1>
-                <M3H.Level2 onClick={handleQuestPage}>
+                <M3H.Level2 onClick={() => handleQuestPage('기본 확률과 통계')}>
                     <M3H.Level2Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <M3H.Level2Photo>
@@ -49,7 +52,7 @@ const QuestM3H = () => {
                         <M3H.Level2Content>기본 확률과 통계</M3H.Level2Content>
                     </M3H.Level2Back>
                 </M3H.Level2>
-                <M3H.Level3 onClick={handleQuestPage}>
+                <M3H.Level3 onClick={() => handleQuestPage('함수의 그래프')}>
                     <M3H.Level3Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <M3H.Level3Photo>

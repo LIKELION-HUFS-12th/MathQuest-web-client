@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import * as E6L from '../../styles/questsLow/QuestE6LStyles';
 import CharacterLogo from '../../assets/images/characterLogo.png';
 import RectangleTop from '../../assets/images/rectangleTop.png';
@@ -11,9 +11,11 @@ import LevelFooter from '../../shared/components/LevelFooter';
 
 const QuestE6L = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const {level, difficulty} = location.state || {};
 
-    const handleQuestPage = () => {
-        navigate('/questPage')
+    const handleQuestPage = (chapter) => {
+        navigate('/questPage', { state: { level, difficulty, chapter } });
     };
 
     return(
@@ -23,14 +25,14 @@ const QuestE6L = () => {
                     <img id="RectangleTop" src={RectangleTop} alt="RectangleTop"/>
                 </E6L.BackgroundImage>
                 <E6L.Header2>
-                    <E6L.Year>초등학교 6학년</E6L.Year>
+                    <E6L.Year>{level}</E6L.Year>
                     <E6L.Logo>
                         <img id="CharacterLogo" src={CharacterLogo}/>
                     </E6L.Logo>
                 </E6L.Header2>
-                <E6L.Level>난이도 (하)</E6L.Level>
+                <E6L.Level>난이도 ({difficulty})</E6L.Level>
             </E6L.Header>
-                <E6L.Level1 onClick={handleQuestPage}>
+                <E6L.Level1 onClick={() => handleQuestPage('분수의 덧셈과 뺄셈')}>
                     <E6L.Level1Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <E6L.Level1Photo>
@@ -40,7 +42,7 @@ const QuestE6L = () => {
                         <E6L.Level1Content>분수의 덧셈과 뺄셈</E6L.Level1Content>
                     </E6L.Level1Back>
                 </E6L.Level1>
-                <E6L.Level2 onClick={handleQuestPage}>
+                <E6L.Level2 onClick={() => handleQuestPage('소수 계산')}>
                     <E6L.Level2Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <E6L.Level2Photo>
@@ -50,7 +52,7 @@ const QuestE6L = () => {
                         <E6L.Level2Content>소수 계산</E6L.Level2Content>
                     </E6L.Level2Back>
                 </E6L.Level2>
-                <E6L.Level3 onClick={handleQuestPage}>
+                <E6L.Level3 onClick={() => handleQuestPage('규칙 찾기')}>
                     <E6L.Level3Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <E6L.Level3Photo>

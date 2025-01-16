@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import * as M1M from '../../styles/questsMiddle/QuestM1MStyles';
 import CharacterLogo from '../../assets/images/characterLogo.png';
 import RectangleTop from '../../assets/images/rectangleTop.png';
@@ -11,9 +11,11 @@ import LevelFooter from '../../shared/components/LevelFooter';
 
 const QuestM1M = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const {level, difficulty} = location.state || {};
 
-    const handleQuestPage = () => {
-        navigate('/questPage')
+    const handleQuestPage = (chapter) => {
+        navigate('/questPage', { state: { level, difficulty, chapter } });
     };
 
     return(
@@ -23,14 +25,14 @@ const QuestM1M = () => {
                     <img id="RectangleTop" src={RectangleTop} alt="RectangleTop"/>
                 </M1M.BackgroundImage>
                 <M1M.Header2>
-                    <M1M.Year>중학교 1학년</M1M.Year>
+                    <M1M.Year>{level}</M1M.Year>
                     <M1M.Logo>
                         <img id="CharacterLogo" src={CharacterLogo}/>
                     </M1M.Logo>
                 </M1M.Header2>
-                <M1M.Level>난이도 (중)</M1M.Level>
+                <M1M.Level>난이도 ({difficulty})</M1M.Level>
             </M1M.Header>
-                <M1M.Level1 onClick={handleQuestPage}>
+                <M1M.Level1 onClick={() => handleQuestPage('정수와 유리수')}>
                     <M1M.Level1Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <M1M.Level1Photo>
@@ -40,7 +42,7 @@ const QuestM1M = () => {
                         <M1M.Level1Content>정수와 유리수</M1M.Level1Content>
                     </M1M.Level1Back>
                 </M1M.Level1>
-                <M1M.Level2 onClick={handleQuestPage}>
+                <M1M.Level2 onClick={() => handleQuestPage('비례식과 비례 배분')}>
                     <M1M.Level2Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <M1M.Level2Photo>
@@ -50,7 +52,7 @@ const QuestM1M = () => {
                         <M1M.Level2Content>비례식과 비례 배분</M1M.Level2Content>
                     </M1M.Level2Back>
                 </M1M.Level2>
-                <M1M.Level3 onClick={handleQuestPage}>
+                <M1M.Level3 onClick={() => handleQuestPage('기본 확률과 통계')}>
                     <M1M.Level3Back>
                         <img id="Rectangle" src={Rectangle}/>
                         <M1M.Level3Photo>
