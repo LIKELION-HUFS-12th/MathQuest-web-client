@@ -12,22 +12,19 @@ const Login = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        // 로그인 요청 (가정)
         try {
             const response = await axios.post('https://mathquestpro.shop/auth/login/', { username, password });
-            // 로그인 성공 시 처리
             console.log(response.data);
-            navigate('/main'); // 메인페이지로 이동
+            navigate('/main');
         } catch (error) {
             console.error('로그인 실패:', error);
-            // 에러 처리
         }
     };
 
     return (
         <L.Container>
-            <L.img1 id="ImageLogo" src={ImageLogo} alt="Logo" />
-            <L.img2 id="TextLogoBlack" src={TextLogoBlack} alt="Text Logo" />
+            <L.ImageLogo src={ImageLogo} alt="Logo" />
+            <L.TextLogo src={TextLogoBlack} alt="Text Logo" />
             <L.Form onSubmit={handleLogin}>
                 <L.InputLabel htmlFor="username">아이디</L.InputLabel>
                 <L.Input 
@@ -48,7 +45,9 @@ const Login = () => {
                 />
                 
                 <L.LoginButton type="submit">Login</L.LoginButton>
-                <L.ForgotPassword>비밀번호를 잊어버리셨나요?</L.ForgotPassword>
+                <L.ForgotPassword>
+                    <L.ForgotPasswordLink href="/forgot-password">비밀번호를 잊어버리셨나요?</L.ForgotPasswordLink>
+                </L.ForgotPassword>
             </L.Form>
         </L.Container>
     );

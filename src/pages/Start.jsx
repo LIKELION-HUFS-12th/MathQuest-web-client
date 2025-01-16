@@ -39,7 +39,7 @@ const Start = () => {
             
             <S.img2 id = "TextLogoBlack" src = {TextLogoBlack} />
             <S.Button onClick={handleLogin}>MATHQUEST 로그인</S.Button>
-            <S.Button onClick={handleHowToUse}>앱 사용 방법</S.Button>
+            <S.Button onClick={handleHowToUse}>회원가입</S.Button>
             {data && <p>{JSON.stringify(data)}</p>} {/* 데이터가 있을 경우 표시 */}
         </S.Container>
     );
