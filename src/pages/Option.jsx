@@ -7,14 +7,10 @@ import SpeechBubble from '../assets/images/speechbubble2.png';
 import Setting from '../assets/images/setting2.png';
 
 const Option = () => {
-    const [isModalOpen, setModalOpen] = useState(false);
+    const navigate = useNavigate();
 
-    const handleSettingsClick = () => {
-        setModalOpen(true);
-    };
-
-    const closeModal = () => {
-        setModalOpen(false);
+    const handleNavigation = (path) => {
+        navigate(path);
     };
 
     return (
@@ -27,36 +23,19 @@ const Option = () => {
                 </O.ProfileText>
             </O.ProfileSection>
             <O.Menu>
-                <O.MenuItem>
+                <O.MenuItem onClick={() => handleNavigation('/main')}>
                     <O.Icon src={Home2} alt="Home" />
                     <O.Label>홈</O.Label>
                 </O.MenuItem>
-                <O.MenuItem>
-                    <O.Icon src={SpeechBubble} alt="Usage Guide" />
+                <O.MenuItem onClick={() => handleNavigation('/howtouse')}>
+                    <O.Icon src={SpeechBubble} alt="사용방법" />
                     <O.Label>사용방법</O.Label>
                 </O.MenuItem>
-                <O.MenuItem onClick={handleSettingsClick}>
-                    <O.Icon src={Setting} alt="Settings" />
+                <O.MenuItem>
+                    <O.Icon src={Setting} alt="설정" />
                     <O.Label>설정</O.Label>
                 </O.MenuItem>
             </O.Menu>
-            {isModalOpen && (
-                <O.ModalOverlay onClick={closeModal}>
-                    <O.ModalContainer onClick={(e) => e.stopPropagation()}>
-                        <O.ModalHeader>more modal</O.ModalHeader>
-                        <O.ModalMenu>
-                            <O.ModalItem>프로필 수정</O.ModalItem>
-                            <O.ModalItem>문의하기</O.ModalItem>
-                            <O.ModalItem>건의하기</O.ModalItem>
-                            <O.ModalItem>리뷰 작성하기</O.ModalItem>
-                            <O.ModalItem>도움말</O.ModalItem>
-                            <O.ModalItem>개발자 소개</O.ModalItem>
-                            <O.ModalItem>로그아웃</O.ModalItem>
-                            <O.ModalItem>회원탈퇴</O.ModalItem>
-                        </O.ModalMenu>
-                    </O.ModalContainer>
-                </O.ModalOverlay>
-            )}
         </O.Container>
     );
 };

@@ -11,6 +11,7 @@ import HowToUse from './pages/HowToUse'; // 앱 사용 방법 컴포넌트 경�
 import QuestHeader from './shared/components/QuestHeader';
 import QuestE4 from './pages/quests/QuestE4';
 import SignUp from './pages/auth/SignUp';
+import AccountCreationComplete from './pages/auth/AccountCreationComplete';
 import Attendance from './pages/Attendance';
 import QuestE5 from './pages/quests/QuestE5';
 import QuestE6 from './pages/quests/QuestE6';
@@ -55,6 +56,7 @@ function App() {
         <Route path="/start" element={<Start />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/accountcreationcomplete" element={<AccountCreationComplete />} />
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/howtouse" element={<HowToUse />} />
         <Route path="/questHeader" element={<QuestHeader />} />

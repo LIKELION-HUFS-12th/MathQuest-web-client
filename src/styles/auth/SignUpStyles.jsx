@@ -173,3 +173,9 @@ export const AgreementText = styled.span`
     }
   }
 `;
+
+export const Message = styled.p`
+  font-size: 0.9rem;
+  color: ${(props) => (props.error ? 'red' : 'green')};
+  margin-top: 0.5rem;
+`;
