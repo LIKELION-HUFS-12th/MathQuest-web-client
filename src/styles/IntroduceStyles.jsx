@@ -24,6 +24,9 @@ export const Logo = styled.img`
   margin-bottom: 20px;
 `;
 
+
+
+
 export const ContactSection = styled.div`
   margin-bottom: 20px;
 `;

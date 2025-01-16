@@ -27,26 +27,43 @@ import NameIcon from '../../assets/images/name.png';
 
 const SignUp = () => {
   const [step, setStep] = useState(1);
-  const [name, setName] = useState('');
-  const [username, setUsername] = useState('');
-  const [password1, setPassword] = useState('');
-  const [password2, setConfirmPassword] = useState('');
-  const [birthdate, setBirthdate] = useState('');
-  const [school, setSchool] = useState('');
-  const [grade, setGrade] = useState('');
-  const [desiredLevel, setDesiredLevel] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    username: '',
+    password1: '',
+    password2: '',
+    birthdate: '',
+    school: '',
+    grade: '',
+  });
   const [showPassword, setShowPassword] = useState(false);
   const [agreementChecked, setAgreementChecked] = useState(false);
   const [usernameCheckMessage, setUsernameCheckMessage] = useState('');
+  const [isUsernameAvailable, setIsUsernameAvailable] = useState(false);
   const navigate = useNavigate();
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
   const handleUsernameCheck = async () => {
     try {
-      const response = await axios.post('auth/username-check/', { username });
-      if (response.data.available) {
+      const response = await axios.post('https://mathquestpro.shop/user/auth/username-check/', {
+        username: formData.username, // username을 요청 본문에 포함
+      });
+
+      console.log(response.data); // 서버 응답 확인
+
+      if (response.data.data.is_available) {
+        setIsUsernameAvailable(true);
         setUsernameCheckMessage('사용할 수 있는 아이디입니다.');
       } else {
-        setUsernameCheckMessage('사용할 수 없는 아이디입니다.');
+        setIsUsernameAvailable(false);
+        setUsernameCheckMessage('이미 사용중인 아이디입니다.');
       }
     } catch (error) {
       console.error(error);
@@ -54,40 +71,88 @@ const SignUp = () => {
     }
   };
 
-  const handleNextStep = () => {
+  const validateForm = () => {
+    const { name, username, password1, password2, birthdate, school, grade } = formData;
+
+    if (!name.trim() || !username.trim()) {
+      alert('이름과 아이디를 입력하세요.');
+      return false;
+    }
+    if (password1.length < 8) {
+      alert('비밀번호는 8자 이상이어야 합니다.');
+      return false;
+    }
+    if (password1 !== password2) {
+      alert('비밀번호가 일치하지 않습니다.');
+      return false;
+    }
     if (!agreementChecked) {
       alert('이용약관에 동의해주세요.');
-      return;
+      return false;
     }
+    if (step === 2) {
+      if (!birthdate.trim()) {
+        alert('생년월일을 입력해주세요.');
+        return false;
+      }
+      if (!school.trim()) {
+        alert('학교를 입력해주세요.');
+        return false;
+      }
+      if (!grade.trim()) {
+        alert('학년을 입력해주세요.');
+        return false;
+      }
+    }
+    return true;
+  };
 
+  const handleNextStep = () => {
     if (step === 1) {
-      setStep(2);
+      if (validateForm() && isUsernameAvailable) {
+        setStep(2);
+      } else {
+        alert('아이디 중복을 확인하고, 모든 필드를 입력하세요.');
+      }
     } else {
       handleSignUp();
     }
   };
 
   const handleSignUp = async () => {
-    if (password1 !== password2) {
-      alert('비밀번호가 일치하지 않습니다.');
+    // 아이디 중복 확인이 완료되었는지 체크
+    if (!isUsernameAvailable) {
+      alert('아이디 중복을 확인해주세요.');
+      return;
+    }
+
+    // 비밀번호와 아이디가 유효한지 먼저 확인
+    if (!formData.password1 || !formData.password2) {
+      alert('비밀번호와 비밀번호 확인을 입력해주세요.');
       return;
     }
 
     try {
-      const response = await axios.post('auth/registration/', {
-        name,
-        username,
-        password1,
-        password2,
-        birthdate,
-        school,
-        grade,
+      const response = await axios.post('https://mathquestpro.shop/auth/registration/', {
+        name: formData.name,
+        username: formData.username,
+        password1: formData.password1,
+        password2: formData.password2,
+        birthdate: formData.birthdate,
+        school: formData.school,
+        grade: formData.grade,
       });
-      if (response.status === 200) {
-        navigate('/main');
+
+      console.log(response); // 응답 내용을 확인
+
+      if (response.status === 201) {
+        console.log("회원가입 성공, 페이지 이동");
+        navigate('/accountcreationcomplete');
+      } else {
+        console.log("회원가입 응답 상태가 201이 아닙니다.", response.status);
       }
     } catch (error) {
-      console.error(error);
+      console.error('회원가입 오류:', error.response?.data || error.message);
       alert('회원가입에 실패했습니다.');
     }
   };
@@ -98,18 +163,20 @@ const SignUp = () => {
 
   return (
     <Container>
-      <img id="ImageLogo" src={ImageLogo} alt="Logo"/>
+      <img id="ImageLogo" src={ImageLogo} alt="Logo" />
       <Illustration />
       <Title>회원가입</Title>
       <Subtitle>계정 생성 중...</Subtitle>
+
       {step === 1 ? (
         <>
           <InputContainer>
             <Input
               type="text"
+              name="name"
               placeholder="이름"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={formData.name}
+              onChange={handleInputChange}
             />
             <StyledNameIcon src={NameIcon} alt="Name Icon" />
           </InputContainer>
@@ -117,19 +184,28 @@ const SignUp = () => {
           <InputContainer>
             <Input
               type="text"
+              name="username"
               placeholder="아이디"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={formData.username}
+              onChange={handleInputChange}
             />
-            <CheckButton onClick={handleUsernameCheck}>중복확인</CheckButton>
+            <CheckButton onClick={handleUsernameCheck} disabled={!formData.username}>
+              중복확인
+            </CheckButton>
           </InputContainer>
+          {usernameCheckMessage && (
+            <Message style={{ color: isUsernameAvailable ? 'green' : 'red' }}>
+              {usernameCheckMessage}
+            </Message>
+          )}
 
           <InputContainer>
             <Input
               type={showPassword ? 'text' : 'password'}
+              name="password1"
               placeholder="비밀번호"
-              value={password1}
-              onChange={(e) => setPassword(e.target.value)}
+              value={formData.password1}
+              onChange={handleInputChange}
             />
             <PasswordEyeIcon
               src={showPassword ? EyeOn : EyeOff}
@@ -141,9 +217,10 @@ const SignUp = () => {
           <InputContainer>
             <Input
               type="password"
+              name="password2"
               placeholder="비밀번호 확인"
-              value={password2}
-              onChange={(e) => setConfirmPassword(e.target.value)}
+              value={formData.password2}
+              onChange={handleInputChange}
             />
           </InputContainer>
 
@@ -163,41 +240,38 @@ const SignUp = () => {
           <InputContainer>
             <Input
               type="text"
-              placeholder="생년월일 (EX. 2004.01.01)"
-              value={birthdate}
-              onChange={(e) => setBirthdate(e.target.value)}
+              name="birthdate"
+              placeholder="생년월일 (EX. 040101)"
+              value={formData.birthdate}
+              onChange={handleInputChange}
             />
           </InputContainer>
           <InputContainer>
             <Input
               type="text"
-              placeholder="학교 (EX. 수학초등학교)"
-              value={school}
-              onChange={(e) => setSchool(e.target.value)}
+              name="school"
+              placeholder="학교 (EX. 초등학교)"
+              value={formData.school}
+              onChange={handleInputChange}
             />
           </InputContainer>
           <InputContainer>
             <Input
               type="text"
-              placeholder="학년 선택"
-              value={grade}
-              onChange={(e) => setGrade(e.target.value)}
-            />
-          </InputContainer>
-          <InputContainer>
-            <Input
-              type="text"
-              placeholder="학습 희망 단계 선택"
-              value={desiredLevel}
-              onChange={(e) => setDesiredLevel(e.target.value)}
+              name="grade"
+              placeholder="학년 (EX. 3학년)"
+              value={formData.grade}
+              onChange={handleInputChange}
             />
           </InputContainer>
         </>
       )}
+
       <Button onClick={handleNextStep}>{step === 1 ? '다음' : '완료'}</Button>
+
       <LinkContainer>
         <Text>이미 아이디가 존재합니까?</Text>
-        <Link> 로그인하기</Link>
+        <Link to="/login"> 로그인하기</Link>
       </LinkContainer>
     </Container>
   );
