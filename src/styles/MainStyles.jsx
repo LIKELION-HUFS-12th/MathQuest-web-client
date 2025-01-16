@@ -62,6 +62,7 @@ export const GoalButton = styled.div`
   z-index: 2;
   top: 45%;
   left: 15%;
+  cursor: pointer;
 `;
 
 export const GoalButtonBack = styled.div`

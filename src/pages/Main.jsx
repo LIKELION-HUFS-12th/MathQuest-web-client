@@ -21,6 +21,9 @@ const Main = () => {
 
   const navigate = useNavigate();
   
+    const handleLearnAgain = () => {
+      navigate(`/learnAgain`)
+    };
     const handleQuestE4 = () => {
       navigate('/questE4')
     };
@@ -68,11 +71,11 @@ const Main = () => {
         <M.Goal>
           <M.GoalBack>
             <img id="Rectangle" src={Rectangle} />
-            <M.GoalText>오늘 학습해야 할 목표</M.GoalText>
+            <M.GoalText>오늘 다시 도전할 목표</M.GoalText>
             <M.GoalButton>
-              <M.GoalButtonBack>
+              <M.GoalButtonBack onClick={handleLearnAgain}>
                 <img id="Rectangle4" src={Rectangle4} />
-                <M.GoalButtonText>퀘스트 진행하기</M.GoalButtonText>
+                <M.GoalButtonText>오답 진행하기</M.GoalButtonText>
                 <M.GoalButtonArrow>
                   <img id="LeftArrow" src={LeftArrow} />
                 </M.GoalButtonArrow>
