@@ -18,6 +18,8 @@ export const Container = styled.div`
 export const MenuButton = styled.div`
   position: absolute;
   top: 13px;
+  cursor: pointer;
+  z-index: 1;
 `;
 
 export const Menubar = styled.div`

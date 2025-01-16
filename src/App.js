@@ -11,7 +11,6 @@ import HowToUse from './pages/HowToUse'; // 앱 사용 방법 컴포넌트 경�
 import QuestHeader from './shared/components/QuestHeader';
 import QuestE4 from './pages/quests/QuestE4';
 import SignUp from './pages/auth/SignUp';
-import Report from './pages/LearningReport';
 import Attendance from './pages/Attendance';
 import QuestE5 from './pages/quests/QuestE5';
 import QuestE6 from './pages/quests/QuestE6';
@@ -36,6 +35,7 @@ import QuestM2L from './pages/questsLow/QuestM2L';
 import QuestM3H from './pages/questsHard/QuestM3H';
 import QuestM3M from './pages/questsMiddle/QuestM3M';
 import QuestM3L from './pages/questsLow/QuestM3L';
+import QuestPage from './pages/QuestPage';
 import LearnAgain from './pages/LearnAgain';
 import Profile from './pages/auth/Profile';
 import SignOut from './pages/auth/SignOut';
@@ -82,6 +82,7 @@ function App() {
         <Route path="/questM3H" element={<QuestM3H/>}/>
         <Route path="/questM3M" element={<QuestM3M/>}/>
         <Route path="/questM3L" element={<QuestM3L/>}/>
+        <Route path="/questPage" element={<QuestPage/>}/>
         <Route path="/learnAgain" element={<LearnAgain/>}/>
         <Route path="/attendance" element={<Attendance />} />
         <Route path="/introduce" element={<Introduce />} />

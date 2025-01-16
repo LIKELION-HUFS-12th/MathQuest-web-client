@@ -85,6 +85,7 @@ export const Level1 = styled.div`
   top: 40%;
   padding: 0;
   margin-top: -8%;
+  cursor: pointer;
 `;
 
 export const Level1Back = styled.div`
@@ -129,6 +130,7 @@ export const Level2 = styled.div`
   top: 40%;
   padding: 0;
   margin-top: 27%;
+  cursor: pointer;
 `;
 
 export const Level2Back = styled.div`
@@ -173,6 +175,7 @@ export const Level3 = styled.div`
   top: 39%;
   padding: 0;
   margin-top: 66%;
+  cursor: pointer;
 `;
 
 export const Level3Back = styled.div`
