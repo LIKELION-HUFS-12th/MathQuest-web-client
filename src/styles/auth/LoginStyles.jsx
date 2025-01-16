@@ -1,76 +1,85 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  position: relative;
-  margin: 0 auto;
-  width: 393px;
-  height: 100vh;
-  min-height: 100vh;
-  overflow: hidden;
-  background-color: #f5f5f5;
-  padding: 0;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+    position: relative;
+    margin: 0 auto;
+    width: 393px;
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 `;
 
-
-export const img1 = styled.img`
-    max-width: 150px; /* 최대 너비 지정 */
+export const ImageLogo = styled.img`
+    width: 150px;
     height: auto;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
-
+    margin-bottom: 60px;
 `;
 
-export const img2 = styled.img`
-    max-width: 200px; /* 최대 너비 지정 */
+export const TextLogo = styled.img`
+    width: 230px;
     height: auto;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    margin-bottom: 70px;
+    margin-bottom: 350px;
 `;
 
 export const Form = styled.form`
-    background-color: #007bff;
-    border-radius: 10px;
+    background-color: #376AED;
+    border-radius: 20px 20px 0 0;
     padding: 20px;
-    width: 300px;
+    width: 350px;
+    height: 350px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
 `;
 
 export const InputLabel = styled.label`
     color: white;
+    font-weight: 700;
     margin-bottom: 10px;
-    margin-left: 5px;
-    display: flex;
+    display: block;
+    text-align: left;
+    margin-left: 10px;
 `;
 
 export const Input = styled.input`
-    width: 100%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 5px;
+    width: 90%;
+    padding: 10px 0;
     border: none;
-    margin-bottom: 15px;
-    display: flex;
+    border-bottom: 1px solid white;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    background-color: transparent;
+    color: white;
+    font-weight: 500;
+    &::placeholder {
+        color: white;
+    }
+    &:focus {
+        outline: none;
+    }
 `;
 
 export const LoginButton = styled.button`
-    width: 100%;
+    width: 95%;
+    height: 60px;
     padding: 10px;
-    background-color: #0056b3;
+    background-color: #2C53BA;
     border: none;
     border-radius: 5px;
     color: white;
     font-size: 16px;
     cursor: pointer;
+    margin-top: 20px;
     &:hover {
         background-color: #004494;
     }
@@ -78,8 +87,18 @@ export const LoginButton = styled.button`
 
 export const ForgotPassword = styled.p`
     color: white;
-    text-align: flex-start;
+    margin-top: 15px;
+    text-align: left;
+    margin-left: 10px;
+    font-weight: 700;
     margin-top: 20px;
-    margin-left: 5px;
-    display: flex;
 `;
+
+export const ForgotPasswordLink = styled.a`
+    color: white;
+    text-decoration: underline;
+    &:hover {
+        text-decoration: none;
+    }
+`;
+
