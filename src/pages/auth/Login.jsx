@@ -14,8 +14,19 @@ const Login = () => {
         e.preventDefault();
         try {
             const response = await axios.post('https://mathquestpro.shop/auth/login/', { username, password });
-            console.log(response.data);
-            navigate('/main');
+            console.log('서버 응답:', response.data); 
+
+            const { access, refresh, user } = response.data;
+            if (access) {
+                localStorage.setItem('authToken', access);
+                localStorage.setItem('refreshToken', refresh);
+                localStorage.setItem('userInfo', JSON.stringify(user));
+                
+                console.log('로그인 성공, 토큰 및 사용자 정보 저장 완료');
+                navigate('/main');
+            } else {
+                console.error('access 토큰이 반환되지 않았습니다.');
+            }
         } catch (error) {
             console.error('로그인 실패:', error);
         }
