@@ -16,15 +16,31 @@ const QuestE6 = () => {
   const location = useLocation();
   const {level} = location.state || {};
 
-    const handleQuestE6H = () => {
-      navigate('/questE6H', { state: { level, difficulty: '상' } });
-    };
-    const handleQuestE6M = () => {
-      navigate('/questE6M', { state: { level, difficulty: '중' } });
-    };
-    const handleQuestE6L = () => {
-      navigate('/questE6L', { state: { level, difficulty: '하' } });
-    };
+  if (!level) {
+    console.error('No state passed to QuestE6');
+    navigate('/'); 
+    return null;
+  }
+
+  console.log('Received level:', level);
+
+  const handleQuestE6H = () => {
+    const difficulty = 3;
+    console.log(`Navigating to QuestE6H with level: ${level}, difficulty: ${difficulty}`);
+    navigate('/questE6H', { state: { level, difficulty } });
+  };
+
+  const handleQuestE6M = () => {
+    const difficulty = 2;
+    console.log(`Navigating to QuestE6M with level: ${level}, difficulty: ${difficulty}`);
+    navigate('/questE6M', { state: { level, difficulty } });
+  };
+
+  const handleQuestE6L = () => {
+    const difficulty = 1;
+    console.log(`Navigating to QuestE6L with level: ${level}, difficulty: ${difficulty}`);
+    navigate('/questE6L', { state: { level, difficulty } });
+  };
   
   return (
     <QE6.Container>

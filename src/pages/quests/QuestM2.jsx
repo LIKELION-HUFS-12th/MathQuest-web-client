@@ -16,15 +16,31 @@ const QuestM2 = () => {
   const location = useLocation();
   const {level} = location.state || {};
 
-    const handleQuestM2H = () => {
-      navigate('/questM2H', { state: { level, difficulty: '상' } });
-    };
-    const handleQuestM2M = () => {
-      navigate('/questM2M', { state: { level, difficulty: '중' } });
-    };
-    const handleQuestM2L = () => {
-      navigate('/questM2L', { state: { level, difficulty: '하' } });
-    };
+  if (!level) {
+    console.error('No state passed to QuestM2');
+    navigate('/'); 
+    return null;
+  }
+
+  console.log('Received level:', level);
+
+  const handleQuestM2H = () => {
+    const difficulty = 3;
+    console.log(`Navigating to QuestM2H with level: ${level}, difficulty: ${difficulty}`);
+    navigate('/questM2H', { state: { level, difficulty } });
+  };
+
+  const handleQuestM2M = () => {
+    const difficulty = 2;
+    console.log(`Navigating to QuestM2M with level: ${level}, difficulty: ${difficulty}`);
+    navigate('/questM2M', { state: { level, difficulty } });
+  };
+
+  const handleQuestM2L = () => {
+    const difficulty = 1;
+    console.log(`Navigating to QuestM2L with level: ${level}, difficulty: ${difficulty}`);
+    navigate('/questM2L', { state: { level, difficulty } });
+  };
 
   return (
     <QM2.Container>
