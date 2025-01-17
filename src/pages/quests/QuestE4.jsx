@@ -16,14 +16,30 @@ const QuestE4 = () => {
   const location = useLocation();
   const {level} = location.state || {};
 
+  if (!level) {
+    console.error('No state passed to QuestE4');
+    navigate('/'); 
+    return null;
+  }
+
+  console.log('Received level:', level);
+
   const handleQuestE4H = () => {
-    navigate('/questE4H', { state: { level, difficulty: '상' } });
+    const difficulty = 3;
+    console.log(`Navigating to QuestE4H with level: ${level}, difficulty: ${difficulty}`);
+    navigate('/questE4H', { state: { level, difficulty } });
   };
+
   const handleQuestE4M = () => {
-    navigate('/questE4M', { state: { level, difficulty: '중' } });
+    const difficulty = 2;
+    console.log(`Navigating to QuestE4M with level: ${level}, difficulty: ${difficulty}`);
+    navigate('/questE4M', { state: { level, difficulty } });
   };
+
   const handleQuestE4L = () => {
-    navigate('/questE4L', { state: { level, difficulty: '하' } });
+    const difficulty = 1;
+    console.log(`Navigating to QuestE4L with level: ${level}, difficulty: ${difficulty}`);
+    navigate('/questE4L', { state: { level, difficulty } });
   };
 
   return (

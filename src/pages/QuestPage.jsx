@@ -8,32 +8,34 @@ import rectangleQuest from '../assets/images/rectangleQuest.png';
 const QuestPage = () => {
     const location = useLocation();
     const { level, difficulty, chapter } = location.state || {};
-    const [questionData, setQuestionData] = useState(null);
+    const [questions, setQuestions] = useState([]);
+    const [currentIndex, setCurrentIndex] = useState(0);
     const [selectedOption, setSelectedOption] = useState(null);
 
     useEffect(() => {
         if (level && difficulty && chapter) {
-            const token = localStorage.getItem('authToken'); // 토큰 가져오기
+            const token = localStorage.getItem('authToken');
             if (!token) {
                 console.error('No authentication token found');
                 return;
             }
     
-            console.log('Authorization Header:', `Bearer ${token}`);
-            console.log('API URL:', `https://mathquestpro.shop/problem/level_chapter_difficulty/${level}/${chapter}/${difficulty}/`);
-            
+            const encodedURL = `https://mathquestpro.shop/problem/level_chapter_difficulty/${encodeURIComponent(level)}/${encodeURIComponent(chapter)}/${encodeURIComponent(difficulty)}/`;
+            console.log('Encoded URL:', encodedURL);
+            console.log('Auth Token:', token);
+    
             axios
-                .get(`https://mathquestpro.shop/problem/level_chapter_difficulty/${level}/${chapter}/${difficulty}/`, {
+                .get(encodedURL, {
                     headers: {
-                        Authorization: `Bearer ${token}`, // 인증 헤더 추가
+                        Authorization: `Bearer ${token}`,
                     },
                 })
                 .then((response) => {
+                    console.log('API Response:', response.data);
                     if (response.data.code === 200) {
-                        console.log('API Response:', response.data);
-                        setQuestionData(response.data.data[0]); // 첫 번째 문제 가져오기
+                        setQuestions(response.data.data);
                     } else {
-                        console.error('Unexpected response code:', response.data.code);
+                        console.warn('No questions available:', response.data.msg);
                     }
                 })
                 .catch((error) => {
@@ -44,6 +46,8 @@ const QuestPage = () => {
     
     
 
+    const currentQuestion = questions[currentIndex];
+
     const handleOptionClick = (option) => {
         setSelectedOption(option);
         console.log(`Selected Option: ${option}`);
@@ -51,42 +55,42 @@ const QuestPage = () => {
 
     const handleAnswerSubmit = () => {
         console.log(`Submitted answer: ${selectedOption}`);
+        if (currentIndex < questions.length - 1) {
+            setCurrentIndex(currentIndex + 1);
+            setSelectedOption(null);
+        } else {
+            console.log('모든 문제를 완료했습니다.');
+        }
     };
-
-    const options = questionData
-        ? [
-            questionData.choice1,
-            questionData.choice2,
-            questionData.choice3,
-            questionData.choice4,
-        ]
-        : [];
 
     return (
         <QP.Container>
-            <QuestPageHeader/>
+            <QuestPageHeader />
             <QP.Content>
                 <QP.Quest>
                     <QP.QuestBack>
-                        <img id="rectangleQuest" src={rectangleQuest}/>
+                        <img id="rectangleQuest" src={rectangleQuest} alt="Background" />
                     </QP.QuestBack>
                     <QP.QuestText>
-                        {questionData ? questionData.question : '문제를 불러오는 중...'}
+                        {currentQuestion ? currentQuestion.question : '문제를 불러오는 중...'}
                     </QP.QuestText>
                 </QP.Quest>
                 <QP.Options>
-                    {options.map((option, index) => (
-                        <QP.Option
-                            key={index}
-                            onClick={() => handleOptionClick(index + 1)} // 선택 시 실행
-                            isSelected={selectedOption === index + 1} // 선택 상태 전달
-                        >
-                            {option}
-                        </QP.Option>
-                    ))}
+                    {currentQuestion &&
+                        [currentQuestion.choice1, currentQuestion.choice2, currentQuestion.choice3, currentQuestion.choice4].map(
+                            (option, index) => (
+                                <QP.Option
+                                    key={index}
+                                    onClick={() => handleOptionClick(index + 1)}
+                                    isSelected={selectedOption === index + 1}
+                                >
+                                    {option}
+                                </QP.Option>
+                            )
+                        )}
                 </QP.Options>
                 <QP.AnswerButton onClick={handleAnswerSubmit}>
-                    정답 제출하기
+                    {currentIndex < questions.length - 1 ? '다음 문제' : '완료'}
                 </QP.AnswerButton>
             </QP.Content>
         </QP.Container>

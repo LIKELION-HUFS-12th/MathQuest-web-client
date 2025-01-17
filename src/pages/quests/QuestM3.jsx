@@ -16,15 +16,32 @@ const QuestM3 = () => {
   const location = useLocation();
   const {level} = location.state || {};
 
-    const handleQuestM3H = () => {
-      navigate('/questM3H', { state: { level, difficulty: '상' } });
-    };
-    const handleQuestM3M = () => {
-      navigate('/questM3M', { state: { level, difficulty: '중' } });
-    };
-    const handleQuestM3L = () => {
-      navigate('/questM3L', { state: { level, difficulty: '하' } });
-    };
+  if (!level) {
+    console.error('No state passed to QuestM3');
+    navigate('/'); 
+    return null;
+  }
+
+  console.log('Received level:', level);
+
+  const handleQuestM3H = () => {
+    const difficulty = 3;
+    console.log(`Navigating to QuestM3H with level: ${level}, difficulty: ${difficulty}`);
+    navigate('/questM3H', { state: { level, difficulty } });
+  };
+
+  const handleQuestM3M = () => {
+    const difficulty = 2;
+    console.log(`Navigating to QuestM3M with level: ${level}, difficulty: ${difficulty}`);
+    navigate('/questM3M', { state: { level, difficulty } });
+  };
+
+  const handleQuestM3L = () => {
+    const difficulty = 1;
+    console.log(`Navigating to QuestM3L with level: ${level}, difficulty: ${difficulty}`);
+    navigate('/questM3L', { state: { level, difficulty } });
+  };
+
 
   return (
     <QM3.Container>
