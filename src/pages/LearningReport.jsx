@@ -20,7 +20,7 @@ const LearningReport = () => {
 
   useEffect(() => {
     axios
-      .get("problem/reports/weekly/")
+      .get("https://mathquestpro.shop/problem/reports/weekly/")
       .then((response) => {
         const { correct, incorrect } = response.data.data;
 
