@@ -276,8 +276,8 @@ const SignUp = () => {
       <Button onClick={handleNextStep}>{step === 1 ? '다음' : '완료'}</Button>
 
       <LinkContainer>
-        <Text>이미 아이디가 존재합니까?</Text>
-        <Link to="/login"> 로그인하기</Link>
+        <Text>이미 아이디가 존재합니까? </Text>
+        <Link href="/login">로그인</Link>
       </LinkContainer>
     </Container>
   );

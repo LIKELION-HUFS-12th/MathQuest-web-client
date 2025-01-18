@@ -13,7 +13,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* 위로 올리기 위해 flex-start로 변경 */
   text-align: center;
 `;          
 
@@ -53,21 +53,23 @@ export const Button = styled.button`
   padding: 15px;
   border-radius: 10px;
   font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
   width: 100%;
   max-width: 280px;
   margin: 5px;
   background-color: #376AED;
   border-color: #376AED;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* 애니메이션 추가 */
 
   &:first-child {
     background-color: #FAFAFC;
     color: white;
-    transition: background-color 0.3s ease, transform 0.2s;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* hover 시 transform을 추가 */
 
     &:hover {
       background-color: #ff0000;
-      transform: scale(1.05);
+      transform: scale(1.05); /* 첫 번째 버튼에도 크기 변경 */
     }
   }
 
@@ -76,8 +78,8 @@ export const Button = styled.button`
     color: #333;
 
     &:hover {
-      background-color: #ff0000;
-      transform: scale(1.05);
+      background-color: transparent; /* 배경을 투명으로 변경 */
+      transform: scale(1.05); /* 두 번째 버튼 크기 변경 */
     }
   }
 `;
