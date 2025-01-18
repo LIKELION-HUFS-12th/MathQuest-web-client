@@ -81,8 +81,9 @@ export const Icon = styled.img`
 
 export const Label = styled.div`
     font-size: 16px;
-    font-weigt: bold;
+    font-weight: 700;
     color: white;
+    
 `;
 
 export const ModalOverlay = styled.div`
@@ -101,12 +102,11 @@ export const ModalOverlay = styled.div`
 export const ModalContainer = styled.div`
     background: white;
     border-radius: 12px;
-    width: 300px;
+    width: 150px;
     padding: 16px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    
 `;
 
 export const ModalHeader = styled.div`
@@ -128,8 +128,18 @@ export const ModalItem = styled.div`
     display: flex;
     align-items: center;
     padding: 8px 0;
-
+    
     &:hover {
         color: #376AED;
     }
+`;
+
+
+
+export const ModalIcon = styled.img`
+  width: 20px; // Adjust the size of the icon
+  height: 20px; // Adjust the size of the icon
+  margin-right: 10px; // Space between the icon and the text
+  vertical-align: middle; // Align the icon vertically with the text
+  margin-right:20px;
 `;
