@@ -28,18 +28,18 @@ const Start = () => {
         navigate('/login'); // 로그인 페이지로 이동
     };
 
-    const handleHowToUse = () => {
-        // 도움말 버튼 클릭 시 처리
-        navigate('/howtouse'); // 도움말 페이지로 이동
+    const handleSignUp = () => {
+        // 회원가입 버튼 클릭 시 처리
+        navigate('/signup'); // 회원가입 페이지로 이동
     };
 
     return (
         <S.Container>
-            <ImageWrapper><S.img1 id = "ImageLogo" src = {ImageLogo} /></ImageWrapper>
+            <ImageWrapper><S.img1 id="ImageLogo" src={ImageLogo} /></ImageWrapper>
             
-            <S.img2 id = "TextLogoBlack" src = {TextLogoBlack} />
+            <S.img2 id="TextLogoBlack" src={TextLogoBlack} />
             <S.Button onClick={handleLogin}>MATHQUEST 로그인</S.Button>
-            <S.Button onClick={handleHowToUse}>회원가입</S.Button>
+            <S.Button onClick={handleSignUp}>회원가입</S.Button>
             {data && <p>{JSON.stringify(data)}</p>} {/* 데이터가 있을 경우 표시 */}
         </S.Container>
     );
