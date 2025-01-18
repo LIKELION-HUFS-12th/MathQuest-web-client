@@ -128,6 +128,16 @@ export const LinkContainer = styled.div`
   margin-top: 20px;
   text-align: center;
   margin-bottom: 30px;
+
+  a {
+    color: #FF3951; /* 링크 색상 */
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover {
+      color: #0056b3; /* 호버 시 색상 */
+    }
+  }
 `;
 
 export const Text = styled.span`

@@ -18,12 +18,12 @@ const Login = () => {
 
             const { access, refresh, user } = response.data;
             if (access) {
-                localStorage.setItem('authToken', access);
-                localStorage.setItem('refreshToken', refresh);
-                localStorage.setItem('userInfo', JSON.stringify(user));
-                
+                localStorage.setItem('authToken', access); // Access token 저장
+                localStorage.setItem('refreshToken', refresh); // Refresh token 저장
+                localStorage.setItem('userInfo', JSON.stringify(user)); // 사용자 정보 저장
+
                 console.log('로그인 성공, 토큰 및 사용자 정보 저장 완료');
-                navigate('/main');
+                navigate('/main'); // 로그인 성공 후 대시보드로 이동
             } else {
                 console.error('access 토큰이 반환되지 않았습니다.');
             }

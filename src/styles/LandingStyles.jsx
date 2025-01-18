@@ -15,6 +15,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
+  cursor: pointer;  /* 클릭 가능하게 변경 */
 `;
 
 export const img = styled.img`
@@ -23,3 +24,23 @@ export const img = styled.img`
   margin: 0 auto;
 `;
 
+export const ImageWrapper = styled.div`
+  margin-bottom: 20px;
+`;
+
+export const ImageLogo = styled.img`
+  width: 200px;
+  height: auto;
+`;
+
+export const Title = styled.h1`
+  font-size: 24px;
+  color: #333;
+  margin-top: 20px;
+`;
+
+export const Subtitle = styled.p`
+  font-size: 16px;
+  color: #777;
+  margin-top: 10px;
+`;

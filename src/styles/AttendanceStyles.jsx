@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
+// 달력 컨테이너
 export const CalendarContainer = styled.div`
-  background-color: #fef9c3; /* 밝은 노란색 배경 */
+  background-color: #fef9c3;
   position: relative;
   margin: 0 auto;
   width: 393px;
@@ -18,7 +19,7 @@ export const CalendarContainer = styled.div`
   text-align: center;
 `;
 
-
+// 날짜 표시 부분
 export const DateDisplay = styled.div`
   display: flex;
   justify-content: space-between;
@@ -27,7 +28,7 @@ export const DateDisplay = styled.div`
   margin-bottom: 20px;
 
   button {
-    background-color: #38bdf8; /* 하늘색 */
+    background-color: #38bdf8;
     color: white;
     border: none;
     padding: 8px 12px;
@@ -45,98 +46,99 @@ export const DateDisplay = styled.div`
   span {
     font-size: 20px;
     font-weight: bold;
-    color: #1e293b; /* 짙은 네이비 */
+    color: #1e293b;
   }
 `;
 
+// 달력을 감싸는 박스 추가
+export const CalendarBox = styled.div`
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  width: 100%;
+  max-width: 380px;
+  margin-top: 20px;
+`;
+
+// 달력을 감싸는 박스
+export const CalendarWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 380px;
+`;
+
+// 요일 행
+export const WeekdayRow = styled.div`
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  width: 100%;
+  background-color: #d1d5db;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  text-align: center;
+  font-weight: bold;
+  color: #111827;
+`;
+
+// 요일 셀
+export const WeekdayCell = styled.div`
+  padding: 8px 0;
+  background-color: #e5e7eb;
+`;
+
+// 달력 그리드
 export const CalendarGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 8px;
   width: 100%;
-
-  button {
-    width: 100%;
-    aspect-ratio: 1 / 1; /* 정사각형 */
-    border: 2px solid #d1d5db;
-    border-radius: 10px;
-    background-color: white;
-    cursor: pointer;
-    font-size: 14px;
-    color: #111827;
-    font-weight: bold;
-
-    &:hover {
-      background-color: #fef08a; /* 연한 노란색 */
-    }
-
-    &.today {
-      background-color: #86efac; /* 연한 초록색 */
-      color: white;
-      font-weight: bold;
-    }
-
-    &.selected {
-      border: 2px solid #f87171; /* 연한 빨간색 */
-      background-color: #fca5a5; /* 밝은 빨간색 */
-      color: white;
-    }
-  }
+  margin-top: 10px;
 `;
 
-export const StatsContainer = styled.div`
-  margin-top: 20px;
+// 각 날짜 버튼
+export const DateCell = styled.div`
   display: flex;
   justify-content: center;
-  gap: 20px;
-
-  .stat-box {
-    padding: 10px 15px;
-    border-radius: 10px;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-
-    h3 {
-      font-size: 18px;
-      font-weight: bold;
-      margin: 0;
-    }
-
-    p {
-      font-size: 16px;
-      color: #1e293b;
-      margin: 5px 0 0;
-    }
-
-    &.correct {
-      border: 2px solid #4ade80; /* 초록색 */
-    }
-
-    &.incorrect {
-      border: 2px solid #f87171; /* 빨간색 */
-    }
-  }
+  align-items: center;
+  position: relative;
 `;
 
-export const ButtonGroup = styled.div`
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
+// 날짜 버튼 스타일
+export const DateButton = styled.button`
   width: 100%;
-  max-width: 400px;
-`;
-
-export const NavButton = styled.button`
-  background-color: #3b82f6; /* 파란색 */
-  color: white;
-  border: none;
-  padding: 10px 15px;
+  aspect-ratio: 1 / 1;
+  border: 2px solid #d1d5db;
   border-radius: 10px;
+  background-color: white;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
+  color: #111827;
+  font-weight: bold;
+  transition: background-color 0.3s;
 
   &:hover {
-    background-color: #2563eb;
+    background-color: #fef08a;
   }
+
+  &.today {
+    background-color: #86efac;
+    color: white;
+  }
+
+  &.attended {
+    background-color: #c7e8c3; // 출석한 날에 대한 배경색
+    color: white;
+  }
+`;
+
+// 출석 마크 (도장)
+export const AttendanceMark = styled.img`
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
 `;
