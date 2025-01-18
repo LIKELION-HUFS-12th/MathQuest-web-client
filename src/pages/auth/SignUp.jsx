@@ -40,7 +40,12 @@ const SignUp = () => {
   const [agreementChecked, setAgreementChecked] = useState(false);
   const [usernameCheckMessage, setUsernameCheckMessage] = useState('');
   const [isUsernameAvailable, setIsUsernameAvailable] = useState(false);
+  const [isTermsChecked, setIsTermsChecked] = useState(false); // 이용약관 동의 상태
   const navigate = useNavigate();
+
+  const handleTermsChange = (e) => {
+    setIsTermsChecked(e.target.checked); // 이용약관 동의 체크박스 상태 업데이트
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -53,10 +58,10 @@ const SignUp = () => {
   const handleUsernameCheck = async () => {
     try {
       const response = await axios.post('https://mathquestpro.shop/user/auth/username-check/', {
-        username: formData.username, // username을 요청 본문에 포함
+        username: formData.username,
       });
 
-      console.log(response.data); // 서버 응답 확인
+      console.log(response.data);
 
       if (response.data.data.is_available) {
         setIsUsernameAvailable(true);
@@ -86,7 +91,7 @@ const SignUp = () => {
       alert('비밀번호가 일치하지 않습니다.');
       return false;
     }
-    if (!agreementChecked) {
+    if (!isTermsChecked) {
       alert('이용약관에 동의해주세요.');
       return false;
     }
@@ -120,13 +125,11 @@ const SignUp = () => {
   };
 
   const handleSignUp = async () => {
-    // 아이디 중복 확인이 완료되었는지 체크
     if (!isUsernameAvailable) {
       alert('아이디 중복을 확인해주세요.');
       return;
     }
 
-    // 비밀번호와 아이디가 유효한지 먼저 확인
     if (!formData.password1 || !formData.password2) {
       alert('비밀번호와 비밀번호 확인을 입력해주세요.');
       return;
@@ -143,10 +146,9 @@ const SignUp = () => {
         grade: formData.grade,
       });
 
-      console.log(response); // 응답 내용을 확인
+      console.log(response);
 
       if (response.status === 201) {
-        console.log("회원가입 성공, 페이지 이동");
         navigate('/accountcreationcomplete');
       } else {
         console.log("회원가입 응답 상태가 201이 아닙니다.", response.status);
@@ -227,8 +229,8 @@ const SignUp = () => {
           <CheckboxContainer>
             <Checkbox
               type="checkbox"
-              checked={agreementChecked}
-              onChange={(e) => setAgreementChecked(e.target.checked)}
+              checked={isTermsChecked}
+              onChange={handleTermsChange}
             />
             <AgreementText>
               <Link href="/terms">이용약관</Link> 에 모두 동의합니다.
@@ -263,6 +265,10 @@ const SignUp = () => {
               value={formData.grade}
               onChange={handleInputChange}
             />
+          </InputContainer>
+
+          <InputContainer>
+            <Input type="text" disabled placeholder="이 단계는 선택 사항입니다." />
           </InputContainer>
         </>
       )}

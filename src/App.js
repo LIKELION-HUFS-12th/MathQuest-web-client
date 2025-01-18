@@ -41,7 +41,7 @@ import LearnAgain from './pages/LearnAgain';
 import Profile from './pages/auth/Profile';
 import SignOut from './pages/auth/SignOut';
 import Introduce from './pages/Introduce';
-import ViewPort from './pages/auth/ViewPort';
+import Terms from './pages/auth/Terms';
 import LearningReport from './pages/LearningReport';
 import Option from './pages/Option';
 
@@ -90,7 +90,7 @@ function App() {
         <Route path="/introduce" element={<Introduce />} />
         <Route path="/signout" element={<SignOut />} />
         <Route path="/learningreport" element={<LearningReport />} />
-        <Route path="/viewport" element={<ViewPort />} />
+        <Route path="/terms" element={<Terms />} />
         <Route path="/option" element={<Option />} />
       </Routes>
     </BrowserRouter>
