@@ -55,7 +55,7 @@ const SignOut = () => {
 
     try {
       // 아이디와 비밀번호를 백엔드에 전송
-      const response = await axios.delete('https://mathquestpro.shop/problem/user/delete', {
+      const response = await axios.delete('https://mathquestpro.shop/user/delete', {
         data: {
             // 아이디도 전송해야 한다면 추가
           password: password,  // 비밀번호 전송
