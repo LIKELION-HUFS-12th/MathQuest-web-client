@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import * as QP from '../styles/QuestPageStyles';
 import QuestPageHeader from '../shared/components/QuestPageHeader';
@@ -13,6 +13,7 @@ const QuestPage = () => {
     const [selectedOption, setSelectedOption] = useState(null);
     const [showPopup, setShowPopup] = useState(false);
     const [popupContent, setPopupContent] = useState({ message: '', solution: '' });
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (level && difficulty && chapter) {

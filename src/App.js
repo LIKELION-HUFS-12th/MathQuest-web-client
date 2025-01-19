@@ -38,6 +38,7 @@ import QuestM3M from './pages/questsMiddle/QuestM3M';
 import QuestM3L from './pages/questsLow/QuestM3L';
 import QuestPage from './pages/QuestPage';
 import LearnAgain from './pages/LearnAgain';
+import LearnAgainQuest from './pages/LearnAgainQuest';
 import Profile from './pages/auth/Profile';
 import SignOut from './pages/auth/SignOut';
 import Introduce from './pages/Introduce';
@@ -86,6 +87,7 @@ function App() {
         <Route path="/questM3L" element={<QuestM3L/>}/>
         <Route path="/questPage" element={<QuestPage/>}/>
         <Route path="/learnAgain" element={<LearnAgain/>}/>
+        <Route path="/learnAgainQuest" element={<LearnAgainQuest/>}/>
         <Route path="/attendance" element={<Attendance />} />
         <Route path="/introduce" element={<Introduce />} />
         <Route path="/signout" element={<SignOut />} />

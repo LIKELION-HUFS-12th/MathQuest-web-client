@@ -71,4 +71,29 @@ export const Logo = styled.div`
   }
 `;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+    flex: 1; 
+    width: 100%;
+    overflow-y: auto; 
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 210px;
+    margin-bottom: 100px;
+`;
+
+export const Question = styled.div`
+    margin: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    p {
+        font-size: 14px;
+        color: #666;
+    }
+`;
