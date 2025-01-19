@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import * as P from '../../styles/auth/ProfileStyles';
 import CharacterLogo from '../../assets/images/characterLogo.png';
@@ -8,12 +7,26 @@ import Process from '../../assets/images/process.png';
 
 const Profile = () => {
     const [profileData, setProfileData] = useState({
-        name: '김멋사',
-        email: 'hello@gmail.com',
-        password: 'Hello1234!',
-        school: '초등학교',
-        year: '',
+        name: '',
+        username: '',
+        school: '',
+        grade: '',
+        birthdate: '',
     });
+
+    useEffect(() => {
+        const userInfo = localStorage.getItem('userInfo');
+        if (userInfo) {
+            const parsedUserInfo = JSON.parse(userInfo);
+            setProfileData({
+                name: parsedUserInfo.name || '',
+                username: parsedUserInfo.username || '',
+                school: parsedUserInfo.school || '',
+                grade: parsedUserInfo.grade || '',
+                birthdate: parsedUserInfo.birthdate || '',
+            });
+        }
+    }, []);
 
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -23,11 +36,51 @@ const Profile = () => {
         }));
     };
 
+    const handleSave = async () => {
+        const token = localStorage.getItem('authToken');
+        if (!token) {
+            alert('로그인이 필요합니다.');
+            return;
+        }
+
+        try {
+            const response = await axios.put(
+                'https://mathquestpro.shop/user/update/',
+                {
+                    username: profileData.username,
+                    name: profileData.name,
+                    school: profileData.school,
+                    grade: profileData.grade,
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                    },
+                }
+            );
+
+            if (response.status === 200) {
+                localStorage.setItem('userInfo', JSON.stringify(profileData));
+                alert('프로필 수정이 완료되었습니다.');
+            } else {
+                alert('프로필 수정에 실패했습니다.');
+            }
+        } catch (error) {
+            console.error('Error updating profile:', error.response || error);
+            alert('프로필 수정 중 오류가 발생했습니다.');
+        }
+    };
+
+    const handleResetProgress = () => {
+        alert('학습 진도 초기화 완료');
+    };
+
     return (
     <P.Container>
         <P.Header>
             <P.HeaderTitle>프로필 수정</P.HeaderTitle>
-            <P.HeaderButton onClick={() => alert('프로필 수정 완료')}>완료</P.HeaderButton>
+            <P.HeaderButton onClick={handleSave}>완료</P.HeaderButton>
         </P.Header>
         <P.Logo>
             <img id="CharacterLogo" src={CharacterLogo}/>
@@ -45,27 +98,16 @@ const Profile = () => {
                 </P.NameContent>
             </P.Name>
             <P.Email>
-                <P.EmailTitle>이메일</P.EmailTitle>
+                <P.EmailTitle>아이디</P.EmailTitle>
                 <P.EmailContent>
                     <input
-                        name="email"
-                        type="email"
-                        value={profileData.email}
+                        name="username"
+                        type="text"
+                        value={profileData.username}
                         onChange={handleChange}
                     />
                 </P.EmailContent>
             </P.Email>
-            <P.Password>
-                <P.PasswordTitle>비밀번호</P.PasswordTitle>
-                <P.PasswordContent>
-                    <input
-                        name="password"
-                        type="password"
-                        value="{profileData.password"
-                        onChange={handleChange}
-                    />
-                </P.PasswordContent>
-            </P.Password>
             <P.School>
                 <P.SchoolTitle>학교</P.SchoolTitle>
                 <P.SchoolContent>
@@ -78,11 +120,11 @@ const Profile = () => {
                 </P.SchoolContent>
             </P.School>
             <P.Year>
-                <P.YearTitle>학년 선택</P.YearTitle>
+                <P.YearTitle>학년</P.YearTitle>
                 <P.YearContent process={Process}>
                     <select
-                        name="year"
-                        value={profileData.year}
+                        name="grade"
+                        value={profileData.grade}
                         onChange={handleChange}
                     >
                         <option value="">학년을 선택하세요</option>
@@ -95,8 +137,19 @@ const Profile = () => {
                     </select>
                 </P.YearContent>
             </P.Year>
+            <P.Password>
+                <P.PasswordTitle>생일</P.PasswordTitle>
+                <P.PasswordContent>
+                    <input
+                        name="birthdate"
+                        type="text"
+                        value={profileData.birthdate}
+                        onChange={handleChange}
+                    />
+                </P.PasswordContent>
+            </P.Password>
         </P.Content>
-        <P.ResetButton onClick={() => alert('학습 진도 초기화 완료')}>학습 진도 초기화</P.ResetButton>
+        <P.ResetButton onClick={handleResetProgress}>학습 진도 초기화</P.ResetButton>
         <Footer/>
     </P.Container>
     );
