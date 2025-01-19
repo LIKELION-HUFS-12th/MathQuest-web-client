@@ -13,77 +13,90 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
+  background-color: transparent;  /* 반투명 배경 제거 */
 `;
 
 export const MenuButton = styled.div`
-  position: absolute;
-  top: 13px;
+  position: fixed;
+  bottom: 35px;
+  left: 50%;
+  transform: translateX(-50%);  /* 메뉴 버튼을 화면 가로 중앙에 배치 */
   cursor: pointer;
   z-index: 1;
 `;
 
 export const Menubar = styled.div`
-  padding: 0;
   position: relative;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px; /* 필요에 따라 높이 설정 */
+`;
+
+export const MenuBarImage = styled.img`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  z-index: 0;
 `;
 
 export const Home = styled.div`
   position: absolute;
   z-index: 1;
-  top: 39%;
-  left: 10%;
+  top: 30%;
+  left: 9%;
   cursor: pointer;
 `;
 
 export const HomeText = styled.div`
   color: white;
-  font-weight: bold;
+  
   font-size: 13px;
-  margin-top: 3px;
+  margin-top: 5px;
 `;
 
 export const Calendar = styled.div`
   position: absolute;
   z-index: 1;
-  top: 39%;
-  left: 25%;
+  top: 30%;
+  left: 24%;
   cursor: pointer;
 `;
 
 export const CalendarText = styled.div`
   color: white;
-  font-weight: bold;
+  
   font-size: 13px;
-  margin-top: 3px;
+  margin-top: 5px;
 `;
 
 export const Chart = styled.div`
   position: absolute;
   z-index: 1;
-  top: 39%;
+  top: 30%;
   left: 62%;
   cursor: pointer;
 `;
 
 export const ChartText = styled.div`
   color: white;
-  font-weight: bold;
+  
   font-size: 13px;
-  margin-top: 3px;
+  margin-top: 5px;
 `;
 
 export const Profile = styled.div`
   position: absolute;
   z-index: 1;
-  top: 39%;
-  left: 82%;
+  top: 30%;
+  left: 84%;
   cursor: pointer;
 `;
 
 export const ProfileText = styled.div`
   color: white;
-  font-weight: bold;
   font-size: 13px;
-  margin-top: 3px;
+  margin-top: 5px;
 `;

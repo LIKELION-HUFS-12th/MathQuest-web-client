@@ -118,11 +118,11 @@ export const Process = styled.div`
 export const ProcessContent = styled.div`
   margin-left: 3px;
   select {
-    width: 165%;
+    width: 200%;
     height: 39px;
     padding: 8px;
     padding-left: 15px;
-    font-size: 1rem;
+    font-size: 0.8rem;
     border: 1.5px solid #ccc;
     border-radius: 18px;
     -webkit-appearance: none;
