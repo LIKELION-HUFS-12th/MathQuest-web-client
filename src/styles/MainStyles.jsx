@@ -51,9 +51,9 @@ export const GoalText = styled.div`
   z-index: 1;
   top: 20%;
   left: 15%;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: bold;
-  font-family: 'HakgyoansimGeurimilgiTTF-R';
+  
 `;
 
 export const GoalButton = styled.div`
@@ -68,7 +68,7 @@ export const GoalButton = styled.div`
 export const GoalButtonBack = styled.div`
   width: 50px;
   img {
-    width: 170px;
+    width: 130px;
     height: 40px;
   }
 `;
@@ -76,22 +76,22 @@ export const GoalButtonBack = styled.div`
 export const GoalButtonText = styled.div`
   position: absolute;
   z-index: 2;
-  top: 30%;
-  left: 10%;
-  width: 250%;
+  top: 26%;
+  left: 9%;
+  width: 200%;
   color: #376aed;
+  font-size: 0.8rem;
   font-weight: bold;
-  font-family: 'HakgyoansimGeurimilgiTTF-R';
 `;
 
 export const GoalButtonArrow = styled.div`
   position: absolute;
   z-index: 2;
-  top: 15%;
-  left: 255%;
+  top: 19%;
+  left: 200%;
   img {
-    width: 20px;
-    height: 30px;
+    width: 18px;
+    height: 22px;
     transform: scaleX(-1);
     color: #376aed;
   }
@@ -118,11 +118,11 @@ export const Process = styled.div`
 export const ProcessContent = styled.div`
   margin-left: 3px;
   select {
-    width: 165%;
+    width: 200%;
     height: 39px;
     padding: 8px;
     padding-left: 15px;
-    font-size: 1rem;
+    font-size: 0.8rem;
     border: 1.5px solid #ccc;
     border-radius: 18px;
     -webkit-appearance: none;
@@ -139,10 +139,10 @@ export const ProcessContent = styled.div`
 
 export const ProcessText = styled.div`
   margin-top: 8%;
+  margin-left: 10px;
   font-weight: bold;
   font-size: 1.3rem;
   margin-right: 65%;
-  font-family: 'HakgyoansimGeurimilgiTTF-R';
 `;
 
 export const Process4 = styled.div`
@@ -196,7 +196,7 @@ export const Process4Quest = styled.div`
   top: 40%;
   left: 32%;
   color: white;
-  font-weight: bold;
+  
 `;
 
 export const Process5 = styled.div`
@@ -250,7 +250,6 @@ export const Process5Quest = styled.div`
   top: 40%;
   left: 32%;
   color: white;
-  font-weight: bold;
 `;
 
 export const Process6 = styled.div`
@@ -304,7 +303,6 @@ export const Process6Quest = styled.div`
   top: 40%;
   left: 32%;
   color: white;
-  font-weight: bold;
 `;
 
 export const ProcessM1 = styled.div`
@@ -358,7 +356,6 @@ export const ProcessM1Quest = styled.div`
   top: 40%;
   left: 32%;
   color: white;
-  font-weight: bold;
 `;
 
 export const ProcessM2 = styled.div`
@@ -412,7 +409,6 @@ export const ProcessM2Quest = styled.div`
   top: 40%;
   left: 32%;
   color: white;
-  font-weight: bold;
 `;
 
 export const ProcessM3 = styled.div`
@@ -467,7 +463,7 @@ export const ProcessM3Quest = styled.div`
   top: 40%;
   left: 32%;
   color: white;
-  font-weight: bold;
+  
 `;
 
 export const FooterContainer = styled.div``;

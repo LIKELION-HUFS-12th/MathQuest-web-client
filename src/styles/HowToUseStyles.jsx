@@ -1,15 +1,19 @@
 import styled from 'styled-components';
 
 export const IntroContainer = styled.div`
+  position: relative;
+  margin: 0 auto;
+  width: 393px;
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #F2F6FC;
+  padding: 0;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  width: 100%;
-  height: 100vh;
-  background-color: #f5f5f5;
-  padding: 20px;
-  box-sizing: border-box;
+  justify-content: center;
   text-align: center;
 `;
 
