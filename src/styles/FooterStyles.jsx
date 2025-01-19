@@ -38,7 +38,9 @@ export const Home = styled.div`
 
 export const HomeText = styled.div`
   color: white;
-  font-family: 'HakgyoansimGeurimilgiTTF-R';
+  font-weight: bold;
+  font-size: 13px;
+  margin-top: 3px;
 `;
 
 export const Calendar = styled.div`
@@ -51,21 +53,24 @@ export const Calendar = styled.div`
 
 export const CalendarText = styled.div`
   color: white;
-  font-family: 'HakgyoansimGeurimilgiTTF-R';
+  font-weight: bold;
+  font-size: 13px;
+  margin-top: 3px;
 `;
 
 export const Chart = styled.div`
   position: absolute;
   z-index: 1;
   top: 39%;
-  left: 59%;
+  left: 62%;
   cursor: pointer;
 `;
 
 export const ChartText = styled.div`
   color: white;
-  margin-top: 1px;
-  font-family: 'HakgyoansimGeurimilgiTTF-R';
+  font-weight: bold;
+  font-size: 13px;
+  margin-top: 3px;
 `;
 
 export const Profile = styled.div`
@@ -78,5 +83,7 @@ export const Profile = styled.div`
 
 export const ProfileText = styled.div`
   color: white;
-  font-family: 'HakgyoansimGeurimilgiTTF-R';
+  font-weight: bold;
+  font-size: 13px;
+  margin-top: 3px;
 `;
