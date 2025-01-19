@@ -36,7 +36,7 @@ export const PhotoBack = styled.div`
 export const Photo = styled.div`
   position: absolute;
   z-index: 1;
-  top: 10%;
+  top: 13%;
   padding: 0;
   img {
     width: 55px;
@@ -48,7 +48,7 @@ export const Photo = styled.div`
 export const Text = styled.div`
   position: absolute;
   z-index: 1;
-  top: 20%;
+  top: 25%;
   font-size: 1.5rem;
   font-weight: bold;
   left: 32%;

@@ -31,7 +31,7 @@ const QuestE4L = () => {
                         <img id="CharacterLogo" src={CharacterLogo}/>
                     </E4L.Logo>
                 </E4L.Header2>
-                <E4L.Level>난이도 ({difficulty})</E4L.Level>
+                <E4L.Level>난이도 (하_{difficulty})</E4L.Level>
             </E4L.Header>
             <E4L.Level1 onClick={() => handleQuestPage('세자릿수 덧셈')}>
                 <E4L.Level1Back>
