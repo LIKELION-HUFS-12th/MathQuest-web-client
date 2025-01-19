@@ -58,7 +58,8 @@ export const Options = styled.div`
 
 export const Option = styled.div`
     padding: 10px 20px; 
-    color: #000; 
+    color: ${(props) => (props.isSelected ? '#0051FF' : '#000')}; 
+    border: 1px solid ${(props) => (props.isSelected ? '#0051FF' : '#E0E6F3')};
     border-radius: 5px; 
     cursor: pointer; 
     text-align: center; 
@@ -86,5 +87,41 @@ export const AnswerButton = styled.div`
     &:hover {
         background-color:rgb(193, 205, 232);
         border-color:rgb(0, 69, 217);
+    }
+`;
+
+export const Popup = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+`;
+
+export const PopupContent = styled.div`
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    h2 {
+        margin-bottom: 20px;
+    }
+    button {
+        margin: 10px;
+        padding: 10px 20px;
+        background-color: #0051FF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        &:hover {
+            background-color: #003ECF;
+        }
     }
 `;

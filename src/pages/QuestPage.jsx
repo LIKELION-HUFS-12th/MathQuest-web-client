@@ -11,6 +11,8 @@ const QuestPage = () => {
     const [questions, setQuestions] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [selectedOption, setSelectedOption] = useState(null);
+    const [showPopup, setShowPopup] = useState(false);
+    const [popupContent, setPopupContent] = useState({ message: '', solution: '' });
 
     useEffect(() => {
         if (level && difficulty && chapter) {
@@ -44,24 +46,62 @@ const QuestPage = () => {
         }
     }, [level, difficulty, chapter]);
     
-    
-
     const currentQuestion = questions[currentIndex];
 
     const handleOptionClick = (option) => {
         setSelectedOption(option);
-        console.log(`Selected Option: ${option}`);
     };
 
     const handleAnswerSubmit = () => {
-        console.log(`Submitted answer: ${selectedOption}`);
-        if (currentIndex < questions.length - 1) {
-            setCurrentIndex(currentIndex + 1);
-            setSelectedOption(null);
-        } else {
-            console.log('모든 문제를 완료했습니다.');
+        if (!currentQuestion || selectedOption === null) {
+            alert('옵션을 선택하세요.');
+            return;
         }
+    
+        const isCorrect = selectedOption === Number(currentQuestion.answer); 
+        const status = isCorrect ? 'RIGHT' : 'WRONG';
+    
+        const token = localStorage.getItem('authToken');
+        if (!token) {
+            console.error('No authentication token found');
+            return;
+        }
+    
+        axios
+            .post(
+                'https://mathquestpro.shop/problem/userproblem/',
+                {
+                    problem_id: currentQuestion.id,
+                    status,
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            )
+            .then(() => {
+                setPopupContent({
+                    message: isCorrect ? '정답입니다' : '오답입니다',
+                    solution: currentQuestion.solution,
+                });
+                setShowPopup(true);
+            })
+            .catch((error) => {
+                console.error('Error submitting answer:', error.response || error);
+            });
     };
+
+        const handleNextQuestion = () => {
+            setShowPopup(false);
+            if (currentIndex < questions.length - 1) {
+                setCurrentIndex(currentIndex + 1);
+                setSelectedOption(null);
+            } else {
+                alert('모든 문제를 완료했습니다.');
+            }
+        };
+    
 
     return (
         <QP.Container>
@@ -90,8 +130,17 @@ const QuestPage = () => {
                         )}
                 </QP.Options>
                 <QP.AnswerButton onClick={handleAnswerSubmit}>
-                    {currentIndex < questions.length - 1 ? '다음 문제' : '완료'}
+                    정답 제출하기
                 </QP.AnswerButton>
+                {showPopup && (
+                    <QP.Popup>
+                        <QP.PopupContent>
+                            <h2>{popupContent.message}</h2>
+                            <button onClick={() => alert(popupContent.solution)}>해설보기</button>
+                            <button onClick={handleNextQuestion}>다음</button>
+                        </QP.PopupContent>
+                    </QP.Popup>
+                )}
             </QP.Content>
         </QP.Container>
     );
