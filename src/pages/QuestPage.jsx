@@ -81,6 +81,7 @@ const QuestPage = () => {
                 }
             )
             .then(() => {
+                console.log(`Submitted status: ${status}`);
                 setPopupContent({
                     message: isCorrect ? '정답입니다' : '오답입니다',
                     solution: currentQuestion.solution,
