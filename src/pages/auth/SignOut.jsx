@@ -12,6 +12,7 @@ import {
   Checkbox,
 } from '../../styles/auth/SignOutStyles';
 import ImageLogo from '../../assets/images/logo.png';
+import QuestHeader from '../../shared/components/QuestHeader';
 
 const SignOut = () => {
   const [username, setUsername] = useState('');  // 아이디 입력 상태
@@ -73,6 +74,7 @@ const SignOut = () => {
 
   return (
     <Container>
+      <QuestHeader/>
       <img id="ImageLogo" src={ImageLogo} alt="Logo"/>
       <Title>회원탈퇴</Title>
       <Subtitle>계정을 삭제합니다...</Subtitle>

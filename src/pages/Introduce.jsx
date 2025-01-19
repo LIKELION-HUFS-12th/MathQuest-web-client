@@ -18,6 +18,7 @@ import KimJinSeon from '../assets/images/kimjinseon.png';
 import Kimdooyoung from '../assets/images/kimdooyoung.png';
 import ImageLogo from '../assets/images/logo.png';
 import TextLogoBlack from '../assets/images/textlogoblack.png';
+import QuestHeader from '../shared/components/QuestHeader';
 
 const Introduce = () => {
     const developers = [
@@ -29,6 +30,7 @@ const Introduce = () => {
   
     return (
       <Container>
+        <QuestHeader/>
         <Logo src={ImageLogo} alt="MathQuest Logo" />
         <ContactSection>
           <ContactInfo>Contact: mathquest@gmail.com</ContactInfo>
