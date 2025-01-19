@@ -16,26 +16,28 @@ export const Container = styled.div`
 `;
 
 export const Menubar = styled.div`
-  padding: 0;
   position: relative;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px; /* 필요에 따라 높이 설정 */
 `;
-
 export const Home = styled.div`
   position: absolute;
   z-index: 1;
   top: 18%;
-  left: 14%;
+  left: 13%;
   img {
-  width: 32px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   }
   cursor: pointer;
 `;
 
 export const HomeText = styled.div`
   color: white;
-  font-family: 'HakgyoansimGeurimilgiTTF-R';
+  font-size: 13px;
   margin-top: 9px;
 `;
 
@@ -43,7 +45,7 @@ export const Learn = styled.div`
   position: absolute;
   z-index: 1;
   top: 14%;
-  left: 32%;
+  left: 33%;
   img {
   height: 40px;
   width: 35px;
@@ -53,7 +55,7 @@ export const Learn = styled.div`
 
 export const LearnText = styled.div`
   color: white;
-  font-family: 'HakgyoansimGeurimilgiTTF-R';
+  font-size: 13px;
   margin-top: 3px;
 `;
 
@@ -61,7 +63,7 @@ export const Pencil = styled.div`
   position: absolute;
   z-index: 1;
   top: 20%;
-  left: 54%;
+  left: 56%;
   img {
   height: 24px;
   }
@@ -70,8 +72,7 @@ export const Pencil = styled.div`
 
 export const PencilText = styled.div`
   color: white;
-  margin-top: -5px;
-  font-family: 'HakgyoansimGeurimilgiTTF-R';
+  font-size: 13px;
   margin-top: 12px;
 `;
 
@@ -79,7 +80,7 @@ export const Profile = styled.div`
   position: absolute;
   z-index: 1;
   top: 17%;
-  left: 77%;
+  left: 79%;
   img {
   height: 29px;
   }
@@ -88,6 +89,6 @@ export const Profile = styled.div`
 
 export const ProfileText = styled.div`
   color: white;
-  font-family: 'HakgyoansimGeurimilgiTTF-R';
+  font-size: 13px;
   margin-top: 11px;
 `;
