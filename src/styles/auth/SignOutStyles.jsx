@@ -15,20 +15,30 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
+
+  img {
+    max-width: 150px;
+    margin-bottom: 30px;
+  }
+
+  #ImageLogo {
+    width: 150px;
+    height: auto;
+    margin-top: 70px;
+  }
+
 `;
 
 export const Title = styled.h1`
   font-size: 24px;
-  margin-bottom: 10px;
-  font-size: 24px;
   font-weight: bold;
-  margin-top: 180px;
+  margin-top: 5px;
 `;
-
 
 export const Subtitle = styled.p`
   font-size: 16px;
-  margin-bottom: 20px;
+  color: #777;
+  margin-bottom: 40px;
 `;
 
 export const Input = styled.input`
@@ -36,25 +46,26 @@ export const Input = styled.input`
   max-width: 400px;
   padding: 10px;
   margin-bottom: 15px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 10px;
+  box-sizing: border-box;
 `;
 
 export const Button = styled.button`
-width: 60%;
-max-width: 400px;
-padding: 10px 15px;
-background-color: #000;
-margin-top: 50px;
-color: #fff;
-font-size: 16px;
-border: none;
-border-radius: 20px;
-cursor: pointer;
+  width: 60%;
+  max-width: 400px;
+  padding: 10px 15px;
+  background-color: #000;
+  margin-top: 30px;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
 
-&:hover {
-  background-color: #333;
-}
+  &:hover {
+    background-color: #333;
+  }
 `;
 
 
