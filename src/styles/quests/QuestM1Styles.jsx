@@ -36,22 +36,22 @@ export const PhotoBack = styled.div`
 export const Photo = styled.div`
   position: absolute;
   z-index: 1;
-  top: 13%;
+  top: 10%;
   padding: 0;
   img {
     width: 55px;
     height: 55px;
-    margin-left: 21%;
+    margin-left: 23%;
   }
 `;
 
 export const Text = styled.div`
   position: absolute;
   z-index: 1;
-  top: 23%;
-  font-size: 1.6rem;
+  top: 20%;
+  font-size: 1.5rem;
   font-weight: bold;
-  left: 36%;
+  left: 32%;
   padding: 0;
 `;
 
@@ -60,9 +60,8 @@ export const QuestList = styled.div`
   z-index: 1;
   top: 33%;
   left: 10%;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: bold;
-  font-family: 'HakgyoansimGeurimilgiTTF-R';
   padding: 0;
 `;
 
@@ -118,7 +117,7 @@ export const TextCount = styled.div`
   top: 40%;
   left: 37%;
   color: white;
-  font-weight: bold;
+  
 `;
 
 export const Qe4Middle = styled.div`
@@ -173,7 +172,7 @@ export const TextCountMiddle = styled.div`
   top: 40%;
   left: 37%;
   color: white;
-  font-weight: bold;
+  
 `;
 
 export const Qe4Low = styled.div`
@@ -228,5 +227,5 @@ export const TextCountLow = styled.div`
   top: 40%;
   left: 37%;
   color: white;
-  font-weight: bold;
+ 
 `;

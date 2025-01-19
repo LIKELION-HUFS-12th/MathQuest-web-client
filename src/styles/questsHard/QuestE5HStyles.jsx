@@ -84,7 +84,7 @@ export const Level1 = styled.div`
   z-index: 1;
   top: 40%;
   padding: 0;
-  margin-top: -8%;
+  margin-top: -21%;
   cursor: pointer;
 `;
 
@@ -121,7 +121,7 @@ export const Level1Content = styled.div`
   top: 40%;
   left: 37%;
   color: white;
-  font-weight: bold;
+ 
 `;
 
 export const Level2 = styled.div`
@@ -129,7 +129,7 @@ export const Level2 = styled.div`
   z-index: 1;
   top: 40%;
   padding: 0;
-  margin-top: 27%;
+  margin-top: 11%;
   cursor: pointer;
 `;
 
@@ -166,7 +166,7 @@ export const Level2Content = styled.div`
   top: 40%;
   left: 37%;
   color: white;
-  font-weight: bold;
+  
 `;
 
 export const Level3 = styled.div`
@@ -174,7 +174,7 @@ export const Level3 = styled.div`
   z-index: 1;
   top: 39%;
   padding: 0;
-  margin-top: 66%;
+  margin-top: 46%;
   cursor: pointer;
 `;
 
@@ -211,5 +211,50 @@ export const Level3Content = styled.div`
   top: 40%;
   left: 37%;
   color: white;
+  
+`;
+
+export const Level4 = styled.div`
+  position: absolute;
+  z-index: 1;
+  top: 38%;
+  padding: 0;
+  margin-top: 80%;
+  cursor: pointer;
+`;
+
+export const Level4Back = styled.div`
+  img {
+    width: 370px;
+    height: 150px;
+  }
+`;
+
+export const Level4Photo = styled.div`
+  position: absolute;
+  z-index: 2;
+  top: 22%;
+  left: 16%;
+  img {
+    width: 50px;
+    height: 50px;
+  }
+`;
+
+export const TextLevel4 = styled.div`
+  position: absolute;
+  z-index: 2;
+  top: 23%;
+  left: 37%;
+  color: white;
   font-weight: bold;
+`;
+
+export const Level4Content = styled.div`
+  position: absolute;
+  z-index: 2;
+  top: 40%;
+  left: 37%;
+  color: white;
+  
 `;
