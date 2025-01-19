@@ -1,15 +1,14 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-// 달력 컨테이너
+
 export const CalendarContainer = styled.div`
-  background-color: #fef9c3;
   position: relative;
   margin: 0 auto;
   width: 393px;
   height: 100vh;
   min-height: 100vh;
   overflow: hidden;
-  overflow-y: auto;
+  background-color: #F2F6FC;
   padding: 0;
   box-sizing: border-box;
   display: flex;
@@ -18,127 +17,89 @@ export const CalendarContainer = styled.div`
   justify-content: center;
   text-align: center;
 `;
-
-// 날짜 표시 부분
 export const DateDisplay = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  margin-bottom: 20px;
-
-  button {
-    background-color: #38bdf8;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-
-    &:hover {
-      background-color: #0ea5e9;
-    }
-  }
+  width: 70%;
+  max-width: 350px;
+  margin-bottom: 30px;
 
   span {
-    font-size: 20px;
+    font-size: 1.2em;
     font-weight: bold;
-    color: #1e293b;
+  }
+
+  button {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
   }
 `;
 
-// 달력을 감싸는 박스 추가
 export const CalendarBox = styled.div`
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 16px;
-  padding: 20px;
-  width: 100%;
+  width100%;
   max-width: 380px;
-  margin-top: 20px;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
-// 달력을 감싸는 박스
 export const CalendarWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 380px;
 `;
 
-// 요일 행
 export const WeekdayRow = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  width: 100%;
-  background-color: #d1d5db;
-  border-radius: 10px;
-  margin-bottom: 8px;
+  background-color: #f9f9f9;
   text-align: center;
   font-weight: bold;
-  color: #111827;
 `;
 
-// 요일 셀
 export const WeekdayCell = styled.div`
-  padding: 8px 0;
-  background-color: #e5e7eb;
+  padding: 10px;
+  font-size: 0.9em;
 `;
 
-// 달력 그리드
 export const CalendarGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 8px;
-  width: 100%;
-  margin-top: 10px;
+  gap: 5px;
+  padding: 10px;
 `;
 
-// 각 날짜 버튼
 export const DateCell = styled.div`
+  position: relative; /* 자식 요소(스탬프)의 기준이 되는 컨테이너 */
   display: flex;
-  justify-content: center;
   align-items: center;
-  position: relative;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
 `;
 
-// 날짜 버튼 스타일
+
 export const DateButton = styled.button`
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border: 2px solid #d1d5db;
-  border-radius: 10px;
-  background-color: white;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: ${(props) => (props.className.includes('attended') ? '#FFEB3B' : 'transparent')};
+  color: ${(props) => (props.className.includes('today') ? '#1976D2' : '#000')};
+  font-weight: ${(props) => (props.className.includes('today') ? 'bold' : 'normal')};
   cursor: pointer;
-  font-size: 16px;
-  color: #111827;
-  font-weight: bold;
-  transition: background-color 0.3s;
-
-  &:hover {
-    background-color: #fef08a;
-  }
-
-  &.today {
-    background-color: #86efac;
-    color: white;
-  }
-
-  &.attended {
-    background-color: #c7e8c3; // 출석한 날에 대한 배경색
-    color: white;
-  }
 `;
 
-// 출석 마크 (도장)
 export const AttendanceMark = styled.img`
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  width: 20px;
-  height: 20px;
+  position: absolute; /* DateCell 기준으로 위치 조정 */
+  top: 50%; /* 상단 기준으로 50% 내려옴 */
+  left: 50%; /* 왼쪽 기준으로 50% 이동 */
+  transform: translate(-50%, -50%); /* 정중앙으로 보정 */
+  width: 60px; /* 스탬프 크기 조정 (필요 시) */
+  height: 60px; /* 스탬프 크기 조정 (필요 시) */
+  pointer-events: none; /* 클릭 이벤트가 날짜에만 적용되도록 설정 */
 `;

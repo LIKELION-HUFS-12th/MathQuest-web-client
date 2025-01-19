@@ -54,6 +54,15 @@ const SignOut = () => {
       return;
     }
 
+    const token = localStorage.getItem('authToken'); 
+    
+    if (!token) {
+    alert('로그인된 사용자가 아닙니다.');
+    return;
+  
+    }
+
+
     try {
       // 아이디와 비밀번호를 백엔드에 전송
       const response = await axios.delete('https://mathquestpro.shop/user/delete', {
