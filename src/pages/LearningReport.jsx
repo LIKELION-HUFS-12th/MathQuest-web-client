@@ -10,18 +10,10 @@ import {
   CommentText,
 } from "../styles/LearningReportStyles";
 import Footer from '../shared/components/Footer';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
 
 // Chart.js에 필요한 스케일과 플러그인 등록
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
-
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const LearningReport = () => {
   const [chartData, setChartData] = useState(null);
@@ -30,44 +22,39 @@ const LearningReport = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const authToken = localStorage.getItem("authToken"); // 토큰을 localStorage에서 가져옴
+    const authToken = localStorage.getItem("authToken"); // 토큰 가져오기
 
-    // axios 요청 시 인증 헤더 추가
     axios
       .get("https://mathquestpro.shop/problem/reports/weekly/", {
-        headers: {
-          Authorization: `Bearer ${authToken}`, // 액세스 토큰을 Authorization 헤더에 추가
-        },
+        headers: { Authorization: `Bearer ${authToken}` },
       })
       .then((response) => {
         const { correct, incorrect } = response.data.data;
 
-        // 요일 및 데이터 추출 (월요일부터 일요일 순)
         const days = ["월", "화", "수", "목", "금", "토", "일"];
         const correctValues = days.map((_, index) => correct[index]);
         const incorrectValues = days.map((_, index) => incorrect[index]);
 
-        // Chart.js 데이터 구성
         const chartData = {
           labels: days,
           datasets: [
             {
               label: "맞은 문제",
               data: correctValues,
-              backgroundColor: "#5F4B8B",
+              backgroundColor: "#5F4B8B", // 진한 보라색
+              borderRadius: 5,
             },
             {
               label: "틀린 문제",
               data: incorrectValues,
-              backgroundColor: "#D3D3D3",
+              backgroundColor: "#D3D3D3", // 밝은 회색
+              borderRadius: 5,
             },
           ],
         };
 
-        // 맞은 문제 총합 계산
         const totalCorrect = correctValues.reduce((sum, val) => sum + val, 0);
 
-        // 코멘트 조건
         if (totalCorrect >= 15) {
           setComment("정말 잘하고 있어요!");
         } else if (totalCorrect >= 10) {
@@ -88,15 +75,32 @@ const LearningReport = () => {
       });
   }, []);
 
-  // Chart.js 옵션
   const options = {
     responsive: true,
     plugins: {
       legend: {
         position: "top",
+        labels: {
+          color: "#333",
+        },
       },
       tooltip: {
         enabled: true,
+        callbacks: {
+          label: (context) => `${context.dataset.label}: ${context.raw}개`,
+        },
+      },
+    },
+    scales: {
+      x: {
+        stacked: true, // x축 스택 활성화
+        grid: { display: false },
+        ticks: { color: "#333" },
+      },
+      y: {
+        stacked: true, // y축 스택 활성화
+        grid: { color: "#E0E0E0" },
+        ticks: { color: "#333" },
       },
     },
   };

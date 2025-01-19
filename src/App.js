@@ -45,6 +45,8 @@ import Introduce from './pages/Introduce';
 import Terms from './pages/auth/Terms';
 import LearningReport from './pages/LearningReport';
 import Option from './pages/Option';
+import Help from './pages/Help';
+import Review from './pages/Review';
 
 function App() {
   return (
@@ -94,6 +96,8 @@ function App() {
         <Route path="/learningreport" element={<LearningReport />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/option" element={<Option />} />
+        <Route path="/help" element={<Help />} />
+        <Route path="/review" element={<Review />} />
       </Routes>
     </BrowserRouter>
   );
