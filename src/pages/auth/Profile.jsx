@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import axios from 'axios';
 import * as P from '../../styles/auth/ProfileStyles';
 import CharacterLogo from '../../assets/images/characterLogo.png';
@@ -13,6 +14,8 @@ const Profile = () => {
         grade: '',
         birthdate: '',
     });
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const userInfo = localStorage.getItem('userInfo');
@@ -73,7 +76,7 @@ const Profile = () => {
     };
 
     const handleResetProgress = () => {
-        alert('학습 진도 초기화 완료');
+        navigate('/signout');
     };
 
     return (

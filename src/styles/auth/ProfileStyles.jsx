@@ -181,4 +181,5 @@ export const ResetButton = styled.div`
   text-align: center;
   margin-top: 7%;
   margin-left: 7px;
+  cursor: pointer;
 `;
