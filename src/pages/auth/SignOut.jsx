@@ -14,28 +14,96 @@ import {
 import ImageLogo from '../../assets/images/logo.png';
 
 const SignOut = () => {
+  const [username, setUsername] = useState('');  // 아이디 입력 상태
+  const [password, setPassword] = useState('');  // 비밀번호 입력 상태
+  const [confirmPassword, setConfirmPassword] = useState('');  // 비밀번호 확인 상태
+  const [isChecked, setIsChecked] = useState(false);  // 체크박스 상태
+  const navigate = useNavigate();
+
+  // 아이디 입력 값 처리
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value);
+  };
+
+  // 비밀번호 입력 값 처리
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleConfirmPasswordChange = (e) => {
+    setConfirmPassword(e.target.value);
+  };
+
+  // 체크박스 변경 처리
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+  };
+
+  // 탈퇴 요청 처리
+  const handleSignOut = async () => {
+    // 비밀번호가 일치하는지 확인
+    if (password !== confirmPassword) {
+      alert('비밀번호가 일치하지 않습니다.');
+      return;
+    }
+    
+    // 체크박스가 선택되었는지 확인
+    if (!isChecked) {
+      alert('회원탈퇴를 계속 진행하려면 체크박스를 선택하세요.');
+      return;
+    }
+
+    try {
+      // 아이디와 비밀번호를 백엔드에 전송
+      const response = await axios.delete('https://mathquestpro.shop/problem/user/delete', {
+        data: {
+            // 아이디도 전송해야 한다면 추가
+          password: password,  // 비밀번호 전송
+        },
+      });
+
+      if (response.status === 200) {
+        alert('회원탈퇴가 완료되었습니다.');
+        navigate('/');  // 탈퇴 후 리디렉션할 페이지
+      }
+    } catch (error) {
+      alert('회원탈퇴에 실패했습니다. 비밀번호를 다시 확인해주세요.');
+    }
+  };
+
   return (
     <Container>
-        <img id="ImageLogo" src={ImageLogo} alt="Logo"
-        style={{
-          position: 'absolute',
-          top: '70px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          width: '150px',
-          height: 'auto',
-        }}
-      />
+      <img id="ImageLogo" src={ImageLogo} alt="Logo"/>
       <Title>회원탈퇴</Title>
       <Subtitle>계정을 삭제합니다...</Subtitle>
-      <Input type="text" placeholder="아이디" />
-      <Input type="password" placeholder="비밀번호" />
-      <Input type="password" placeholder="비밀번호 확인" />
+      <Input
+        type="text"
+        placeholder="아이디"
+        value={username}
+        onChange={handleUsernameChange}
+      />
+      <Input
+        type="password"
+        placeholder="비밀번호"
+        value={password}
+        onChange={handlePasswordChange}
+      />
+      <Input
+        type="password"
+        placeholder="비밀번호 확인"
+        value={confirmPassword}
+        onChange={handleConfirmPasswordChange}
+      />
       <CheckboxContainer>
-        <Checkbox type="checkbox" id="confirm" />
+        <Checkbox
+          type="checkbox"
+          id="confirm"
+          checked={isChecked}
+          onChange={handleCheckboxChange}
+        />
         <CheckboxLabel htmlFor="confirm">회원탈퇴를 계속 진행합니다</CheckboxLabel>
       </CheckboxContainer>
-      <Button>완료</Button>
+      <Button onClick={handleSignOut}>완료</Button>
     </Container>
   );
 };

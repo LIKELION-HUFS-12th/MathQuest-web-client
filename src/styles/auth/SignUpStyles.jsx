@@ -18,7 +18,7 @@ export const Container = styled.div`
 
   img {
     max-width: 150px;
-    margin-top: 2px;
+    margin-bottom: 30px;
   }
 
   #ImageLogo {
