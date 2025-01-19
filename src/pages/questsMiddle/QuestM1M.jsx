@@ -30,7 +30,7 @@ const QuestM1M = () => {
                         <img id="CharacterLogo" src={CharacterLogo}/>
                     </M1M.Logo>
                 </M1M.Header2>
-                <M1M.Level>난이도 ({difficulty})</M1M.Level>
+                <M1M.Level>난이도 (중_{difficulty})</M1M.Level>
             </M1M.Header>
                 <M1M.Level1 onClick={() => handleQuestPage('정수와 유리수')}>
                     <M1M.Level1Back>

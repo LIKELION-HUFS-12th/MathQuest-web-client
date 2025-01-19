@@ -108,18 +108,11 @@ export const Process = styled.div`
   margin-left: 30px;
 `;
 
-// export const ProcessTitle = styled.div`
-//   font-weight: bold;
-//   margin-left: 8%;
-//   color: #494848;
-//   font-family: 'HakgyoansimGeurimilgiTTF-R';
-// `;
-
 export const ProcessContent = styled.div`
   margin-left: 3px;
   select {
     width: 200%;
-    height: 39px;
+    height: 45px;
     padding: 8px;
     padding-left: 15px;
     font-size: 0.8rem;

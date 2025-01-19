@@ -30,7 +30,7 @@ const QuestM3L = () => {
                         <img id="CharacterLogo" src={CharacterLogo}/>
                     </M3L.Logo>
                 </M3L.Header2>
-                <M3L.Level>난이도 ({difficulty})</M3L.Level>
+                <M3L.Level>난이도 (하_{difficulty})</M3L.Level>
             </M3L.Header>
                 <M3L.Level1 onClick={() => handleQuestPage('이차방정식')}>
                     <M3L.Level1Back>

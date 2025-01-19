@@ -30,7 +30,7 @@ const QuestM2M = () => {
                         <img id="CharacterLogo" src={CharacterLogo}/>
                     </M2M.Logo>
                 </M2M.Header2>
-                <M2M.Level>난이도 ({difficulty})</M2M.Level>
+                <M2M.Level>난이도 (중_{difficulty})</M2M.Level>
             </M2M.Header>
                 <M2M.Level1 onClick={() => handleQuestPage('일차방정식')}>
                     <M2M.Level1Back>

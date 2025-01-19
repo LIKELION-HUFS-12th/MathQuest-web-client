@@ -30,7 +30,7 @@ const QuestE6M = () => {
                         <img id="CharacterLogo" src={CharacterLogo}/>
                     </E6M.Logo>
                 </E6M.Header2>
-                <E6M.Level>난이도 ({difficulty})</E6M.Level>
+                <E6M.Level>난이도 (중_{difficulty})</E6M.Level>
             </E6M.Header>
                 <E6M.Level1 onClick={() => handleQuestPage('분수의 덧셈과 뺄셈')}>
                     <E6M.Level1Back>
