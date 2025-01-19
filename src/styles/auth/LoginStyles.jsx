@@ -91,6 +91,7 @@ export const ForgotPassword = styled.p`
     text-align: left;
     margin-left: 10px;
     font-weight: 700;
+    font-size: 14px;
     margin-top: 20px;
 `;
 
