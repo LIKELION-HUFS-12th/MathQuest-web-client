@@ -29,22 +29,40 @@ export const Quest = styled.div`
 `;
 
 export const QuestBack = styled.div`
-    img {
-    height: 200px;
-    width: 345px;
-    }
+    // img {
+    // height: 200px;
+    // width: 345px;
+    // }
+    // position: relative;
     position: relative;
+    width: 345px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 `;
 
 export const QuestText = styled.div`
-    z-index: 1;
     position: absolute;
     display: flex;
     textalign-content: center;
     justify-content: center;
     align-items: center;
-    top: 27%;
-    left: 45%;
+    //bottom: 23%;
+    //left: 3%;
+    width: 100%;
+    height: 100%;
+    padding: 10px; /* 텍스트 패딩 조정 */
+    box-sizing: border-box;
+    font-size: 16px; /* 텍스트 크기 */
+    line-height: 1.5; /* 텍스트 줄 간격 */
+    color: #000; /* 텍스트 색상 */
+    z-index: 1; /* 이미지 위에 표시 */
 `;
 
 export const Options = styled.div`
@@ -104,24 +122,111 @@ export const Popup = styled.div`
 `;
 
 export const PopupContent = styled.div`
+    position: relative;
     background: white;
-    padding: 20px;
+    padding: 40px 20px;
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
     h2 {
         margin-bottom: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #000;
     }
     button {
         margin: 10px;
         padding: 10px 20px;
-        background-color: #0051FF;
-        color: white;
+        background-color: #E0E6F3;
+        color: black;
         border: none;
+        font-weight: bold;
         border-radius: 5px;
         cursor: pointer;
+        width: 110px;
+        height: 40px;
         &:hover {
-            background-color: #003ECF;
+            background-color: #E0E6F3;
+        }
+    }
+`;
+
+export const PopupImageWrapper = styled.div`
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    bottom: 10px;
+
+    img:first-child {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    img:last-child {
+        position: absolute;
+        width: 50%;
+        height: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        height: 30px;
+    }
+`;
+
+export const SolutionPopup = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+`;
+
+export const SolutionContent = styled.div`
+    background: white;
+    padding: 30px 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    box-sizing: border-box;
+    h2 {
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+        text-align: left;
+        margin-left: 20px;
+    }
+    p {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.5;
+        margin-bottom: 20px;
+        margin-left: 10px;
+    }
+    button {
+        background:rgb(0, 0, 0);
+        color: white;
+        border: none;
+        border-radius: 18px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-right: -280px;
+        &:hover {
+            background:rgb(77, 77, 77);
         }
     }
 `;

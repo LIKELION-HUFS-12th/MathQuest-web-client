@@ -4,6 +4,9 @@ import axios from 'axios';
 import * as QP from '../styles/QuestPageStyles';
 import QuestPageHeader from '../shared/components/QuestPageHeader';
 import rectangleQuest from '../assets/images/rectangleQuest.png';
+import circlestarblue from '../assets/images/circlestarblue.png';
+import check from '../assets/images/check.png';
+import circlestarred from '../assets/images/circlestarred.png';
 
 const QuestPage = () => {
     const location = useLocation();
@@ -13,6 +16,7 @@ const QuestPage = () => {
     const [selectedOption, setSelectedOption] = useState(null);
     const [showPopup, setShowPopup] = useState(false);
     const [popupContent, setPopupContent] = useState({ message: '', solution: '' });
+    const [showSolution, setShowSolution] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -86,6 +90,7 @@ const QuestPage = () => {
                 setPopupContent({
                     message: isCorrect ? '정답입니다' : '오답입니다',
                     solution: currentQuestion.solution,
+                    isCorrect,
                 });
                 setShowPopup(true);
             })
@@ -103,6 +108,14 @@ const QuestPage = () => {
                 alert('모든 문제를 완료했습니다.');
             }
         };
+
+        const handleShowSolution = () => {
+            setShowSolution(true);
+        };
+    
+        const handleCloseSolution = () => {
+            setShowSolution(false);
+        };
     
 
     return (
@@ -112,10 +125,10 @@ const QuestPage = () => {
                 <QP.Quest>
                     <QP.QuestBack>
                         <img id="rectangleQuest" src={rectangleQuest} alt="Background" />
-                    </QP.QuestBack>
                     <QP.QuestText>
                         {currentQuestion ? currentQuestion.question : '문제를 불러오는 중...'}
                     </QP.QuestText>
+                    </QP.QuestBack>
                 </QP.Quest>
                 <QP.Options>
                     {currentQuestion &&
@@ -137,11 +150,24 @@ const QuestPage = () => {
                 {showPopup && (
                     <QP.Popup>
                         <QP.PopupContent>
+                            <QP.PopupImageWrapper>
+                                <img src={popupContent.isCorrect ? circlestarblue : circlestarred} alt="Star Background" />
+                                <img src={check} alt="Check Icon" />
+                            </QP.PopupImageWrapper>
                             <h2>{popupContent.message}</h2>
-                            <button onClick={() => alert(popupContent.solution)}>해설보기</button>
+                            <button onClick={handleShowSolution}>해설보기</button>
                             <button onClick={handleNextQuestion}>다음</button>
                         </QP.PopupContent>
                     </QP.Popup>
+                )}
+                {showSolution && (
+                    <QP.SolutionPopup>
+                        <QP.SolutionContent>
+                            <h2>해설</h2>
+                            <p>{popupContent.solution}</p>
+                            <button onClick={handleCloseSolution}>확인</button>
+                        </QP.SolutionContent>
+                    </QP.SolutionPopup>
                 )}
             </QP.Content>
         </QP.Container>
