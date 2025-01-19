@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import * as QP from '../styles/QuestPageStyles';
+import * as LQP from '../styles/LearnAgainQuestStyles';
 import QuestPageHeader from '../shared/components/QuestPageHeader';
 import rectangleQuest from '../assets/images/rectangleQuest.png';
+import circlestarblue from '../assets/images/circlestarblue.png';
+import check from '../assets/images/check.png';
+import circlestarred from '../assets/images/circlestarred.png';
 
 const LearnAgainQuest = () => {
     const location = useLocation();
     const { question } = location.state || {};
     const [selectedOption, setSelectedOption] = useState(null);
     const [showPopup, setShowPopup] = useState(false);
-    const [popupContent, setPopupContent] = useState('');
+    const [popupContent, setPopupContent] = useState({ message: '', solution: '' });
+    const [showSolution, setShowSolution] = useState(false);
     const navigate = useNavigate();
 
     const fetchWrongQuestions = () => {
@@ -45,7 +49,11 @@ const LearnAgainQuest = () => {
         }
 
         const isCorrect = selectedOption === Number(question.answer);
-        setPopupContent(isCorrect ? '정답입니다.' : '오답입니다.');
+        setPopupContent({
+            message: isCorrect ? '정답입니다.' : '오답입니다.',
+            solution: question.solution || '해설 정보가 없습니다.',
+            isCorrect,
+        });
         setShowPopup(true);
 
         if (isCorrect) {
@@ -64,7 +72,7 @@ const LearnAgainQuest = () => {
                     )
                     .then(() => {
                         console.log('Correct answer submitted successfully.');
-                        fetchWrongQuestions(); // 업데이트된 목록 다시 가져오기
+                        fetchWrongQuestions(); 
                     })
                     .catch((error) => {
                         console.error('Error submitting answer:', error.response || error);
@@ -74,42 +82,65 @@ const LearnAgainQuest = () => {
     };
 
     const handleGoBack = () => {
-        navigate('/learnAgain'); // LearnAgain 페이지로 돌아가기
+        navigate('/learnAgain');
+    };
+
+    const handleShowSolution = () => {
+        setShowSolution(true);
+    };
+
+    const handleCloseSolution = () => {
+        setShowSolution(false);
     };
 
 
     return (
-        <QP.Container>
-            <QP.Content>
-                <QP.Quest>
-                    <QP.QuestBack>
+        <LQP.Container>
+            <LQP.Content>
+                <QuestPageHeader/>
+                <LQP.Quest>
+                    <LQP.QuestBack>
                         <img id="rectangleQuest" src={rectangleQuest} alt="Background"/>
-                    </QP.QuestBack>
-                    <QP.QuestText>{question ? question.question : '문제를 불러오는 중...'}</QP.QuestText>
-                </QP.Quest>
-                <QP.Options>
+                        <LQP.QuestText>{question ? question.question : '문제를 불러오는 중...'}</LQP.QuestText>
+                    </LQP.QuestBack>
+                </LQP.Quest>
+                <LQP.Options>
                     {question &&
                         [question.choice1, question.choice2, question.choice3, question.choice4].map((option, index) => (
-                            <QP.Option
+                            <LQP.Option
                                 key={index}
                                 onClick={() => handleOptionClick(index + 1)}
                                 isSelected={selectedOption === index + 1}
                             >
                                 {option}
-                            </QP.Option>
+                            </LQP.Option>
                         ))}
-                </QP.Options>
-                <QP.AnswerButton onClick={handleAnswerSubmit}>정답 제출하기</QP.AnswerButton>
+                </LQP.Options>
+                <LQP.AnswerButton onClick={handleAnswerSubmit}>정답 제출하기</LQP.AnswerButton>
                 {showPopup && (
-                    <QP.Popup>
-                        <QP.PopupContent>
+                    <LQP.Popup>
+                        <LQP.PopupContent>
+                            <LQP.PopupImageWrapper>
+                                <img src={popupContent.isCorrect ? circlestarblue : circlestarred} alt="Star Background" />
+                                <img src={check} alt="Check Icon" />
+                            </LQP.PopupImageWrapper>
                             <h2>{popupContent}</h2>
+                            <button onClick={handleShowSolution}>해설보기</button>
                             <button onClick={handleGoBack}>오답노트로 돌아가기</button>
-                        </QP.PopupContent>
-                    </QP.Popup>
+                        </LQP.PopupContent>
+                    </LQP.Popup>
                 )}
-            </QP.Content>
-        </QP.Container>
+                {showSolution && (
+                    <LQP.SolutionPopup>
+                        <LQP.SolutionContent>
+                            <h2>해설</h2>
+                            <p>{popupContent.solution}</p>
+                            <button onClick={handleCloseSolution}>확인</button>
+                        </LQP.SolutionContent>
+                    </LQP.SolutionPopup>
+                )}
+            </LQP.Content>
+        </LQP.Container>
     );
 };
 
