@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as S from '../styles/HowToUseStyles';
-import Image1 from '../assets/image1.png';
-import Image2 from '../assets/image2.png';
-import Image3 from '../assets/image3.png';
-import Image4 from '../assets/image4.png';
+import Image1 from '../assets/images/textlogoblack.png';
+import Image2 from '../assets/images/textlogoblack.png';
+import Image3 from '../assets/images/textlogoblack.png';
+import Image4 from '../assets/images/textlogoblack.png';
 
 const HowToUse = () => {
   const [currentPage, setCurrentPage] = useState(0);
+  const navigate = useNavigate();
 
   const pages = [
     {
@@ -15,14 +17,14 @@ const HowToUse = () => {
       description: '수학 문제 풀이 과정을 간단하고 체계적으로 학습하세요.',
     },
     {
-        image: Image2,
-        title: '오답노트 활용',
-        description: '오답노트를 통해 틀린 문제를 복습하고 학습의 효율성을 높이세요.',
+      image: Image2,
+      title: '오답노트 활용',
+      description: '오답노트를 통해 틀린 문제를 복습하고 학습의 효율성을 높이세요.',
     },
     {
-        image: Image3,
-        title: '난이도별 맞춤 학습',
-        description: '난이도에 맞는 문제를 풀며 개인 맞춤형 학습을 진행하세요.',
+      image: Image3,
+      title: '난이도별 맞춤 학습',
+      description: '난이도에 맞는 문제를 풀며 개인 맞춤형 학습을 진행하세요.',
     },
     {
       image: Image4,
@@ -31,7 +33,6 @@ const HowToUse = () => {
     },
   ];
 
-
   const nextPage = () => {
     if (currentPage < pages.length - 1) {
       setCurrentPage(currentPage + 1);
@@ -39,8 +40,7 @@ const HowToUse = () => {
   };
 
   const startApp = () => {
-    // Implement start app logic, e.g., redirect to main app page
-    console.log('App started!');
+    navigate('/option');
   };
 
   return (
@@ -50,14 +50,14 @@ const HowToUse = () => {
       <S.Description>{pages[currentPage].description}</S.Description>
       <S.Indicator>
         {pages.map((_, index) => (
-          <span key={index} active={index === currentPage} />
+          <S.Circle key={index} active={index === currentPage} />
         ))}
       </S.Indicator>
       {currentPage < pages.length - 1 ? (
         <S.ArrowButton onClick={nextPage}>&rarr;</S.ArrowButton>
       ) : (
         <S.Button primary onClick={startApp}>
-          시작하기
+          확인
         </S.Button>
       )}
     </S.IntroContainer>

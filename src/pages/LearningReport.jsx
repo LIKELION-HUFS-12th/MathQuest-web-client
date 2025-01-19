@@ -10,6 +10,17 @@ import {
   CommentText,
 } from "../styles/LearningReportStyles";
 import Footer from '../shared/components/Footer';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+
+// Chart.js에 필요한 스케일과 플러그인 등록
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 
 const LearningReport = () => {
@@ -19,15 +30,22 @@ const LearningReport = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    const authToken = localStorage.getItem("authToken"); // 토큰을 localStorage에서 가져옴
+
+    // axios 요청 시 인증 헤더 추가
     axios
-      .get("https://mathquestpro.shop/problem/reports/weekly/")
+      .get("https://mathquestpro.shop/problem/reports/weekly/", {
+        headers: {
+          Authorization: `Bearer ${authToken}`, // 액세스 토큰을 Authorization 헤더에 추가
+        },
+      })
       .then((response) => {
         const { correct, incorrect } = response.data.data;
 
-        // 요일 및 데이터 추출
-        const days = ["월", "월", "화", "수", "목", "금", "토"];
-        const correctValues = Object.values(correct);
-        const incorrectValues = Object.values(incorrect);
+        // 요일 및 데이터 추출 (월요일부터 일요일 순)
+        const days = ["월", "화", "수", "목", "금", "토", "일"];
+        const correctValues = days.map((_, index) => correct[index]);
+        const incorrectValues = days.map((_, index) => incorrect[index]);
 
         // Chart.js 데이터 구성
         const chartData = {

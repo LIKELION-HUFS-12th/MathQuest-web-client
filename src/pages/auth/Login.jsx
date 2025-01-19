@@ -8,6 +8,7 @@ import ImageLogo from '../../assets/images/logo.png';
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState(''); // Add state for error message
     const navigate = useNavigate();
 
     const handleLogin = async (e) => {
@@ -26,10 +27,18 @@ const Login = () => {
                 navigate('/main'); // 로그인 성공 후 대시보드로 이동
             } else {
                 console.error('access 토큰이 반환되지 않았습니다.');
+                setError('아이디 또는 비밀번호 오류입니다.'); // Set error message
             }
         } catch (error) {
             console.error('로그인 실패:', error);
+            setError('아이디 또는 비밀번호 오류입니다.'); // Set error message on login failure
         }
+    };
+
+    const handleErrorClose = () => {
+        setError(''); // Reset error message
+        setUsername(''); // Reset username input field
+        setPassword(''); // Reset password input field
     };
 
     return (
@@ -60,6 +69,13 @@ const Login = () => {
                     <L.ForgotPasswordLink href="/forgot-password">비밀번호를 잊어버리셨나요?</L.ForgotPasswordLink>
                 </L.ForgotPassword>
             </L.Form>
+
+            {error && (
+                <L.ErrorModal>
+                    <L.ErrorMessage>{error}</L.ErrorMessage>
+                    <L.ErrorButton onClick={handleErrorClose}>확인</L.ErrorButton>
+                </L.ErrorModal>
+            )}
         </L.Container>
     );
 };

@@ -102,3 +102,34 @@ export const ForgotPasswordLink = styled.a`
     }
 `;
 
+export const ErrorModal = styled.div`
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`;
+
+export const ErrorMessage = styled.p`
+    color: white;
+    font-size: 16px;
+    margin-bottom: 10px;
+`;
+
+export const ErrorButton = styled.button`
+    padding: 10px 20px;
+    background-color: #ff4747;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover {
+        background-color: #ff2a2a;
+    }
+`;

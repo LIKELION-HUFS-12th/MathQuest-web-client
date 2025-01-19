@@ -34,22 +34,22 @@ export const Indicator = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+`;
 
-  span {
-    width: 10px;
-    height: 10px;
-    margin: 0 5px;
-    background-color: ${(props) => (props.active ? "#376AED" : "#ccc")};
-    border-radius: 50%;
-    transition: background-color 0.3s;
-  }
+export const Circle = styled.span`
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: ${({ active }) => (active ? '#376AED' : '#ccc')};
+  border-radius: 50%;
+  transition: background-color 0.3s;
 `;
 
 export const Button = styled.button`
-  background-color: ${(props) => (props.primary ? "#376AED" : "#fff")};
-  color: ${(props) => (props.primary ? "#fff" : "#376AED")};
+  background-color: ${(props) => (props.primary ? '#376AED' : '#fff')};
+  color: ${(props) => (props.primary ? '#fff' : '#376AED')};
   padding: 15px 20px;
-  border: ${(props) => (props.primary ? "none" : "1px solid #376AED")};
+  border: ${(props) => (props.primary ? 'none' : '1px solid #376AED')};
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
@@ -58,7 +58,7 @@ export const Button = styled.button`
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: ${(props) => (props.primary ? "#2e56b8" : "#f0f0f0")};
+    background-color: ${(props) => (props.primary ? '#2e56b8' : '#f0f0f0')};
   }
 `;
 

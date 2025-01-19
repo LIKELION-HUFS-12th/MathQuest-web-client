@@ -30,16 +30,23 @@ const Option = () => {
         navigate(path);
     };
 
+    const handleLogout = () => {
+        // Clear user data from localStorage or any state management library
+        localStorage.removeItem('userToken');
+        // Redirect to login page
+        navigate('/login');
+    };
+
     // Array of modal items with their images
     const modalItems = [
-        { label: '프로필 수정', image: Pencil },
+        { label: '프로필 수정', image: Pencil, path: '/profile'},
         { label: '문의하기', image: SpeechBuuble },
         { label: '건의하기', image: Hand },
         { label: '리뷰 작성하기', image: Review },
-        { label: '도움말', image: Help },
-        { label: '개발자 소개', image: Group },
-        { label: '로그아웃', image: Out },
-        { label: '회원탈퇴', image: Out },
+        { label: '도움말', image: Help , path: '/help'},
+        { label: '개발자 소개', image: Group, path: '/introduce'},
+        { label: '로그아웃', image: Out, onClick: handleLogout},
+        { label: '회원탈퇴', image: Out,  path: '/signout' },
     ];
 
     return (
@@ -70,7 +77,10 @@ const Option = () => {
                     <O.ModalContainer onClick={(e) => e.stopPropagation()}>
                         <O.ModalMenu>
                             {modalItems.map((item, index) => (
-                                <O.ModalItem key={index}>
+                                <O.ModalItem 
+                                    key={index} 
+                                    onClick={item.onClick ? item.onClick : () => handleNavigation(item.path || '#')}
+                                >
                                     <O.ModalIcon src={item.image} alt={item.label} />
                                     {item.label}
                                 </O.ModalItem>
